@@ -5,7 +5,7 @@ function article($article){
 }
 
 function content($content){
-    require("views/$content.php")
+    require("views/$content.php");
 }
 
 ?>
