@@ -1,0 +1,2 @@
+# Tests
+xNews Tests Directory
