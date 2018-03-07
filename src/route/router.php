@@ -1,7 +1,6 @@
 <?php
 
 //Main router
-require('route/master.php');
 $theme = $config['theme'];
 
 if(isset($_GET['article'])){
