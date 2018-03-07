@@ -4,6 +4,7 @@
 
 $config['siteName'] = '';
 $config['company'] = '';
+$config['theme'] = 'express';
 
 //Master User Information
 
