@@ -4,7 +4,7 @@
 
 $config['siteName'] = '';
 $config['company'] = '';
-$config['theme'] = 'NewspaperX';
+$config['theme'] = 'Hydrogen';
 
 //Master User Information
 
