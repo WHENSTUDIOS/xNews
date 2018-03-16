@@ -15,7 +15,7 @@
 						<a href="#"><i class="icon-youtube"></i></a>
 					</p>
 					<p><small>&copy; xNews <?php echo date('Y'); ?>. All rights reserved. <?php a('Hydrogen', 'http://freehtml5.co/', '', ''); ?> | Wanna join in the fun? <?php a('Register', '?content=register', '', ''); ?> </small></p>
-                    <p><small>Licensed to <?php echo $yeah; ?></small></p>
+                    <p><small>Licensed to <?php echo $config['company']; ?></small></p>
 				</div>
 			</div>
 		</div>
