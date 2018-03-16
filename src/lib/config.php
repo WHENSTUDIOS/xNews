@@ -16,6 +16,6 @@ $config['pass'] = 'password';
 $config['dbHost'] = 'localhost';
 $config['dbUser'] = 'root';
 $config['dbPass'] = '';
-$config['dbName'] = 'mynews';
+$config['dbName'] = 'xNews';
 
 ?>
