@@ -2,8 +2,8 @@
 
 //Configuration
 
-$config['siteName'] = '';
-$config['company'] = '';
+$config['siteName'] = 'xNews Blog';
+$config['company'] = 'WHENSTUDIOS';
 $config['theme'] = 'Hydrogen';
 
 //Master User Information
