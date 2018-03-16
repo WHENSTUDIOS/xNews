@@ -1,11 +1,11 @@
 <?php
 
 function article($article, $theme){
-    require("views/$theme/article.php");
+    require("view/$theme/article.php");
 }
 
 function content($content, $theme){
-    require("views/$theme/$content.php");
+    require("view/$theme/$content.php");
 }
 
 ?>
