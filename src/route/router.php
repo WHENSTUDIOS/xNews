@@ -9,7 +9,7 @@ if(isset($_GET['article'])){
 } elseif(isset($_GET['content'])){
     content($_GET['content'], $theme);
 } else {
-    content('home', $theme);
+    content('index', $theme);
 }
 
 
