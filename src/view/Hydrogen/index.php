@@ -56,7 +56,7 @@
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="styles/Hydrogen/style.css">
 	<!-- Modernizr js/Hydrogen -->
-	<script src="js/Hydrogen/Hydrogen/modernizr-2.6.2.min.js/Hydrogen"></script>
+	<script src="js/Hydrogen/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/Hydrogen/respond.min.js/Hydrogen"></script>
@@ -309,19 +309,19 @@
 
 
 	<!-- jQuery -->
-	<script src="js/Hydrogen/jquery.min.js/Hydrogen"></script>
+	<script src="js/Hydrogen/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="js/Hydrogen/jquery.easing.1.3.js/Hydrogen"></script>
+	<script src="js/Hydrogen/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/Hydrogen/bootstrap.min.js/Hydrogen"></script>
+	<script src="js/Hydrogen/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/Hydrogen/jquery.waypoints.min.js/Hydrogen"></script>
+	<script src="js/Hydrogen/jquery.waypoints.min.js"></script>
 	<!-- Magnific Popup -->
-	<script src="js/Hydrogen/jquery.magnific-popup.min.js/Hydrogen"></script>
+	<script src="js/Hydrogen/jquery.magnific-popup.min.js"></script>
 	<!-- Salvattore -->
-	<script src="js/Hydrogen/salvattore.min.js/Hydrogen"></script>
+	<script src="js/Hydrogen/salvattore.min.js"></script>
 	<!-- Main js/Hydrogen -->
-	<script src="js/Hydrogen/main.js/Hydrogen"></script>
+	<script src="js/Hydrogen/main.js"></script>
 
 	
 
