@@ -14,7 +14,7 @@
 						<a href="#"><i class="icon-dribbble"></i></a>
 						<a href="#"><i class="icon-youtube"></i></a>
 					</p>
-					<p><small>&copy; xNews <?php echo date('Y'); ?>. All rights reserved. <br>Designed by: <a href="http://freehtml5.co/" target="_blank">Hydrogen</a> | Wanna join in the fun? <a href="header.php" target="_blank">Register</a> </small></p>
+					<p><small>&copy; xNews <?php echo date('Y'); ?>. All rights reserved. <?php a('Hydrogen', 'http://freehtml5.co/', '', ''); ?> | Wanna join in the fun? <?php a('Register', '?content=register', '', ''); ?> </small></p>
 				</div>
 			</div>
 		</div>
