@@ -4,7 +4,7 @@
 
 $config['siteName'] = '';
 $config['company'] = '';
-$config['theme'] = 'express';
+$config['theme'] = 'NewspaperX';
 
 //Master User Information
 
