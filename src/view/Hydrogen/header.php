@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="styles/Hydrogen/icomoon.css">
 	<link rel="stylesheet" href="styles/Hydrogen/magnific-popup.css">
 	<link rel="stylesheet" href="styles/Hydrogen/salvattore.css">
-	<link rel="stylesheet" href="styles/Hydrogen/style-dark.css">
+	<link rel="stylesheet" href="styles/Hydrogen/style<?php if($_COOKIE['themeMode'] === 'light'){ echo ''; }elseif($_COOKIE['themeMode'] === 'dark'){ echo '-dark'; } ?>.css">
 	<script src="js/Hydrogen/modernizr-2.6.2.min.js"></script>
 
 	</head>

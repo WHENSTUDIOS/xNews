@@ -19,13 +19,13 @@
 					//Unable to use a() function because too little support
 					
 					if($_COOKIE['themeMode'] === 'light'){
-						a('<b>LIGHT</b>', 'index.php?content=theme?theme=light', '', '');
+						a('<b>LIGHT</b>', 'index.php?content=theme&theme=light', '', '');
 						echo ' | ';
-						a('DARK', 'index.php?content=theme?theme=dark', '', '');
+						a('DARK', 'index.php?content=theme&theme=dark', '', '');
 					} elseif($_COOKIE['themeMode'] === 'dark'){
-						a('LIGHT', 'index.php?content=theme?theme=light', '', '');
+						a('LIGHT', 'index.php?content=theme&theme=light', '', '');
 						echo ' | ';
-						a('<b>DARK</b>', 'index.php?content=theme?theme=dark', '', '');
+						a('<b>DARK</b>', 'index.php?content=theme&theme=dark', '', '');
 					}
 					
 					?></small></p>
