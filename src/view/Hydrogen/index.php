@@ -3,13 +3,26 @@
 $title = 'Home';
 $name = 'index';
 
-require('view/Hydrogen/header.php');
+require 'view/Hydrogen/header.php';
+
+if (isset($u)) {
+    $query = $mysqli->query("SELECT * FROM users");
+    if ($query) {
+        while ($elev_rows = $query->fetch_assoc()) {
+			$level = $elev_rows['level'];
+        }
+    } else {
+        _error('Failed to get user elevation');
+        die;
+    }
+}
 
 ?>
-	
-	
+
+
 	<div id="fh5co-main">
 		<div class="container">
+
 
 			<div class="row">
 
@@ -141,7 +154,7 @@ require('view/Hydrogen/header.php');
 	        		<div class="fh5co-desc">Harum repellat labore est cum ipsa, nesciunt neque mollitia adipisci?</div>
         		</div>
         	</div>
-        	
+
         	<div class="item">
         		<div class="animate-box">
 	        		<a href="assets/images/img_22.jpg" class="image-popup fh5co-board-img"><img src="assets/images/img_22.jpg" alt="Free HTML5 Bootstrap template"></a>
@@ -202,5 +215,5 @@ require('view/Hydrogen/header.php');
 	</div>
 
 <?php
-require('view/Hydrogen/footer.php');
+require 'view/Hydrogen/footer.php';
 ?>

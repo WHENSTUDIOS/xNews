@@ -9,6 +9,8 @@ require('lib/db/mysqli.php');
 require('lib/db/pdo.php');
 //Get cookies
 require('lib/cookies.php');
+//Get requests
+require('lib/requests.php');
 //Master router
 require('route/master.php');
 ?>

@@ -3,6 +3,8 @@
 //Main router
 $theme = $config['theme'];
 
+$u = $_SESSION['username'];
+
 if(isset($_GET['article'])){
     article($_GET['article'], $theme);
 } elseif(isset($_GET['content'])){
