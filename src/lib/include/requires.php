@@ -11,6 +11,8 @@ require('lib/db/pdo.php');
 require('lib/cookies.php');
 //Get requests
 require('lib/requests.php');
+//Get admin
+require('lib/admin.php');
 //Master router
 require('route/master.php');
 ?>

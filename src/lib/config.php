@@ -8,9 +8,7 @@ $config['theme'] = 'Hydrogen';
 
 //Master User Information
 
-$config['user'] = 'admin';
-$config['email'] = 'admin@'.$config['siteName'].'.com';
-$config['pass'] = 'password';
+$config['admin'] = 'whenofficial'; //Root administrator of the website, must be an existing user
 
 //Database Configuration
 $config['dbHost'] = 'localhost';
