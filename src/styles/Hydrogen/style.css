@@ -1407,6 +1407,9 @@ body {
   background-color: #fff;
 }
 
+
+
+
 input,
 button,
 select,
@@ -3514,6 +3517,10 @@ select[multiple].input-lg,
 }
 .has-warning .form-control-feedback {
   color: #8a6d3b;
+}
+
+.error {
+  color: #ce8483;
 }
 
 .has-error .help-block,
