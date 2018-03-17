@@ -22,18 +22,11 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	
-	<!-- Animate.css -->
 	<link rel="stylesheet" href="styles/Hydrogen/animate.css">
-	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="styles/Hydrogen/icomoon.css">
-	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="styles/Hydrogen/magnific-popup.css">
-	<!-- Salvattore -->
 	<link rel="stylesheet" href="styles/Hydrogen/salvattore.css">
-	<!-- Theme Style -->
 	<link rel="stylesheet" href="styles/Hydrogen/style.css">
-	<!-- Modernizr js/Hydrogen -->
 	<script src="js/Hydrogen/modernizr-2.6.2.min.js"></script>
 
 	</head>
