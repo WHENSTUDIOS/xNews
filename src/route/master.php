@@ -7,7 +7,10 @@ function article($article, $theme){
 
 function content($content, $theme){
     require('lib/config.php');
-    require("view/$theme/$content.php");
+    if(file_exists("view/$theme/$content.php")){
+        require("view/$theme/$content.php");
+    }
+    echo 'File does not exist';
 }
 
 ?>
