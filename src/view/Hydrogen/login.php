@@ -18,6 +18,10 @@ require('view/Hydrogen/header.php');
 						_success($_SESSION['success']);
 						unset($_SESSION['success']);
 					}
+					if(isset($_SESSION['error'])){
+						_error($_SESSION['error']);
+						unset($_SESSION['error']);
+					}
 					?>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="#">

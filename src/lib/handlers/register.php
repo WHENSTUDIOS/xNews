@@ -5,8 +5,8 @@ require '../db/pdo.php';
 
 $username = $_POST['username'];
 $email = $_POST['email'];
-$pwd = md5($_POST['password']);
-
+$pwd = $_POST['password'];
+$apwd = md5($pwd);
 if (!isset($pwd)) {
     header('Location: ../../index.php?content=register');
 } elseif (!isset($username)) {
@@ -34,7 +34,7 @@ $query->execute(array(
 $emailCount = $query->rowCount();
 
 //Check if username is correct length
-if (strlen($username) > 21) {
+if (strlen($username) < 21) {
         //Check if account exists
         if (!$rowCount >= 1) {
 
@@ -49,7 +49,7 @@ if (strlen($username) > 21) {
                 $query2->execute(array(
                     ':username' => $username,
                     ':email' => $email,
-                    ':pwd' => $pwd,
+                    ':pwd' => $apwd,
                     ':regdate' => $regdate,
                     ':lastip' => $lastip,
                     ':level' => 1,
