@@ -1,5 +1,6 @@
 <?php
 
+//Link function
 function a($text, $link, $class, $target){
 
     if($target === ''){
