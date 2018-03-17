@@ -5,7 +5,9 @@ $mode = 'register.php';
 $name = 'register';
 
 require('view/Hydrogen/header.php');
-
+if(isset($_SESSION['username'])){
+	header("Location: index.php?content=index");
+}
 ?>
 	
 	<div id="fh5co-main">
