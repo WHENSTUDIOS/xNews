@@ -12,4 +12,12 @@ function a($text, $link, $class, $target){
     }
 }
 
+function _error($msg){
+    echo '<span class="error"><strong>Error</strong>: '.$msg.'</span>';
+}
+
+function _success($msg){
+    echo '<span class="success"><strong>Success</strong>: '.$msg.'</span>';
+}
+
 ?>

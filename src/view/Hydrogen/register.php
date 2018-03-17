@@ -13,7 +13,12 @@ require('view/Hydrogen/header.php');
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<h2><?php echo $title; ?></h2>
-					<span class="success"><strong>Error</strong>: Could not validate username.</span>
+					<?php
+					if(isset($_SESSION['error'])){
+						_error($_SESSION['error']);
+						unset($_SESSION['error']);
+					}
+					?>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="#">
 						<div class="row">
