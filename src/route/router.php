@@ -8,7 +8,7 @@ if(isset($_GET['article'])){
 } elseif(isset($_GET['content'])){
     content($_GET['content'], $theme);
 } elseif(isset($_GET['action'])){
-    action('lib/handlers/logout');
+    action($_GET['action']);
 } else {
     content('index', $theme);
 }
