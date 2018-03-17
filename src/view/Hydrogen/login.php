@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Home';
+$title = 'Login';
 
 require('view/Hydrogen/header.php');
 
