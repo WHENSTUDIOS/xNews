@@ -15,7 +15,20 @@
 						<a href="#"><i class="icon-youtube"></i></a>
 					</p>
 					<p><small>&copy; xNews <?php echo date('Y'); ?>. All rights reserved. <?php a('Hydrogen', 'http://freehtml5.co/', '', ''); ?> | Wanna join in the fun? <?php a('Register', '?content=register', '', ''); ?> </small></p>
-                    <p><small>Licensed to <?php echo $config['company']; ?></small></p>
+					<p><small><?php 
+					//Unable to use a() function because too little support
+					
+					if($_COOKIE['themeMode'] === 'light'){
+						a('<b>LIGHT</b>', 'index.php?content=theme?theme=light', '', '');
+						echo ' | ';
+						a('DARK', 'index.php?content=theme?theme=dark', '', '');
+					} elseif($_COOKIE['themeMode'] === 'dark'){
+						a('LIGHT', 'index.php?content=theme?theme=light', '', '');
+						echo ' | ';
+						a('<b>DARK</b>', 'index.php?content=theme?theme=dark', '', '');
+					}
+					
+					?></small></p>
 				</div>
 			</div>
 		</div>

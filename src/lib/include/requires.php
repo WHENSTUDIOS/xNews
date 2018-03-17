@@ -5,6 +5,8 @@ require('lib/config.php');
 require('lib/functions.php');
 //MySQLi connection
 require('lib/db/mysqli.php');
+//Get cookies
+require('lib/cookies.php');
 //Master router
 require('route/master.php');
 ?>
