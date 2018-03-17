@@ -1403,8 +1403,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
-  background-color: #fff;
+  color: #e0e0e0;
+  background-color: #1d1d1d;
 }
 
 input,
@@ -7332,8 +7332,8 @@ body {
   font-weight: 300;
   font-size: 15px;
   line-height: 26px;
-  color: #818892;
-  background: #f5f6f7;
+  color: #e0e0e0;
+  background: #1d1d1d;
 }
 
 a {
@@ -7476,7 +7476,7 @@ h1, h2, h3, h4, h5, h6 {
   float: right;
   margin-top: 16px;
   font-family: "Montserrat", arial, sans-serif;
-  color: #444;
+  color: #ffffff;
 }
 .fh5co-menu-btn i {
   font-size: 20px;
@@ -7593,7 +7593,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 2px;
   font-size: 20px;
   font-family: "Montserrat", arial, sans-serif;
-  color: #000;
+  color: #c7c7c7;
 }
 #fh5co-header .navbar-brand:hover {
   color: #404040;
@@ -7700,6 +7700,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   float: left;
   line-height: 24px;
+  background-color: #0f0f0f;
 }
 #fh5co-board .item .fh5co-item-title {
   font-family: "Montserrat", arial, sans-serif;
