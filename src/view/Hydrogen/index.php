@@ -1,6 +1,7 @@
 <?php
 
 $title = 'Home';
+$name = 'index';
 
 require('view/Hydrogen/header.php');
 

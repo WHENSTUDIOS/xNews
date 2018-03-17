@@ -1,6 +1,7 @@
 <?php
 
 $title = 'Terms &amp; Conditions';
+$name = 'terms';
 
 require('view/Hydrogen/header.php');
 

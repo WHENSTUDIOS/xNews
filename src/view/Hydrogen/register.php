@@ -2,6 +2,7 @@
 
 $title = 'Register';
 $mode = 'register.php';
+$name = 'register';
 
 require('view/Hydrogen/header.php');
 

@@ -2,6 +2,7 @@
 
 $title = 'Login';
 $mode = 'login.php';
+$name = 'login';
 
 require('view/Hydrogen/header.php');
 

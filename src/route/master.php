@@ -1,5 +1,6 @@
 <?php
 
+
 function article($article, $theme){
     require('lib/config.php');
     require("view/$theme/article.php");
