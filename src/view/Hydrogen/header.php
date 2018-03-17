@@ -58,7 +58,23 @@
 					if(isset($mode)){
 						if($mode === 'register.php'){ a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } elseif($mode === 'login.php'){ a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); }
 					} elseif(isset($_SESSION['username'])){
-						a($_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+						switch($level){
+							case 0:
+								a('<span class="label label-default">Banned</span> '.$_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+								break;
+							case 2:
+								a('<span class="label label-info">Editor</span> '.$_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+								break;
+							case 3:
+								a('<span class="label label-success">Moderator</span> '.$_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+								break;
+							case 4:
+								a('<span class="label label-danger">Admin</span> '.$_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+								break;
+							default:
+								a($_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+								break;
+						}
 					} else { a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } ?>
 					<?php a($config['siteName'], 'index.php?content=index', 'navbar-brand', ''); ?>
 				</div>

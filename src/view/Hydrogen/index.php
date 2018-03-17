@@ -3,7 +3,6 @@
 $title = 'Home';
 $name = 'index';
 
-require 'view/Hydrogen/header.php';
 
 if ($u !== null) {
     $query = $mysqli->query("SELECT * FROM users");
@@ -16,6 +15,8 @@ if ($u !== null) {
         die;
     }
 }
+
+require 'view/Hydrogen/header.php';
 
 ?>
 
