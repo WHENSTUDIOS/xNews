@@ -22,7 +22,13 @@ if (isset($u)) {
 
 	<div id="fh5co-main">
 		<div class="container">
-
+		<?php if(isset($u)){
+			if($level === '0'){
+				_error('This user is currently banned from viewing or posting in '.$config['siteName'].'.');
+				require('view/Hydrogen/footer.php');
+				die;
+			}
+		} ?>
 
 			<div class="row">
 

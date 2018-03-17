@@ -1,12 +1,12 @@
 <?php
 
 
-function article($article, $theme){
+function article($article, $theme, $u, $mysqli){
     require('lib/config.php');
     require("view/$theme/article.php");
 }
 
-function content($content, $theme){
+function content($content, $theme, $u, $mysqli){
     require('lib/config.php');
     if(file_exists("view/$theme/$content.php")){
         require("view/$theme/$content.php");
