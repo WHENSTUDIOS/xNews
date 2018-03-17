@@ -7354,7 +7354,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #000;
+  color: #ffffff !important;
   font-family: "Montserrat", arial, sans-serif;
 }
 

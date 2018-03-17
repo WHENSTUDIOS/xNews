@@ -11,29 +11,23 @@ require('view/Hydrogen/header.php');
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<h2>Contact</h2>
+					<h2><?php echo $title; ?></h2>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="#">
 						<div class="row">
-							<div class="col-md-6">
+						<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="First Name">	
+									<input type="text" class="form-control" placeholder="Username" required>	
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Last Name">
+									<input type="password" class="form-control" placeholder="Password" required>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email Address">
-								</div>
-								<div class="form-group">
-									<textarea name="message" id="message" cols="30" class="form-control" rows="10"></textarea>
-								</div>
-								<div class="form-group">
-									<input type="submit" class="btn btn-primary" value="Send Message">
+									<input type="submit" class="btn btn-primary" value="Log In">
 								</div>
 							</div>
 						</div>
