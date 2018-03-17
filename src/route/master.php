@@ -9,8 +9,9 @@ function content($content, $theme){
     require('lib/config.php');
     if(file_exists("view/$theme/$content.php")){
         require("view/$theme/$content.php");
+    } else {
+        echo 'File does not exist';
     }
-    echo 'File does not exist';
 }
 
 ?>
