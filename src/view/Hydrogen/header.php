@@ -40,8 +40,8 @@
 	<body>
 			
 	<div id="fh5co-offcanvass">
-		<a href="#" class="fh5co-offcanvass-close js/Hydrogen-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
-		<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Hydrogen</a></h1>
+					<?php a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); ?>
+					<?php if(basename('index.php')){ a($config['siteName'], '', 'navbar-brand', ''); } else { a($config['siteName'], 'index.php?content=index', 'navbar-brand', ''); } ?>
 		<ul>
 			<li class="active"><a href="index.html">Home</a></li>
 			<li><a href="about.html">About</a></li>
