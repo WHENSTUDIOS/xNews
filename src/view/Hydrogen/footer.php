@@ -14,7 +14,7 @@
 						<a href="#"><i class="icon-dribbble"></i></a>
 						<a href="#"><i class="icon-youtube"></i></a>
 					</p>
-					<p><small>&copy; xNews <?php echo date('Y'); ?>. All rights reserved. Designed by <?php a('Hydrogen', 'http://freehtml5.co/', '', ''); ?> | Wanna join in the fun? <?php a('Register', '?content=register', '', ''); ?> </small></p>
+					<p><small>&copy; xNews <?php echo date('Y'); ?>. All rights reserved. Designed by <?php a('Hydrogen', 'http://freehtml5.co/', '', ''); ?> | <?php if(!isset($_SESSION['username'])){ ?> Wanna join in the fun? <?php a('Register', 'index.php?content=register', '', ''); } else { a('Log Out', 'lib/handlers/logout.php', '', ''); } ?></small></p>
 					<p><small><?php 
 					//Unable to use a() function because too little support
 					

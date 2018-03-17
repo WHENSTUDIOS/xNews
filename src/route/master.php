@@ -15,4 +15,12 @@ function content($content, $theme){
     }
 }
 
+function action($action){
+    if(file_exists("$action.php")){
+        header("Location: $action.php");
+    } else {
+        echo 'Action does not exist';
+    }
+}
+
 ?>
