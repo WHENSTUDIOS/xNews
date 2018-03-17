@@ -58,7 +58,7 @@
 					if(isset($mode)){
 						if($mode === 'register.php'){ a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } elseif($mode === 'login.php'){ a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); }
 					} elseif(isset($_SESSION['username'])){
-						a($_SESSION['username'], 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+						a($_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
 					} else { a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } ?>
 					<?php a($config['siteName'], 'index.php?content=index', 'navbar-brand', ''); ?>
 				</div>
