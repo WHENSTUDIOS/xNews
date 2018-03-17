@@ -1,5 +1,15 @@
 <?php
-
+if ($u !== null) {
+    $query = $mysqli->query("SELECT * FROM users");
+    if ($query) {
+        while ($elev_rows = $query->fetch_assoc()) {
+			$_SESSION['level'] = $elev_rows['level'];
+        }
+    } else {
+        _error('Failed to get user elevation');
+        die;
+    }
+}
 ?>
 <!DOCTYPE html>
 	<head>
@@ -58,7 +68,7 @@
 					if(isset($mode)){
 						if($mode === 'register.php'){ a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } elseif($mode === 'login.php'){ a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); }
 					} elseif(isset($_SESSION['username'])){
-						switch($level){
+						switch($_SESSION['level']){
 							case 0:
 								a('<span class="label label-default">Banned</span> '.$_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
 								break;

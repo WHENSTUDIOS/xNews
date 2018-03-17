@@ -4,17 +4,6 @@ $title = 'Home';
 $name = 'index';
 
 
-if ($u !== null) {
-    $query = $mysqli->query("SELECT * FROM users");
-    if ($query) {
-        while ($elev_rows = $query->fetch_assoc()) {
-			$level = $elev_rows['level'];
-        }
-    } else {
-        _error('Failed to get user elevation');
-        die;
-    }
-}
 
 require 'view/Hydrogen/header.php';
 
@@ -24,7 +13,7 @@ require 'view/Hydrogen/header.php';
 	<div id="fh5co-main">
 		<div class="container">
 		<?php if ($u !== null){
-			if($level === '0'){
+			if($_SESSION['level'] === '0'){
 				_error('This user is currently banned from viewing or posting in '.$config['siteName'].'.');
 				require('view/Hydrogen/footer.php');
 				die;
