@@ -3523,6 +3523,10 @@ select[multiple].input-lg,
   color: #ce8483;
 }
 
+.success {
+  color: #3c763d;
+}
+
 .has-error .help-block,
 .has-error .control-label,
 .has-error .radio,
