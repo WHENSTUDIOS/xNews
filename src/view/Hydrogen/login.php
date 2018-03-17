@@ -1,6 +1,7 @@
 <?php
 
 $title = 'Login';
+$mode = 'login.php';
 
 require('view/Hydrogen/header.php');
 

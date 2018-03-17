@@ -54,7 +54,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<?php a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); ?>
+					<?php
+					if(isset($mode)){
+						if($mode === 'register.php'){ a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } elseif($mode === 'login.php'){ a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); }
+					} else { a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } ?>
 					<?php if(basename('index.php')){ a($config['siteName'], '', 'navbar-brand', ''); } else { a($config['siteName'], 'index.php?content=index', 'navbar-brand', ''); } ?>
 				</div>
 			</div>
