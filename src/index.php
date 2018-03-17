@@ -1,5 +1,5 @@
 <?php
-
+session_start(); 
 require('lib/include/requires.php');
 require('lib/include/includes.php');
 

@@ -6,6 +6,7 @@ require '../db/pdo.php';
 $username = $_POST['username'];
 $email = $_POST['email'];
 $pwd = md5($_POST['password']);
+
 if (!isset($pwd)) {
     header('Location: ../../index.php?content=register');
 } elseif (!isset($username)) {
@@ -33,7 +34,7 @@ $query->execute(array(
 $emailCount = $query->rowCount();
 
 //Check if username is correct length
-if (strlen($username) >= 3) {
+if (strlen($username) > 21) {
         //Check if account exists
         if (!$rowCount >= 1) {
 
@@ -65,7 +66,7 @@ if (strlen($username) >= 3) {
             header('Location: ../../index.php?content=register');
         }
 } else {
-    $_SESSION['error'] = 'Your username must be 3 characters or more.';
+    $_SESSION['error'] = 'Your username is too long!';
     header('Location: ../../index.php?content=register');
 }
 

@@ -13,6 +13,12 @@ require('view/Hydrogen/header.php');
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<h2><?php echo $title; ?></h2>
+					<?php
+					if(isset($_SESSION['success'])){
+						_success($_SESSION['success']);
+						unset($_SESSION['success']);
+					}
+					?>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="#">
 						<div class="row">
