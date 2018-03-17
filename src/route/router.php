@@ -3,7 +3,11 @@
 //Main router
 $theme = $config['theme'];
 
-$u = $_SESSION['username'];
+if(isset($_SESSION['username'])){
+    $u = $_SESSION['username'];
+} else {
+    $u = null;
+}
 
 if(isset($_GET['article'])){
     article($_GET['article'], $theme, $u, $mysqli);

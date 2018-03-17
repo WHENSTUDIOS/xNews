@@ -5,7 +5,7 @@ $name = 'index';
 
 require 'view/Hydrogen/header.php';
 
-if (isset($u)) {
+if ($u !== null) {
     $query = $mysqli->query("SELECT * FROM users");
     if ($query) {
         while ($elev_rows = $query->fetch_assoc()) {
@@ -22,7 +22,7 @@ if (isset($u)) {
 
 	<div id="fh5co-main">
 		<div class="container">
-		<?php if(isset($u)){
+		<?php if ($u !== null){
 			if($level === '0'){
 				_error('This user is currently banned from viewing or posting in '.$config['siteName'].'.');
 				require('view/Hydrogen/footer.php');
