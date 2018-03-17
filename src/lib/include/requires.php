@@ -5,6 +5,8 @@ require('lib/config.php');
 require('lib/functions.php');
 //MySQLi connection
 require('lib/db/mysqli.php');
+//PDO connection
+require('lib/db/pdo.php');
 //Get cookies
 require('lib/cookies.php');
 //Master router
