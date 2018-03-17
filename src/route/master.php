@@ -16,8 +16,8 @@ function content($content, $theme){
 }
 
 function action($action){
-    if(file_exists("$action.php")){
-        header("Location: $action.php");
+    if(file_exists("lib/handlers/$action.php")){
+        header("Location: lib/handlers/$action.php");
     } else {
         echo 'Action does not exist';
     }
