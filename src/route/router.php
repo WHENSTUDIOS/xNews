@@ -16,7 +16,7 @@ if(isset($_GET['article'])){
 } elseif(isset($_GET['action'])){
     action($_GET['action']);
 } else {
-    content('index', $theme);
+    content('index', $theme, $u, $mysqli);
 }
 
 
