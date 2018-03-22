@@ -26,7 +26,7 @@ $(document).ready(function() {
 					}
 					?>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
-					<form action="" method="post">
+					<form action="lib/handlers/createArticle.php" method="post">
 						<div class="row">
 						<div class="col-xl-4">
                             Supports most <strong>HTML</strong> syntax. Take a look at our <?php a('Cheat Sheet', 'index.php?content=htmlsyntax', '', 'new_tab'); ?>!
