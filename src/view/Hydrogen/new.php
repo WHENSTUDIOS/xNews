@@ -33,7 +33,8 @@ $(document).ready(function() {
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
-									<input type="submit" class="btn btn-primary" value="Post">
+                                    <input type="submit" class="btn btn-primary" value="Post">
+                                    <?php a('Save Draft', 'index.php?action=savedraft', 'btn btn-warning', ''); ?>
 								</div>
 							</div>
 						</div>
