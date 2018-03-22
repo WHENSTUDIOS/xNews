@@ -29,7 +29,8 @@ $(document).ready(function() {
 					<form action="lib/handlers/login.php" method="post">
 						<div class="row">
 						<div class="col-xl-4">
-                        <textarea id="editor" class="form-control" name="editor">My text</textarea>
+                            Supports most <strong>HTML</strong> syntax. Take a look at our <?php a('Cheat Sheet', 'index.php?action=htmlsyntax', '', ''); ?>!
+                        <textarea id="editor" class="form-control" name="editor">Article body</textarea>
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
