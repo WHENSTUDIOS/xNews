@@ -1,6 +1,7 @@
 <?php
 $title = 'New Article';
 $name = 'new';
+$login = true;
 require('view/Hydrogen/header.php');
 ?>
 <!-- Initialize text editor -->

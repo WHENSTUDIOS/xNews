@@ -1,10 +1,5 @@
 <?php
 
-function init($title, $name, $reqLogin){
-	$title = $title;
-	$name = $name;
-	$reqLogin = $reqLogin;
-}
 
 if ($u !== null) {
     $query = $mysqli->query("SELECT * FROM users");
@@ -104,8 +99,18 @@ if ($u !== null) {
 		</div>
 	</header>
 	<!-- END .header -->
-	<?php if($reqLogin === true){
-		echo '<center><h2>You must be logged in to do that!</center></h2>';
-		require('view/Hydrogen/footer.php');
-		die;
+	<?php if(isset($login) && !isset($_SESSION['username'])){
+		if($login === true){
+			echo '<center>
+			<h2>You must be logged in to do that!</h2>
+			<br>
+				<div class="form-group">
+					<a class="btn btn-primary" href="index.php?content=login">LOG IN</a>
+				</div>
+			</center>';
+			require('view/Hydrogen/footer.php');
+			die;
+
+		}
 	}
+	?>
