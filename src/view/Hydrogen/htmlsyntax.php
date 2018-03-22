@@ -1,15 +1,10 @@
 <?php
-$title = 'New Article';
-$name = 'new';
+$title = 'HTML Cheat Sheet';
+$name = 'htmlsyntax';
 $login = true;
 require('view/Hydrogen/header.php');
 ?>
-<!-- Initialize text editor -->
-<script>
-$(document).ready(function() {
-  $("#editor").wysibb()
-})
-</script>
+
 	<div id="fh5co-main">
 		<div class="container">
 			<div class="row">
@@ -29,7 +24,7 @@ $(document).ready(function() {
 					<form action="lib/handlers/login.php" method="post">
 						<div class="row">
 						<div class="col-xl-4">
-                            Supports most <strong>HTML</strong> syntax. Take a look at our <?php a('Cheat Sheet', 'index.php?content=htmlsyntax', '', ''); ?>!
+                            Supports most <strong>HTML</strong> syntax. Take a look at our <?php a('Cheat Sheet', 'index.php?action=htmlsyntax', '', ''); ?>!
                         <textarea id="editor" class="form-control" name="editor">Article body</textarea>
                         <br>
 							<div class="col-xl-4">
