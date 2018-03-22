@@ -1,4 +1,11 @@
 <?php
+
+function init($title, $name, $reqLogin){
+	$title = $title;
+	$name = $name;
+	$reqLogin = $reqLogin;
+}
+
 if ($u !== null) {
     $query = $mysqli->query("SELECT * FROM users");
     if ($query) {
@@ -29,6 +36,11 @@ if ($u !== null) {
 	<meta name="twitter:card" content="" />
 
 	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- TEXT EDITOR -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" />
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -92,3 +104,8 @@ if ($u !== null) {
 		</div>
 	</header>
 	<!-- END .header -->
+	<?php if($reqLogin === true){
+		echo '<center><h2>You must be logged in to do that!</center></h2>';
+		require('view/Hydrogen/footer.php');
+		die;
+	}
