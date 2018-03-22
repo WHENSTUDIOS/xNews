@@ -26,10 +26,10 @@ $(document).ready(function() {
 					}
 					?>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
-					<form action="lib/handlers/login.php" method="post">
+					<form action="" method="post">
 						<div class="row">
 						<div class="col-xl-4">
-                            Supports most <strong>HTML</strong> syntax. Take a look at our <?php a('Cheat Sheet', 'index.php?content=htmlsyntax', '', ''); ?>!
+                            Supports most <strong>HTML</strong> syntax. Take a look at our <?php a('Cheat Sheet', 'index.php?content=htmlsyntax', '', 'new_tab'); ?>!
                         <textarea id="editor" class="form-control" name="editor">Article body</textarea>
                         <br>
 							<div class="col-xl-4">
