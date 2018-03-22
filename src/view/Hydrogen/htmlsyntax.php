@@ -4,8 +4,11 @@ $name = 'htmlsyntax';
 $login = true;
 require('view/Hydrogen/header.php');
 
-function _htmlt($code, $desc, $usage){
+function _html($code, $desc, $usage){
     echo "<tr><td><code>&lt;$code&gt;</code></td><td>$desc</td><td><code>&lt;$code&gt;$usage&lt;/$code&gt;</code></td></tr>";
+}
+function _htmls($code, $desc, $usage){
+    echo "<tr><td><code>&lt;$code&gt;</code></td><td>$desc</td><td><code>&lt;$code $usage&lt;/$code></code></td></tr>";
 }
 ?>
 
@@ -31,7 +34,11 @@ function _htmlt($code, $desc, $usage){
                                             <th>Usage</th>
                                         </tr>
                                         <?php 
-                                            _htmlt('b', 'Makes the text bold', 'This text is bold!');
+                                            _html('b', 'Makes the text <b>bold</b>', 'This text is bold!');
+                                            _html('i', 'Makes the text <i>italic</i>', 'This text is italic!');
+                                            _html('u', '<u>Underlines</u> the text', 'Is this underlined?');
+                                            _html('h3', 'Creates a large header', 'Big text!');
+                                            _htmls('a', 'Adds a <a>link</a>', 'href="https://google.com/">Off to Google!');
                                         ?>
                                     </table>
                                 </div>
