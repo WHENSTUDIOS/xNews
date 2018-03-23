@@ -1,7 +1,6 @@
 <?php
 
 $title = 'Login';
-$mode = 'login.php';
 $name = 'login';
 $login = false;
 
