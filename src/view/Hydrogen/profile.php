@@ -26,7 +26,7 @@ $profileGet = $_GET['user'];
 						$getuserlist = "SELECT * FROM users WHERE username = '$profileGet';";
 						if($query = $mysqli->query($getuserlist)){
 							while($rows = $query->fetch_assoc()){
-								if($rows['bio'] !== ''){
+								if($rows['bio'] === ''){
 									echo "
 									<h2>".$rows['username']."</h2>
 									<div class='fh5co-spacer fh5co-spacer-sm'></div>
