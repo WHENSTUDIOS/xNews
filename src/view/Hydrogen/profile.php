@@ -31,7 +31,7 @@ $profileGet = $_GET['user'];
 									<h2>".$rows['username']."</h2>
 									<div class='fh5co-spacer fh5co-spacer-sm'></div>
 									<p>
-									<p>No description given</p>
+									<p>No description given.</p>
 								";
 								} else {
 									echo "
