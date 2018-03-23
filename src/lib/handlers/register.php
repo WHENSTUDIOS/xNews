@@ -1,5 +1,6 @@
 <?php
 session_start();
+require '../functions.php';
 require '../config.php';
 require '../db/pdo.php';
 
