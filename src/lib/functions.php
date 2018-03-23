@@ -20,4 +20,8 @@ function _success($msg){
     echo '<span class="success"><strong>Success</strong>: '.$msg.'</span>';
 }
 
+function route($path){
+    header("Location: $path");
+}
+
 ?>
