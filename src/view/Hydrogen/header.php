@@ -1,17 +1,6 @@
 <?php
 
-
-if ($u !== null) {
-    $query = $mysqli->query("SELECT * FROM users");
-    if ($query) {
-        while ($elev_rows = $query->fetch_assoc()) {
-			$_SESSION['level'] = $elev_rows['level'];
-        }
-    } else {
-        _error('Failed to get user elevation');
-        die;
-    }
-}
+require('lib/requests.php');
 ?>
 <!DOCTYPE html>
 	<head>
