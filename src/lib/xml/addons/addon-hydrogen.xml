@@ -1,1 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<addon>
+    <data>
+        <name>Hydrogen</name>
+        <description>An addon that powers the modern Hydrogen theme</description>
+        <type>addon</type>
+        <version>1.0.0</version>
+        <author>WHENSTUDIOS</author>
+    </data>
+    <path>
+        <file type="js">js/Hydrogen</file>
+    </path>
+</addon>
