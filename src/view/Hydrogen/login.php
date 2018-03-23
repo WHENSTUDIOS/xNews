@@ -6,7 +6,7 @@ $name = 'login';
 
 require('view/Hydrogen/header.php');
 if(isset($_SESSION['username'])){
-	header("Location: index.php?content=index");
+	route('c', 'index');
 }
 ?>
 	

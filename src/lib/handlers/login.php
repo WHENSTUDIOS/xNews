@@ -45,12 +45,12 @@ if ($rowCount >= 1) {
         ));
         //Set tables
 
-        header('Location: ../../index.php?content=index');
+        route('c', 'index');
     } else {
         $_SESSION['error'] = 'Incorrect password for ' . $username;
-        header('Location: ../../index.php?content=login');
+        route('c', 'login');
     }
 } else {
     $_SESSION['error'] = $username . ' does not exist!';
-    header('Location: ../../index.php?content=login');
+    route('c', 'login');
 }

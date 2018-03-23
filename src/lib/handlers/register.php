@@ -9,11 +9,11 @@ $email = $_POST['email'];
 $pwd = $_POST['password'];
 $apwd = md5($pwd);
 if (!isset($pwd)) {
-    header('Location: ../../index.php?content=register');
+    route('c', 'register');
 } elseif (!isset($username)) {
-    header('Location: ../../index.php?content=register');
+    route('c', 'register');
 } elseif (!isset($email)) {
-    header('Location: ../../index.php?content=register');
+    route('c', 'register');
 }
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -57,18 +57,18 @@ if (strlen($username) < 21) {
                 ));
                 //Set tables
                 $_SESSION['success'] = 'Registered! You can now log in.';
-                header('Location: ../../index.php?content=login');
+                route('c', 'login');
             } else {
                 $_SESSION['error'] = 'That email is already taken!';
-                header('Location: ../../index.php?content=register');
+                route('c', 'register');
             }
         } else {
             $_SESSION['error'] = $username . ' is already in use!';
-            header('Location: ../../index.php?content=register');
+            route('c', 'register');
         }
 } else {
     $_SESSION['error'] = 'Your username is too long!';
-    header('Location: ../../index.php?content=register');
+    route('c', 'register');
 }
 
 ?>
