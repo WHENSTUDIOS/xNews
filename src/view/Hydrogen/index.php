@@ -2,6 +2,7 @@
 
 $title = 'Home';
 $name = 'index';
+$login = false;
 
 
 

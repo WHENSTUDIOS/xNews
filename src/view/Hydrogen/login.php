@@ -3,6 +3,7 @@
 $title = 'Login';
 $mode = 'login.php';
 $name = 'login';
+$login = false;
 
 require('view/Hydrogen/header.php');
 if(isset($_SESSION['username'])){
