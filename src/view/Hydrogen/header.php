@@ -61,9 +61,8 @@ require('lib/requests.php');
 			<div class="row">
 				<div class="col-md-12">
 					<?php
-					if(isset($name)){
 						if($name === 'register'){ a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } elseif($name === 'login'){ a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); }
-					} elseif(isset($_SESSION['username'])){
+					if(isset($_SESSION['username'])){
 						switch($_SESSION['level']){
 							case 0:
 								a('<span class="label label-default">Banned</span> '.$_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
@@ -81,7 +80,7 @@ require('lib/requests.php');
 								a($_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
 								break;
 						}
-					} else { a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } ?>
+					} if($name !== 'register' && $name !== 'login') { a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } ?>
 					<?php a($config['siteName'], 'index.php?content=index', 'navbar-brand', ''); ?>
 				</div>
 			</div>
