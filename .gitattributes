@@ -1,1 +1,3 @@
 src/styles/* linguist-vendored
+src/js/* linguist-vendored
+src/view/Hydrogen/sass/* linguist-vendored
