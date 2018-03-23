@@ -1,1 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <data>
+        <name>Hydrogen</name>
+        <description>Hydrogen is a modern theme for blog and news sites</description>
+        <type>theme</type>
+        <version>1.0.0</version>
+        <author>FreeHTML5.co</author>
+    </data>
+    <path>
+        <view>view/Hydrogen</view>
+        <scripts>
+            <install>lib/install/hydrogen.php</install>
+        </scripts>
+    </path>
+</theme>
