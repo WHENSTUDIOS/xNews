@@ -8,9 +8,9 @@ $username = $_POST['username'];
 $pwd = $_POST['password'];
 $apwd = md5($pwd);
 if (!isset($pwd)) {
-    header('Location: ../../index.php?content=login');
+    route('c', 'login');
 } elseif (!isset($username)) {
-    header('Location: ../../index.php?content=login');
+    route('c', 'login');
 }
 
 //Log In
