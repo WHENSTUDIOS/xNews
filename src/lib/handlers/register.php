@@ -57,18 +57,18 @@ if (strlen($username) < 21) {
                 ));
                 //Set tables
                 $_SESSION['success'] = 'Registered! You can now log in.';
-                route('c', 'login');
+                route('x', '../../index.php?content=login');
             } else {
                 $_SESSION['error'] = 'That email is already taken!';
-                route('c', 'register');
+                route('x', '../../index.php?content=register');
             }
         } else {
             $_SESSION['error'] = $username . ' is already in use!';
-            route('c', 'register');
+            route('x', '../../index.php?content=register');
         }
 } else {
     $_SESSION['error'] = 'Your username is too long!';
-    route('c', 'register');
+    route('x', '../../index.php?content=register');
 }
 
 ?>
