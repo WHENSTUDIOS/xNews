@@ -62,7 +62,7 @@ require('lib/requests.php');
 				<div class="col-md-12">
 					<?php
 					if(isset($name)){
-						if($name === 'register.php'){ a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } elseif($name === 'login.php'){ a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); }
+						if($name === 'register'){ a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } elseif($name === 'login'){ a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); }
 					} elseif(isset($_SESSION['username'])){
 						switch($_SESSION['level']){
 							case 0:
