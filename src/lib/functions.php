@@ -20,8 +20,20 @@ function _success($msg){
     echo '<span class="success"><strong>Success</strong>: '.$msg.'</span>';
 }
 
-function route($path){
-    header("Location: $path");
+function route($opt, $path){
+    /* 
+    Router Options
+    | c | Content request |
+    | a | Action request |
+    | x | Custom request |
+    */
+    if($opt === 'c'){
+        header("Location: $path");
+    }elseif($opt === 'a'){
+
+    }elseif($opt === 'x'){
+        
+    }
 }
 
 ?>
