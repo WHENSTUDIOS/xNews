@@ -28,11 +28,11 @@ function route($opt, $path){
     | x | Custom request |
     */
     if($opt === 'c'){
-        header("Location: $path");
+        header("Location: index.php?content=$path");
     }elseif($opt === 'a'){
-
+        header("Location: index.php?action=$path");
     }elseif($opt === 'x'){
-        
+        header("Location: $path");
     }
 }
 
