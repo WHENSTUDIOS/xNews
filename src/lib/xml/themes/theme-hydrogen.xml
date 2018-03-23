@@ -12,5 +12,11 @@
         <scripts>
             <install>lib/install/hydrogen.php</install>
         </scripts>
+        <option type="dark">
+            <file type="css">styles/Hydrogen/style-dark.css</file>
+        </option>
+        <option type="light">
+            <file type="css">styles/Hydrogen/style.css</file>
+        </option>
     </path>
 </theme>
