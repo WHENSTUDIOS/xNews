@@ -5,6 +5,7 @@
 $config['siteName'] = 'xNews Blog';
 $config['company'] = 'WHENSTUDIOS';
 $config['theme'] = 'Hydrogen';
+$config['url'] = 'localhost.com';
 
 //Master User Information
 

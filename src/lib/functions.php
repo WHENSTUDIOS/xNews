@@ -36,4 +36,24 @@ function route($opt, $path){
     }
 }
 
+function _perror($msg){
+    echo $msg;
+    die;
+}
+
+function email($subject, $message){
+    $username = $_SESSION['username'];
+    if($mailQuery = $mysqli->query("SELECT `email` FROM users WHERE username = '$username';")){
+        while($rows = $mailQuery->fetch_assoc()){
+            $emailaddress = $rows['email'];
+        }
+        $headers = 'From: noreply@'.$config['url'] . "\r\n" .
+        'Reply-To: contact@'.$config['url'] . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();        
+        mail($emailaddress, $subject, $message, $headers);
+    } else {
+        _perror('Could not query database for email.');
+    }
+}
+
 ?>
