@@ -60,7 +60,13 @@ if (strlen($username) < 21) {
                 //Verification email
                 if(isset($config['requireVerification']) || $config['requireVerification'] === 'true'){
                     //Verification token
-                    $token =
+                    $prepared_token = $regdate . $username . $email . md5($email . $username . $pwd);
+                    $token = sha1($prepared_token);
+                    if($tokenquery = $mysqli->query("INSERT INTO registration_tokens ('token', '`time`') VALUES ($token, $regdate);")){
+
+                    } else { 
+                        _perror('Failed to establish verification token.');
+                    }
                 }
 
                 //Set tables
