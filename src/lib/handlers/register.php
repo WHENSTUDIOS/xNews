@@ -55,7 +55,7 @@ if (strlen($username) < 21) {
                     if($tokenresult = $tokenquery->execute(array(':token' => $token, ':regdate' => $regdate))){
                         $sitename = $config['siteName'];
                         $url = $config['url'];
-                        email($email, 'Verify your account', "Thanks for registering at $sitename!\n Confirm your email address by clicking or copying this link: http://$url/index.php?action=verify&token=$token\n Thanks!");
+                        email($email, 'Verify your account', "Thanks for registering at $sitename!\n Confirm your email address by clicking or copying this link: http://$url/index.php?action=verify&token=$token\n Thanks!", $config);
                     } else { 
                         $_SESSION['error'] = 'Unable to create registration token (this is a <i>server side</i> issue).';
                         route('x', '../../index.php?content=login');        
@@ -63,7 +63,7 @@ if (strlen($username) < 21) {
                 }
 
                 //Register user
-                $sql2 = "INSERT INTO users (username, email, `password`, regdate, lastip, `level`, token) VALUES (:username, :email, :pwd, :regdate, :lastip, :level :token);";
+                $sql2 = "INSERT INTO users (username, email, `password`, regdate, lastip, `level`, token) VALUES (:username, :email, :pwd, :regdate, :lastip, :level, :token);";
                 $query2 = $conn->prepare($sql2);
                 $lastip = $_SERVER['REMOTE_ADDR'];
                 $query2->execute(array(
