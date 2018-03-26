@@ -2,6 +2,7 @@
 $title = 'New Article';
 $name = 'new';
 $login = true;
+$level = 2;
 require('view/Hydrogen/header.php');
 ?>
 <!-- Initialize text editor -->

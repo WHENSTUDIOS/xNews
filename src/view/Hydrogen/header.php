@@ -1,6 +1,8 @@
 <?php
 
 require('lib/requests.php');
+
+
 ?>
 <!DOCTYPE html>
 	<head>
@@ -99,6 +101,16 @@ require('lib/requests.php');
 			require('view/Hydrogen/footer.php');
 			die;
 
+		}
+	}
+
+	if ($u !== null){
+		if($_SESSION['level'] === '0'){
+			echo '<div id="fh5co-main">
+			<div class="container">';
+			_error('This user is currently banned from viewing or posting in '.$config['siteName'].'.');
+			require('view/Hydrogen/footer.php');
+			die;
 		}
 	}
 	?>

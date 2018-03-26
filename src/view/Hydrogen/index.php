@@ -13,13 +13,6 @@ require 'view/Hydrogen/header.php';
 
 	<div id="fh5co-main">
 		<div class="container">
-		<?php if ($u !== null){
-			if($_SESSION['level'] === '0'){
-				_error('This user is currently banned from viewing or posting in '.$config['siteName'].'.');
-				require('view/Hydrogen/footer.php');
-				die;
-			}
-		} ?>
 
 			<div class="row">
 
