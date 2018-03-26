@@ -42,20 +42,6 @@ if (strlen($username) < 21) {
 
             //Check if password matches
             if (!$emailCount >= 1) {
-                //Log In & set session variables
-
-                $sql2 = "INSERT INTO users (username, email, `password`, regdate, lastip, `level`) VALUES (:username, :email, :pwd, :regdate, :lastip, :level);";
-                $query2 = $conn->prepare($sql2);
-                $regdate = time();
-                $lastip = $_SERVER['REMOTE_ADDR'];
-                $query2->execute(array(
-                    ':username' => $username,
-                    ':email' => $email,
-                    ':pwd' => $apwd,
-                    ':regdate' => $regdate,
-                    ':lastip' => $lastip,
-                    ':level' => 1,
-                ));
 
                 //Verification email
                 if(isset($config['requireVerification']) || $config['requireVerification'] === 'true'){
@@ -70,6 +56,23 @@ if (strlen($username) < 21) {
                         _perror('Failed to establish verification token.');
                     }
                 }
+
+                //Register user
+                $sql2 = "INSERT INTO users (username, email, `password`, regdate, lastip, `level`, token) VALUES (:username, :email, :pwd, :regdate, :lastip, :level :token);";
+                $query2 = $conn->prepare($sql2);
+                $regdate = time();
+                $lastip = $_SERVER['REMOTE_ADDR'];
+                $query2->execute(array(
+                    ':username' => $username,
+                    ':email' => $email,
+                    ':pwd' => $apwd,
+                    ':regdate' => $regdate,
+                    ':lastip' => $lastip,
+                    ':level' => 1,
+                    ':token' => $token,
+                ));
+
+                
 
                 //Set tables
                 $_SESSION['success'] = 'Registered! You can now log in.';
