@@ -23,18 +23,17 @@ $query->execute(array(
 $rowCount = $query->rowCount();
 $rows = $query->fetch(PDO::FETCH_ASSOC);
 
-$enabled_query = $conn->prepare("SELECT `enabled` FROM users WHERE username = :username");
-$enabled_result = $enabled_query->execute(array(
-    ':username' => $username,
-));
-
-$enabled_result->fetchAll();
-foreach ($enabled_result as $enabled_rows) {
-    $enabled = $enabled_rows;
-}
-
 //Check if account exists
 if ($rowCount >= 1) {
+    $enabled_query = $conn->prepare("SELECT `enabled` FROM users WHERE username = :username");
+    $enabled_result = $enabled_query->execute(array(
+        ':username' => $username,
+    ));
+
+    $enabled_result->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($enabled_result as $enabled_rows) {
+        $enabled = $enabled_rows;
+    }
     if ($enabled === '1') {
 
         $password = $rows['password'];
@@ -63,7 +62,7 @@ if ($rowCount >= 1) {
         }
     } else {
         $_SESSION['error'] = 'Your account is not verified!';
-        route('x', '../../index.php?content=login');    
+        route('x', '../../index.php?content=login');
     }
 } else {
     $_SESSION['error'] = $username . ' does not exist!';
