@@ -45,8 +45,11 @@ function email($to, $subject, $message){
         $headers = 'From: noreply@'.$config['url'] . "\r\n" .
         'Reply-To: contact@'.$config['url'] . "\r\n" .
         'X-Mailer: PHP/' . phpversion();        
-        mail($to, $subject, $message, $headers);
-        unset($rows, $username, $headers);
+        if(mail($to, $subject, $message, $headers)){
+            unset($rows, $username, $headers);
+        } else {
+            route('c', 'index');
+        }
 }
 
 ?>
