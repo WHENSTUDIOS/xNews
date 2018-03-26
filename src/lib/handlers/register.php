@@ -44,7 +44,7 @@ if (strlen($username) < 21) {
             if (!$emailCount >= 1) {
 
                 //Verification email
-                if(isset($config['requireVerification']) || $config['requireVerification'] === 'true'){
+                if(isset($config['requireVerification']) && $config['requireVerification'] === 'true'){
                     //Verification token
                     $prepared_token = $regdate . $username . $email . md5($email . $username . $pwd);
                     $token = sha1($prepared_token);
