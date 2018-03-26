@@ -34,6 +34,7 @@ $query->execute(array(
 ));
 $emailCount = $query->rowCount();
 
+
 //Check if username is correct length
 if (strlen($username) < 21) {
         //Check if account exists
@@ -55,6 +56,13 @@ if (strlen($username) < 21) {
                     ':lastip' => $lastip,
                     ':level' => 1,
                 ));
+
+                //Verification email
+                if(isset($config['requireVerification']) || $config['requireVerification'] === 'true'){
+                    //Verification token
+                    $token =
+                }
+
                 //Set tables
                 $_SESSION['success'] = 'Registered! You can now log in.';
                 route('x', '../../index.php?content=login');
