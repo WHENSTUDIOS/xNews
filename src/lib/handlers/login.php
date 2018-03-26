@@ -25,14 +25,14 @@ $rows = $query->fetch(PDO::FETCH_ASSOC);
 
 //Check if account exists
 if ($rowCount >= 1) {
-    $enabled_query = $conn->prepare("SELECT `enabled` FROM users WHERE username = :username");
+    $enabled_query = $conn->prepare("SELECT `enabled` FROM users WHERE username = :username;");
     $enabled_result = $enabled_query->execute(array(
         ':username' => $username,
     ));
 
     $enabled_result->fetchAll(PDO::FETCH_ASSOC);
     foreach ($enabled_result as $enabled_rows) {
-        $enabled = $enabled_rows;
+        $enabled = $enabled_rows['enabled'];
     }
     if ($enabled === '1') {
 
