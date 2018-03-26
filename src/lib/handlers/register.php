@@ -53,7 +53,8 @@ if (strlen($username) < 21) {
                         $url = $config['url'];
                         email($email, 'Verify your account', "Thanks for registering at $sitename!\n Confirm your email address by clicking or copying this link: http://$url/index.php?action=verify&token=$token\n Thanks!");
                     } else { 
-                        _perror('Failed to establish verification token.');
+                        $_SESSION['error'] = 'Unable to create registration token (this is a <i>server side</i> issue).';
+                        route('x', '../../index.php?content=login');        
                     }
                 }
 
