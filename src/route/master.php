@@ -16,6 +16,7 @@ function content($content, $theme, $u, $mysqli){
 }
 
 function action($action){
+    require('lib/config.php');
     require('lib/db/pdo.php');
     if(file_exists("lib/handlers/$action.php")){
         require("lib/handlers/$action.php");
