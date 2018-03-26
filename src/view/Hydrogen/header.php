@@ -80,7 +80,7 @@ require('lib/requests.php');
 								a($_SESSION['username'].' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
 								break;
 						}
-					} if($name !== 'register' && $name !== 'login') { a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } ?>
+					} if($name !== 'register' && $name !== 'login' && !isset($_SESSION['username'])) { a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', ''); } ?>
 					<?php a($config['siteName'], 'index.php?content=index', 'navbar-brand', ''); ?>
 				</div>
 			</div>
