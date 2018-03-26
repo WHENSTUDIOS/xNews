@@ -51,6 +51,7 @@ function email($subject, $message){
         'Reply-To: contact@'.$config['url'] . "\r\n" .
         'X-Mailer: PHP/' . phpversion();        
         mail($emailaddress, $subject, $message, $headers);
+        unset($emailaddress, $rows, $username, $headers);
     } else {
         _perror('Could not query database for email.');
     }
