@@ -6,7 +6,7 @@ $token = $_GET['token'];
 if($query = $mysqli->query("SELECT * FROM `users` WHERE token = $token;")){
     unset($query);
     $new_token = $token . '-verified';
-    if($query = $mysqli->query("UPDATE users SET token = $new_token WHERE token = $token;")){
+    if($query = $mysqli->query("UPDATE users SET token = $new_token, `enabled` = '1' WHERE token = $token;")){
         route('c', 'login');
     } else {
         _perror('Could not verify user.');
