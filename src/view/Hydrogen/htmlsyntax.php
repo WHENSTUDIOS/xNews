@@ -2,6 +2,7 @@
 $title = 'HTML Cheat Sheet';
 $name = 'htmlsyntax';
 $login = true;
+$level = 2;
 require('view/Hydrogen/header.php');
 
 function _html($code, $desc, $usage){
