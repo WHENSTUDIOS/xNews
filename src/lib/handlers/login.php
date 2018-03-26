@@ -23,32 +23,47 @@ $query->execute(array(
 $rowCount = $query->rowCount();
 $rows = $query->fetch(PDO::FETCH_ASSOC);
 
+$enabled_query = $conn->prepare("SELECT `enabled` FROM users WHERE username = :username");
+$enabled_result = $enabled_query->execute(array(
+    ':username' => $username,
+));
+
+$enabled_result->fetchAll();
+foreach ($enabled_result as $enabled_rows) {
+    $enabled = $enabled_rows;
+}
+
 //Check if account exists
 if ($rowCount >= 1) {
+    if ($enabled === '1') {
 
-    $password = $rows['password'];
-    $email = $rows['email'];
-    //Check if password matches
-    if ($apwd == $password) {
-        //Log In & set session variables
-        $_SESSION['username'] = $username;
-        $_SESSION['email'] = $email;
+        $password = $rows['password'];
+        $email = $rows['email'];
+        //Check if password matches
+        if ($apwd == $password) {
+            //Log In & set session variables
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
 
-        $sql2 = "UPDATE users SET `lastlogin` = :lastlogin, `lastip` = :lastip WHERE `username` = :username;";
-        $query2 = $conn->prepare($sql2);
-        $lastlogin = time();
-        $lastip = $_SERVER['REMOTE_ADDR'];
-        $query2->execute(array(
-            ':lastlogin' => $lastlogin,
-            ':lastip' => $lastip,
-            ':username' => $username,
-        ));
-        //Set tables
+            $sql2 = "UPDATE users SET `lastlogin` = :lastlogin, `lastip` = :lastip WHERE `username` = :username;";
+            $query2 = $conn->prepare($sql2);
+            $lastlogin = time();
+            $lastip = $_SERVER['REMOTE_ADDR'];
+            $query2->execute(array(
+                ':lastlogin' => $lastlogin,
+                ':lastip' => $lastip,
+                ':username' => $username,
+            ));
+            //Set tables
 
-        route('x', '../../index.php?content=index');
+            route('x', '../../index.php?content=index');
+        } else {
+            $_SESSION['error'] = 'Incorrect password for ' . $username;
+            route('x', '../../index.php?content=login');
+        }
     } else {
-        $_SESSION['error'] = 'Incorrect password for ' . $username;
-        route('x', '../../index.php?content=login');
+        $_SESSION['error'] = 'Your account is not verified!';
+        route('x', '../../index.php?content=login');    
     }
 } else {
     $_SESSION['error'] = $username . ' does not exist!';
