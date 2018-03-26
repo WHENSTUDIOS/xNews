@@ -51,8 +51,8 @@ if (strlen($username) < 21) {
                 //Verification email
                 if(isset($config['requireVerification']) && $config['requireVerification'] === true){
                     //Verification token
-
-                    if($tokenquery = $mysqli->query("INSERT INTO registration_tokens ('token', '`time`') VALUES ($token, $regdate);")){
+                    $tokenquery = $conn->prepare("INSERT INTO registration_tokens ('token', '`time`') VALUES (:token, :regdate);");
+                    if($tokenresult = $tokenquery->execute(array(':token' => $token, ':regdate' => $regdate))){
                         $sitename = $config['siteName'];
                         $url = $config['url'];
                         email($email, 'Verify your account', "Thanks for registering at $sitename!\n Confirm your email address by clicking or copying this link: http://$url/index.php?action=verify&token=$token\n Thanks!");
