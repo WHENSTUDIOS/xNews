@@ -63,7 +63,7 @@ if (strlen($username) < 21) {
                 }
 
                 //Register user
-                $sql2 = "INSERT INTO users (username, email, `password`, regdate, lastip, `level`, token) VALUES (:username, :email, :pwd, :regdate, :lastip, :level, :token);";
+                $sql2 = "INSERT INTO users (username, email, `password`, regdate, lastip, `level`, token, `enabled`) VALUES (:username, :email, :pwd, :regdate, :lastip, :level, :token, :enabled);";
                 $query2 = $conn->prepare($sql2);
                 $lastip = $_SERVER['REMOTE_ADDR'];
                 $query2->execute(array(
@@ -74,6 +74,7 @@ if (strlen($username) < 21) {
                     ':lastip' => $lastip,
                     ':level' => 1,
                     ':token' => $token,
+                    ':enabled' => 0,
                 ));
 
                 
