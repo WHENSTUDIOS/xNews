@@ -63,7 +63,9 @@ if (strlen($username) < 21) {
                     $prepared_token = $regdate . $username . $email . md5($email . $username . $pwd);
                     $token = sha1($prepared_token);
                     if($tokenquery = $mysqli->query("INSERT INTO registration_tokens ('token', '`time`') VALUES ($token, $regdate);")){
-
+                        $sitename = $config['siteName'];
+                        $url = $config['url'];
+                        email($email, 'Verify your account', "Thanks for registering at $sitename!\n Confirm your email address by clicking or copying this link: http://$url/index.php?action=verify&token=$token\n Thanks!");
                     } else { 
                         _perror('Failed to establish verification token.');
                     }
