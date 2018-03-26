@@ -41,14 +41,16 @@ function _perror($msg){
     die;
 }
 
-function email($to, $subject, $message){
+function email($to, $subject, $message, $config){
         $headers = 'From: noreply@'.$config['url'] . "\r\n" .
         'Reply-To: contact@'.$config['url'] . "\r\n" .
         'X-Mailer: PHP/' . phpversion();        
-        if(mail($to, $subject, $message, $headers)){
+        if($test = mail($to, $subject, $message, $headers)){
             unset($rows, $username, $headers);
         } else {
-            route('c', 'index');
+            var_dump($test);
+            die;
+            route('x', '../../index.php?content=index');
         }
 }
 
