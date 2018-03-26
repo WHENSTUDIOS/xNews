@@ -7,6 +7,7 @@ require '../db/pdo.php';
 $username = $_POST['username'];
 $email = $_POST['email'];
 $pwd = $_POST['password'];
+$regdate = time();
 $apwd = md5($pwd);
 if (!isset($pwd)) {
     route('c', 'register');
@@ -25,6 +26,10 @@ $query->execute(array(
     ':username' => $username,
 ));
 $rowCount = $query->rowCount();
+
+//Token
+$prepared_token = $regdate . $username . $email . md5($email . $username . $pwd);
+$token = sha1($prepared_token);
 
 $sql = "SELECT email FROM users WHERE email = :email;";
 $query = $conn->prepare($sql);
@@ -46,8 +51,7 @@ if (strlen($username) < 21) {
                 //Verification email
                 if(isset($config['requireVerification']) && $config['requireVerification'] === true){
                     //Verification token
-                    $prepared_token = $regdate . $username . $email . md5($email . $username . $pwd);
-                    $token = sha1($prepared_token);
+
                     if($tokenquery = $mysqli->query("INSERT INTO registration_tokens ('token', '`time`') VALUES ($token, $regdate);")){
                         $sitename = $config['siteName'];
                         $url = $config['url'];
@@ -61,7 +65,6 @@ if (strlen($username) < 21) {
                 //Register user
                 $sql2 = "INSERT INTO users (username, email, `password`, regdate, lastip, `level`, token) VALUES (:username, :email, :pwd, :regdate, :lastip, :level :token);";
                 $query2 = $conn->prepare($sql2);
-                $regdate = time();
                 $lastip = $_SERVER['REMOTE_ADDR'];
                 $query2->execute(array(
                     ':username' => $username,
