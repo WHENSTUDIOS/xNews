@@ -41,20 +41,12 @@ function _perror($msg){
     die;
 }
 
-function email($subject, $message){
-    $username = $_SESSION['username'];
-    if($mailQuery = $mysqli->query("SELECT `email` FROM users WHERE username = '$username';")){
-        while($rows = $mailQuery->fetch_assoc()){
-            $emailaddress = $rows['email'];
-        }
+function email($to, $subject, $message){
         $headers = 'From: noreply@'.$config['url'] . "\r\n" .
         'Reply-To: contact@'.$config['url'] . "\r\n" .
         'X-Mailer: PHP/' . phpversion();        
-        mail($emailaddress, $subject, $message, $headers);
-        unset($emailaddress, $rows, $username, $headers);
-    } else {
-        _perror('Could not query database for email.');
-    }
+        mail($to, $subject, $message, $headers);
+        unset($rows, $username, $headers);
 }
 
 ?>
