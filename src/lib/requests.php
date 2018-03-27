@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
         if ($query->execute(array(':username' => $u))) {
             $get_username_array = $query->fetchAll();
             foreach($get_username_array as $user_array){
-                $_SESSION['level'] = $elev_rows['level'];
+                $_SESSION['level'] = $user_array['level'];
             }
         } else {
             _error('Failed to get user elevation');
