@@ -1,19 +1,13 @@
 <?php
 
 class UserData {
-    private $username;
-    private $email;
 
-    function __construct($username, $email){
-        $this->username = $username;
-        $this->email = $email;
-    }
-    function getUsername(){
-        return $this->username;
+    public function getUsername(){
+        return 'h';
     }
 
-    function getEmail(){
-        return $this->email;
+    public function getEmail(){
+        return $email;
     }
 }
 
