@@ -64,7 +64,7 @@ require 'lib/requests.php';
 					<?php
 if ($name === 'register') {a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');} elseif ($name === 'login') {a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');}
 if (isset($_SESSION['username'])) {
-    switch ($_SESSION['level']) {
+    switch ($userdata->getLevel()) {
         case 0:
             a('<span class="label label-default">Banned</span> ' . $userdata->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
@@ -105,7 +105,7 @@ if (isset($_SESSION['username'])) {
 
 if (isset($level)) {
     if (isset($_SESSION['username'])) {
-        if ($_SESSION['level'] < $level) {
+        if ($userdata->getLevel() < $level) {
             echo '<div id="fh5co-main">
 						<div class="container">
 							<div class="row">
@@ -131,7 +131,7 @@ if (isset($level)) {
     }
 }
 if ($u !== null) {
-    if ($_SESSION['level'] === '0') {
+    if ($userdata->getLevel() === '0') {
         echo '<div id="fh5co-main">
 			<div class="container">';
         _error('This user is currently banned from viewing or posting in ' . $config['siteName'] . '.');
