@@ -8,6 +8,9 @@ function article($article, $theme, $u, $mysqli){
 
 function content($content, $theme, $u, $mysqli){
     require('lib/config.php');
+    if(isset($_SESSION['username'])){
+        $user = new UserData($_SESSION['username'], $_SESSION['email']);
+    }
     if(file_exists("view/$theme/$content.php")){
         require("view/$theme/$content.php");
     } else {
@@ -18,6 +21,9 @@ function content($content, $theme, $u, $mysqli){
 function action($action){
     require('lib/config.php');
     require('lib/db/pdo.php');
+    if(isset($_SESSION['username'])){
+        $user = new UserData($_SESSION['username'], $_SESSION['email']);
+    }
     if(file_exists("lib/handlers/$action.php")){
         require("lib/handlers/$action.php");
     } else {
