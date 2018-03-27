@@ -22,6 +22,7 @@ function action($action){
     require('lib/config.php');
     require('lib/db/pdo.php');
     if(isset($_SESSION['username'])){
+        require('lib/classes/user.php');
         $user = new UserData($_SESSION['username'], $_SESSION['email']);
     }
     if(file_exists("lib/handlers/$action.php")){
