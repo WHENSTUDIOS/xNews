@@ -1,4 +1,5 @@
 <?php
+require('db/pdo.php');
 //BEGIN REQUEST
 if (isset($_SESSION['username'])) {
     $u = $_SESSION['username'];
