@@ -9,6 +9,10 @@ class UserData {
     public function getEmail(){
         return $_SESSION['email'];
     }
+
+    public function getLevel(){
+        return $_SESSION['level'];
+    }
 }
 
 ?>
