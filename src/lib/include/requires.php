@@ -13,6 +13,8 @@ require('lib/cookies.php');
 require('lib/requests.php');
 //Get admin
 require('lib/admin.php');
+//Get user class
+require('lib/classes/user.php');
 //Master router
 require('route/master.php');
 ?>
