@@ -10,7 +10,7 @@ function content($content, $theme, $u, $mysqli){
     require('lib/config.php');
     if(isset($_SESSION['username'])){
         require_once('lib/classes/classes.php');
-        $user = new UserData();
+        $userdata = new UserData();
     }
     if(file_exists("view/$theme/$content.php")){
         require("view/$theme/$content.php");
@@ -24,7 +24,7 @@ function action($action){
     require('lib/db/pdo.php');
     if(isset($_SESSION['username'])){
         require('lib/classes/classes.php');
-        $user = new UserData();
+        $userdata = new UserData();
     }
     if(file_exists("lib/handlers/$action.php")){
         require("lib/handlers/$action.php");

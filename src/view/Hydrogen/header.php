@@ -75,7 +75,7 @@ if (isset($_SESSION['username'])) {
             a('<span class="label label-success">Moderator</span> ' . $user->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         case 4:
-            a('<span class="label label-danger">Admin</span> ' . $user->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-danger">Admin</span> ' . $userdata->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         default:
             a($_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
