@@ -3,11 +3,11 @@
 class UserData {
 
     public function getUsername(){
-        return 'h';
+        return $_SESSION['username'];
     }
 
     public function getEmail(){
-        return $email;
+        return $_SESSION['email'];
     }
 }
 
