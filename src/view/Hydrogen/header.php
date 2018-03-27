@@ -66,16 +66,16 @@ if ($name === 'register') {a('Log In <i class="icon-user"></i>', 'index.php?cont
 if (isset($_SESSION['username'])) {
     switch ($_SESSION['level']) {
         case 0:
-            a('<span class="label label-default">Banned</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-default">Banned</span> ' . $user->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         case 2:
-            a('<span class="label label-info">Editor</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-info">Editor</span> ' . $user->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         case 3:
-            a('<span class="label label-success">Moderator</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-success">Moderator</span> ' . $user->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         case 4:
-            a('<span class="label label-danger">Admin</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-danger">Admin</span> ' . $user->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         default:
             a($_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
