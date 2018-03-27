@@ -7,9 +7,10 @@ if (isset($_SESSION['username'])) {
     Gets the defined user elevation level (i.e editor, user, administrator, etc).
      */
     if ($u !== null) {
-        $query = $mysqli->query("SELECT * FROM users WHERE username = '$u';");
-        if ($query) {
-            while ($elev_rows = $query->fetch_assoc()) {
+        $query = $conn->prepare("SELECT * FROM users WHERE username = :username;");
+        if ($query->execute(array(':username' => $u))) {
+            $get_username_array = $query->fetchAll();
+            foreach($get_username_array as $user_array){
                 $_SESSION['level'] = $elev_rows['level'];
             }
         } else {
