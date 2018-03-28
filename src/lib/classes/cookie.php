@@ -3,13 +3,10 @@
 class GetCookie {
 
     public function name($cookie){
-
+        return $cookie;
     }
     public function content($cookie){
-
-    }
-    public function expiry($cookie){
-        
+        return $_COOKIE["$cookie"];
     }
 
 }
