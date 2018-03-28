@@ -11,6 +11,7 @@ function content($content, $theme, $u, $mysqli){
     if(isset($_SESSION['username'])){
         require_once('lib/classes/classes.php');
         $userdata = new UserData();
+        $cookiedata = new GetCookie();
     }
     if(file_exists("view/$theme/$content.php")){
         require("view/$theme/$content.php");
