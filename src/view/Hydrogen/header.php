@@ -33,7 +33,7 @@ require 'lib/requests.php';
 	<link rel="stylesheet" href="styles/Hydrogen/icomoon.css">
 	<link rel="stylesheet" href="styles/Hydrogen/magnific-popup.css">
 	<link rel="stylesheet" href="styles/Hydrogen/salvattore.css">
-	<link rel="stylesheet" href="styles/Hydrogen/style<?php if ($getcookie->content('themeMode') === 'light') {echo '';} elseif ($getcookie->content('themeMode') === 'dark') {echo '-dark';}?>.css">
+	<link rel="stylesheet" href="styles/Hydrogen/style<?php if ($_COOKIE['themeMode'] === 'light') {echo '';} elseif ($_COOKIE['themeMode'] === 'dark') {echo '-dark';}?>.css">
 	<script src="js/Hydrogen/modernizr-2.6.2.min.js"></script>
 
 	</head>

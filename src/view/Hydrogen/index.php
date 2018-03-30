@@ -5,9 +5,7 @@ $name = 'index';
 $login = false;
 
 
-
 require 'view/Hydrogen/header.php';
-
 ?>
 
 
