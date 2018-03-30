@@ -8,11 +8,11 @@ function article($article, $theme, $u, $mysqli){
 
 function content($content, $theme, $u, $mysqli){
     require('lib/config.php');
+    require_once('lib/classes/classes.php');
     if(isset($_SESSION['username'])){
-        require_once('lib/classes/classes.php');
         $userdata = new UserData();
-        $cookiedata = new GetCookie();
     }
+    $cookie = new GetCookie();
     if(file_exists("view/$theme/$content.php")){
         require("view/$theme/$content.php");
     } else {

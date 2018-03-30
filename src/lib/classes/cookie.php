@@ -6,7 +6,7 @@ class GetCookie {
         return $cookie;
     }
     public function content($cookie){
-        return $_COOKIE["$cookie"];
+        return $_COOKIE[$cookie];
     }
 
 }
