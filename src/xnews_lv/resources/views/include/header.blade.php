@@ -44,8 +44,8 @@
                     <a href="register" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Register  <i class="icon-user"></i></a>
                     @elseif(Request::is('register'))
                     <a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
-					@else
-					<a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
+					@elseif(!Auth::guest())
+					<a href="dashboard" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">{{ Auth::user()->name }}  <i class="icon-user"></i></a>
                     @endif
                      @if(Request::is('home'))
                      <a class="navbar-brand">{{ Config::get('site.data.name') }}</a>
