@@ -12,14 +12,13 @@
                     @if ($errors->has('email'))
                         <span class="error">{{ $errors->first('email') }}</span>
                     @endif
-
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="{{route('login')}}" method="post">
                     @csrf
 						<div class="row">
 						<div class="col-md-6">
 								<div class="form-group">
-									<input type="email" name="email" id="email" class="form-control" placeholder="Username" required autofocus>	
+									<input type="email" name="email" id="email" class="form-control" placeholder="Email Address" required autofocus>	
 								</div>
 							</div>
 							<div class="col-md-6">
