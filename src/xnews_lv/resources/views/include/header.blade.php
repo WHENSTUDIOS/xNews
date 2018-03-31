@@ -40,13 +40,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-                    @if(Request::is('/login'))
-                    <a href="register" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Register</a>
+                    @if(Request::is('login'))
+                    <a href="register" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Register  <i class="icon-user"></i></a>
                     @elseif(Request::is('register'))
-                    <a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In</a>
+                    <a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
+					@else
+					<a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
                     @endif
-                    <a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In <i class="icon-user"></i></a>
-                     @if(Request::is('/home'))
+                     @if(Request::is('home'))
                      <a class="navbar-brand">{{ Config::get('site.data.name') }}</a>
                      @else
                      <a href="home" class="navbar-brand">{{ Config::get('site.data.name') }}</a>

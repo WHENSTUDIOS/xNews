@@ -14,3 +14,4 @@
 Route::redirect('/', 'home');
 Route::get('/home', 'PagesController@home');
 Route::get('/login', 'PagesController@login');
+Route::get('/register', 'PagesController@register');
