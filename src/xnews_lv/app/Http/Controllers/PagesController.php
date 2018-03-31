@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use Auth;
 
 class PagesController extends Controller
 {
@@ -11,7 +12,11 @@ class PagesController extends Controller
         return view('pages.home');
     }
     public function login(){
-        return view('pages.login');
+        if(Auth::guest()){
+            return view('pages.login');
+        } else {
+            return redirect('home');
+        }
     }
     public function register(){
         return view('pages.register');
