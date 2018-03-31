@@ -54,4 +54,7 @@ function email($to, $subject, $message, $config){
         }
 }
 
+function console($msg){
+    echo "<script>console.log('$msg');</script>";
+}
 ?>

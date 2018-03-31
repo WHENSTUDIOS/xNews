@@ -33,7 +33,7 @@ require 'lib/requests.php';
 	<link rel="stylesheet" href="styles/Hydrogen/icomoon.css">
 	<link rel="stylesheet" href="styles/Hydrogen/magnific-popup.css">
 	<link rel="stylesheet" href="styles/Hydrogen/salvattore.css">
-	<link rel="stylesheet" href="styles/Hydrogen/style<?php if ($_COOKIE['themeMode'] === 'light') {echo '';} elseif ($_COOKIE['themeMode'] === 'dark') {echo '-dark';}?>.css">
+	<link rel="stylesheet" href="styles/Hydrogen/style<?php if ($cookie->content('themeMode') === 'light') {echo '';} elseif ($cookie->content('themeMode') === 'dark') {echo '-dark';}?>.css">
 	<script src="js/Hydrogen/modernizr-2.6.2.min.js"></script>
 
 	</head>
@@ -64,18 +64,18 @@ require 'lib/requests.php';
 					<?php
 if ($name === 'register') {a('Log In <i class="icon-user"></i>', 'index.php?content=login', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');} elseif ($name === 'login') {a('Register <i class="icon-user"></i>', 'index.php?content=register', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');}
 if (isset($_SESSION['username'])) {
-    switch ($_SESSION['level']) {
+    switch ($userdata->getLevel()) {
         case 0:
-            a('<span class="label label-default">Banned</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-default">Banned</span> ' . $userdata->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         case 2:
-            a('<span class="label label-info">Editor</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-info">Editor</span> ' . $userdata->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         case 3:
-            a('<span class="label label-success">Moderator</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-success">Moderator</span> ' . $userdata->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         case 4:
-            a('<span class="label label-danger">Admin</span> ' . $_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
+            a('<span class="label label-danger">Admin</span> ' . $userdata->getUsername() . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
             break;
         default:
             a($_SESSION['username'] . ' <i class="icon-user"></i>', 'index.php?content=dashboard', 'fh5co-menu-btn js/Hydrogen-fh5co-menu-btn', '');
@@ -105,7 +105,7 @@ if (isset($_SESSION['username'])) {
 
 if (isset($level)) {
     if (isset($_SESSION['username'])) {
-        if ($_SESSION['level'] < $level) {
+        if ($userdata->getLevel() < $level) {
             echo '<div id="fh5co-main">
 						<div class="container">
 							<div class="row">
@@ -131,7 +131,7 @@ if (isset($level)) {
     }
 }
 if ($u !== null) {
-    if ($_SESSION['level'] === '0') {
+    if ($userdata->getLevel() === '0') {
         echo '<div id="fh5co-main">
 			<div class="container">';
         _error('This user is currently banned from viewing or posting in ' . $config['siteName'] . '.');

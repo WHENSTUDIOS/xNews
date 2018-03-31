@@ -35,5 +35,3 @@ if ($verify_count_result <= '0') {
     $_SESSION['error'] = 'Token has already been used, try log in!';
     route('c', 'login');
 }
-
-//Check if token has been used

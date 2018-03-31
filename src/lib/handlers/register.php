@@ -80,7 +80,11 @@ if (strlen($username) < 21) {
                 
 
                 //Set tables
-                $_SESSION['success'] = 'Registered! You can now log in.';
+                if(isset($config['requireVerification']) && $config['requireVerification'] === true){
+                    $_SESSION['success'] = 'Registered! You must verify your email address before you log in.';
+                } else {
+                    $_SESSION['success'] = 'Registered! You may now log in.';
+                }
                 route('x', '../../index.php?content=login');
             } else {
                 $_SESSION['error'] = 'That email is already taken!';

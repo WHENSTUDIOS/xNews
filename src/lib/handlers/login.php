@@ -61,7 +61,17 @@ if ($rowCount >= 1) {
             route('x', '../../index.php?content=login');
         }
     } else {
-        $_SESSION['error'] = 'Your account is not verified!';
+        $tokenquery = $conn->prepare("SELECT * FROM registration_tokens WHERE username = ':username';");
+        if($tokenresult = $tokenquery->execute(array(':username' => $username))){
+            $sitename = $config['siteName'];
+            $url = $config['url'];
+            email($email, 'Verify your account', "We noticed you tried to log in with an unverified account at $sitename.\nHere's your verification link: http://$url/index.php?action=verify&token=$token\nThanks!", $config);
+        } else { 
+            $_SESSION['error'] = 'Unable to create registration token (this is a <i>server side</i> issue).';
+            route('x', '../../index.php?content=login');        
+        }
+
+        $_SESSION['error'] = 'Your account is not verified! We\'ve re-sent our verification email. Check your spam folder!';
         route('x', '../../index.php?content=login');
     }
 } else {
