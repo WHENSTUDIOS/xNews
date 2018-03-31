@@ -15,5 +15,6 @@ Route::redirect('/', 'home');
 // Route::get('/login', 'PagesController@login');
 // Route::get('/register', 'PagesController@register');
 Route::get('/home', 'PagesController@home')->name('home');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Auth::routes();
