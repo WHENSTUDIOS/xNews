@@ -7,10 +7,13 @@
 				<div class="col-md-8 col-md-offset-2">
 					<h2>Register</h2>
                     @if ($errors->has('password'))
-                        <span class="error">{{ $errors->first('password') }}</span>
+                        <span class="error"><strong>Error</strong>: {{ $errors->first('password') }}</span>
+                    @endif
+                    @if ($errors->has('name'))
+                        <span class="error"><strong>Error</strong>: {{ $errors->first('name') }}</span>
                     @endif
                     @if ($errors->has('email'))
-                        <span class="error">{{ $errors->first('email') }}</span>
+                        <span class="error"><strong>Error</strong>: {{ $errors->first('email') }}</span>
                     @endif
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="{{ route('register') }}" method="post">
@@ -29,9 +32,6 @@
 							<div class="col-md-12">
                                 <div class="form-group">
 									<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-								</div>
-                                <div class="form-group">
-									<input type="password" id="password-confirm" name="password-confirm" class="form-control" placeholder="Confirm Password" required>
 								</div>
 								<div class="form-group">
 								<p><small><input type="checkbox" required> I accept the <a href="terms">Terms &amp; Conditions</a> of {{ Config::get('site.data.name') }}</small></p>

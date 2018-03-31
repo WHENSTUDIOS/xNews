@@ -7,10 +7,10 @@
 				<div class="col-md-8 col-md-offset-2">
 					<h2>Log In</h2>
                     @if ($errors->has('password'))
-                        <span class="error">{{ $errors->first('password') }}</span>
+                        <span class="error"><strong>Error</strong>: {{ $errors->first('password') }}</span>
                     @endif
                     @if ($errors->has('email'))
-                        <span class="error">{{ $errors->first('email') }}</span>
+                        <span class="error"><strong>Error</strong>: {{ $errors->first('email') }}</span>
                     @endif
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="{{route('login')}}" method="post">
