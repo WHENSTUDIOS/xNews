@@ -1,4 +1,7 @@
-
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
 <!-- jQuery 3 -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->

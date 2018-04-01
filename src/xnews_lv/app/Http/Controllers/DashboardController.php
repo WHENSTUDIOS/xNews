@@ -23,4 +23,12 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
+    public function edit_article($id){
+        if(Auth::check()){
+            $posts = Post::find($id);
+            return view('dashboard.articles.edit')->with('post', $posts);
+            } else {
+            return redirect('login');
+            }
+    }
 }

@@ -34,7 +34,7 @@
                                         <td>{{$post->updated_at}}</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->update_id}}
-                                        <td><a href="{{url('dashboard/articles/edit'.$post->id)}}">Edit</a></td>
+                                        <td><a href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a></td>
                                     </tr>
                                 @endforeach
                             @endif
