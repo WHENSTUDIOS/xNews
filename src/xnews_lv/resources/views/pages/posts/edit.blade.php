@@ -5,7 +5,7 @@
 				<div class="col-md-8 col-md-offset-2">
 					<h2>Edit Post <small>{{$post->title}}</small></h2>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
-					<form action="../posts" method="post">
+					<form action="../../posts/{{$post->id}}" method="post">
                     @csrf
 						<div class="row">
 						<div class="col-xl-4">
@@ -23,6 +23,7 @@
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
+                                    <input name="_method" type="hidden" value="PUT">
                                     <input type="submit" class="btn btn-primary" value="Post">
 								</div>
 							</div>
@@ -35,6 +36,6 @@
        </div>
 	</div>
     <script>
-    CKEDITOR.instances['article-ckeditor'].setData(<?php echo $post->title ?>);
+    CKEDITOR.instances.article-ckeditor.setData(<?php echo $post->title ?>);
     </script>
 @endsection
