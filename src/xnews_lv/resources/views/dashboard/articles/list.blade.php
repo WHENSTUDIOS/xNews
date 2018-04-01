@@ -20,6 +20,7 @@
                                 <th>Created On</th>
                                 <th>Last Updated</th>
                                 <th>Author</th>
+                                <th>Last Editor (ID)</th>
                                 <th>Actions</th>
                             </tr>
                             @if(count($posts) <= 0)
@@ -32,6 +33,7 @@
                                         <td>{{$post->created_at}}</td>
                                         <td>{{$post->updated_at}}</td>
                                         <td>{{$post->user['name']}}</td>
+                                        <td>{{$post->update_id}}
                                         <td><a href="{{url('dashboard/articles/edit'.$post->id)}}">Edit</a></td>
                                     </tr>
                                 @endforeach
