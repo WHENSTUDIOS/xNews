@@ -7719,6 +7719,14 @@ h1, h2, h3, h4, h5, h6 {
 .functions {
   float: right !important;
 }
+.delete-button {
+  background:none!important;
+  color:#ce8483;
+  border:none; 
+  padding:0!important;
+  font: inherit;
+  cursor: pointer;
+}
 #fh5co-board .item img {
   max-width: 100%;
   -webkit-transition: 0.2s;

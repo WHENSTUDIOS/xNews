@@ -11,11 +11,17 @@
                         <small>
                             Posted by
                             <strong>
+                                <form action="../posts/{{$post->id}}" method="POST">
+                                @csrf
                                 <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a></strong>
                                 | Last modified at <strong>{{$post->updated_at}}</strong>
+                                @if(Auth::check())
                                 <span class="functions"><a href="../posts/{{$post->id}}/edit">Edit</a>
                                 |
-                                <a href="../posts/{{$post->id}}/delete">Delete </span>
+                                <input name="_method" type="hidden" value="DELETE">
+                                <input type="submit" class="delete-button error" value="Delete"/></span>
+                                @endif
+                                </form>
                         </small>
                         </h2>
                 </div>
