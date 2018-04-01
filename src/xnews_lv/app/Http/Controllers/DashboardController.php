@@ -31,4 +31,17 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
+    public function update_post(Request $request, $id){
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->update_id = Auth::user()->name;
+        $post->save();
+        return redirect('/dashboard/articles/list');
+    }
 }

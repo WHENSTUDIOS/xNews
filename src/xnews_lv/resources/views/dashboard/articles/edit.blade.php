@@ -9,18 +9,21 @@ $post->title) @section('main_content')
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body pad">
-                    <form lpformnum="1">
+                    <form method="POST" action="{{url('/dashboard/articles/update/'.$post->id)}}">
+                    @csrf
                         <div class="form-group">
                             <label>Title</label>
-                            <input type="text" class="form-control" value="{{$post->title}}">
+                            <input type="text" id="title" name="title" class="form-control" value="{{$post->title}}">
                         </div>
                         <label>Body</label>
-                        <textarea id="article-ckeditor">{{$post->body}}</textarea>
-                    </form>
+                        <textarea name="body" id="article-ckeditor">{!!$post->body!!}</textarea>
                 </div>
                 <div class="box-footer">
+                <input name="_method" type="hidden" value="PUT">
+
                     <button type="submit" class="btn btn-primary">Edit</button>
                     <a href="{{url('dashboard/articles/list')}}" class="btn btn-warning">Cancel</a>
+                    </form>
                 </div>
             </div>
             <!-- /.box-body -->

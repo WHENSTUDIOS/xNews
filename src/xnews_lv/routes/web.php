@@ -31,5 +31,6 @@ Route::get('/dashboard', 'DashboardController@dashboard');
 Route::redirect('/admin', '/dashboard');
 Route::get('/dashboard/articles/list', 'DashboardController@list_articles');
 Route::get('/dashboard/articles/edit/{id}', 'DashboardController@edit_article');
+Route::put('/dashboard/articles/update/{id}', 'DashboardController@update_post');
 
 Auth::routes();
