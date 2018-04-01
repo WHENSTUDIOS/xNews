@@ -28,5 +28,6 @@ Route::get('/terms', 'PagesController@terms');
 //User Dashboard
 
 Route::get('/dashboard', 'DashboardController@dashboard');
+Route::redirect('/admin', '/dashboard');
 
 Auth::routes();
