@@ -11,8 +11,8 @@
                         <small>
                             Posted by
                             <strong>
-                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}}</a>
-                            </strong>
+                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a></strong>
+                                | Last modified at <strong>{{$post->updated_at}}</strong>
                                 <span class="functions"><a href="../posts/{{$post->id}}/edit">Edit</a>
                                 |
                                 <a href="../posts/{{$post->id}}/delete">Delete </span>
