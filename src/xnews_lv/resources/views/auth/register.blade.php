@@ -7,13 +7,13 @@
 				<div class="col-md-8 col-md-offset-2">
 					<h2>Register</h2>
                     @if ($errors->has('password'))
-                        <span class="error"><strong>Error</strong>: {{ $errors->first('password') }}</span>
+                        <p><span class="error"><strong>Error</strong>: {{ $errors->first('password') }}</span></p>
                     @endif
                     @if ($errors->has('name'))
-                        <span class="error"><strong>Error</strong>: {{ $errors->first('name') }}</span>
+                        <p><span class="error"><strong>Error</strong>: {{ $errors->first('name') }}</span></p>
                     @endif
                     @if ($errors->has('email'))
-                        <span class="error"><strong>Error</strong>: {{ $errors->first('email') }}</span>
+                        <p><span class="error"><strong>Error</strong>: {{ $errors->first('email') }}</span></p>
                     @endif
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="{{ route('register') }}" method="post">
