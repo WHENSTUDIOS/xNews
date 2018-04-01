@@ -23,5 +23,6 @@ Route::put('posts/{post}', 'PostsController@update');
 Route::get('posts/{post}', 'PostsController@show');
 Route::delete('posts/{post}', 'PostsController@destroy');
 Route::get('posts/{post}/edit', 'PostsController@edit');
+Route::get('/terms', 'PagesController@terms');
 
 Auth::routes();

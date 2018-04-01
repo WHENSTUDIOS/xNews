@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use Auth;
+use App\Data;
 
 class PagesController extends Controller
 {
@@ -20,5 +21,12 @@ class PagesController extends Controller
     }
     public function register(){
         return view('pages.register');
+    }
+    public function terms(){
+        if($terms = Data::find('terms')){
+            return view('pages.terms')->with('terms', $terms);
+        } else {
+            return view('pages.terms');
+        }
     }
 }
