@@ -11,11 +11,11 @@
                         <small>
                             Posted by
                             <strong>
-                                <a href="profile/{{$post->user['id']}}">{{$post->user['name']}}</a>
+                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}}</a>
                             </strong>
-                                <span class="functions"><a href="posts/{{$post->id}}/edit">Edit</a>
+                                <span class="functions"><a href="../posts/{{$post->id}}/edit">Edit</a>
                                 |
-                                <a href="posts/{{$post->id}}/delete">Delete </span>
+                                <a href="../posts/{{$post->id}}/delete">Delete </span>
                         </small>
                         </h2>
                 </div>

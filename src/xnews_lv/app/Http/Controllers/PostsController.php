@@ -79,7 +79,11 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        if($posts = Post::find($id)){
+            return view('pages.posts.edit')->with('post', $posts);
+        } else {
+            return redirect('/home');
+        }
     }
 
     /**
