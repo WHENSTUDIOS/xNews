@@ -19,7 +19,7 @@
                         @endif
                         <br>
                         <label for="title">Article Content</label>
-                        <textarea id="article-ckeditor" class="form-control" value="{{$post->body}}" name="body"></textarea>
+                        <textarea id="article-ckeditor" class="form-control" name="body">{!!$post->body!!}</textarea>
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
@@ -35,7 +35,4 @@
         	</div>
        </div>
 	</div>
-    <script>
-    CKEDITOR.instances.article-ckeditor.setData(<?php echo $post->title ?>);
-    </script>
 @endsection
