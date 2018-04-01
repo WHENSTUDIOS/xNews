@@ -14,7 +14,14 @@
 Route::redirect('/', 'home');
 // Route::get('/login', 'PagesController@login');
 // Route::get('/register', 'PagesController@register');
-Route::get('/home', 'PagesController@home')->name('home');
+Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::resource('posts', 'PostsController');
+Route::post('posts', 'PostsController@store');
+Route::get('posts/create', 'PostsController@create');
+Route::put('posts/{post}', 'PostsController@update');
+Route::get('posts/{post}', 'PostsController@show');
+Route::delete('posts/{post}', 'PostsController@destroy');
+Route::get('posts/{post}/edit', 'PostsController@edit');
 
 Auth::routes();
