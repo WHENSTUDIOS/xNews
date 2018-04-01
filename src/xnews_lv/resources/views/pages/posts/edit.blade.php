@@ -24,7 +24,8 @@
 							<div class="col-xl-4">
 								<div class="form-group">
                                     <input name="_method" type="hidden" value="PUT">
-                                    <input type="submit" class="btn btn-primary" value="Post">
+                                    <input type="submit" class="btn btn-primary" value="Edit">
+                                    <a href="{{url('/posts/'.$post->id)}}" class="btn btn-warning">Cancel</a>
 								</div>
 							</div>
 						</div>
