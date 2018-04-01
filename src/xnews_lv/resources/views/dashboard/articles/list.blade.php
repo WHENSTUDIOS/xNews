@@ -30,8 +30,8 @@
                                     <tr>
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
-                                        <td>{{$post->created_at}}</td>
-                                        <td>{{$post->updated_at}}</td>
+                                        <td>{{$post->created_at}} UTC</td>
+                                        <td>{{$post->updated_at}} UTC</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->update_id}}
                                         <td><a href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a></td>
