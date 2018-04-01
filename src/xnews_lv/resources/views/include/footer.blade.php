@@ -23,7 +23,10 @@
 		</div>
 	</footer>
 
-
+	 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
 	<!-- jQuery -->
 	<script src="{{asset('js/jquery.min.js')}}"></script>
 	<!-- jQuery Easing -->
