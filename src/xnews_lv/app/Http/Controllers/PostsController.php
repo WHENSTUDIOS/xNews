@@ -15,7 +15,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at','desc')->get();
         return view('pages.home')->with('posts', $posts);
     }
 
@@ -45,7 +45,15 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        return 123;
+        
+        //Create the post
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->user_id = Auth::user()->id; 
+        $post->save();
+
+        return redirect('/posts');
     }
 
     /**
