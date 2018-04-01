@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Terms &amp; Conditions')
+@section('title', 'Terms & Conditions')
 @section('main_content')
 <div id="fh5co-main">
 		<div class="container">
@@ -15,6 +15,8 @@
                                 @else
                                 No Terms &amp; Conditions provided.
                                 @endif
+								<hr>
+								<a onclick="window.history.go(-1); return false;" class="btn btn-primary">Back</a>
 							</div>
 						</div>
 					</form>
