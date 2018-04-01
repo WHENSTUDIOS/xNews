@@ -6,6 +6,7 @@
 					<h2>Create Post</h2>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<form action="lib/handlers/newarticle.php" method="post">
+                    @csrf
 						<div class="row">
 						<div class="col-xl-4">
                         <label for="title">Post Title</label>
