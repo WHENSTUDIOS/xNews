@@ -51,7 +51,7 @@ class PostsController extends Controller
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = Auth::user()->id;
-        $post->update_id = Auth::user()->id;
+        $post->update_id = Auth::user()->name;
         $post->save();
 
         return redirect('/posts');
