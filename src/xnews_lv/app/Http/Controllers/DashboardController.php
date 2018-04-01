@@ -65,4 +65,13 @@ class DashboardController extends Controller
         $post->save();
         return redirect('/dashboard/articles/list');
     }
+    public function search(Request $request){
+        $this->validate($request, [
+            'q' => 'required',
+        ]);
+
+        $post = new Post;
+        $result = Post::where('title', 'LIKE', '%'.$request->input('q').'%')->orWhere('body','LIKE','%'.$request->input('q').'%')->get();
+        return view('dashboard.articles.search_result')->with('result', $result)->with('q', $request->input('q'));
+    }
 }

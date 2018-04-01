@@ -35,4 +35,6 @@ Route::put('/dashboard/articles/update/{id}', 'DashboardController@update_post')
 Route::get('/dashboard/articles/create', 'DashboardController@create_article');
 Route::post('dashboard/articles/create/new', 'DashboardController@store_article');
 
+Route::post('/dashboard/articles/search', 'DashboardController@search');
+
 Auth::routes();
