@@ -16,25 +16,23 @@
                         <tbody>
                         @if(count($result) <= 0)
                             &nbsp;No articles found for '{{$q}}'
-                            @else  
+                            @else 
                             <tr>
-                                <th>Post ID</th>
-                                <th>Title</th>
-                                <th>Created On</th>
-                                <th>Last Updated</th>
-                                <th>Author</th>
-                                <th>Last Editor (ID)</th>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Email Address</th>
+                                <th>Account Created</th>
+                                <th>Auth Level</th>
                                 <th>Actions</th>
                             </tr>
-                                @foreach($result as $post)
+                                @foreach($result as $res)
                                     <tr>
-                                        <td>{{$post->id}}</td>
-                                        <td>{{$post->title}}</td>
-                                        <td>{{$post->created_at}} UTC</td>
-                                        <td>{{$post->updated_at}} UTC</td>
-                                        <td>{{$post->user['name']}}</td>
-                                        <td>{{$post->update_id}}
-                                        <td><a href="{{url('posts/'.$post->id)}}" target="_blank">View on Website</a></td>
+                                        <td>{{$res->id}}</td>
+                                        <td>{{$res->name}}</td>
+                                        <td>{{$res->email}}</td>
+                                        <td>{{$res->created_at}} UTC</td>
+                                        <td>{{$res->level}}</td>
+                                        <td><a href="{{url('profile/'.$res->id)}}">View Website Profile</a></td>
                                     </tr>
                                 @endforeach
                             @endif

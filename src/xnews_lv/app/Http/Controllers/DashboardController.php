@@ -80,4 +80,20 @@ class DashboardController extends Controller
         $users = User::orderBy('created_at','desc')->get();
         return view('dashboard.users.list')->with('users', $users);
     }
+    public function search_user(){
+        if(Auth::check()){
+            return view('dashboard.users.search');
+            } else {
+            return redirect('login');
+            }
+    }
+    public function search_users(Request $request){
+        $this->validate($request, [
+            'q' => 'required',
+        ]);
+
+        $user = new User;
+        $result = User::where('name', 'LIKE', '%'.$request->input('q').'%')->orWhere('email','LIKE','%'.$request->input('q').'%')->get();
+        return view('dashboard.users.search_result')->with('result', $result)->with('q', $request->input('q'));
+    }
 }
