@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Post;
+use App\User;
 
 class DashboardController extends Controller
 {
@@ -73,5 +74,10 @@ class DashboardController extends Controller
         $post = new Post;
         $result = Post::where('title', 'LIKE', '%'.$request->input('q').'%')->orWhere('body','LIKE','%'.$request->input('q').'%')->get();
         return view('dashboard.articles.search_result')->with('result', $result)->with('q', $request->input('q'));
+    }
+    public function list_users(){
+        $user = new User;
+        $users = User::orderBy('created_at','desc')->get();
+        return view('dashboard.users.list')->with('users', $users);
     }
 }
