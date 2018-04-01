@@ -29,5 +29,6 @@ Route::get('/terms', 'PagesController@terms');
 
 Route::get('/dashboard', 'DashboardController@dashboard');
 Route::redirect('/admin', '/dashboard');
+Route::get('/dashboard/articles/list', 'DashboardController@list_articles');
 
 Auth::routes();
