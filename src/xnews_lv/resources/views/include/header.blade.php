@@ -52,7 +52,7 @@
                      @if(Request::is('home'))
                      <a class="navbar-brand">{{ Config::get('site.data.name') }}</a>
                      @else
-                     <a href="home" class="navbar-brand">{{ Config::get('site.data.name') }}</a>
+                     <a href="{{ Config::get('site.data.url') }}/home" class="navbar-brand">{{ Config::get('site.data.name') }}</a>
                      @endif
 				</div>
 			</div>
