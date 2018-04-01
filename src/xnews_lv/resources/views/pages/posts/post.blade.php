@@ -1,4 +1,4 @@
-@extends('layouts.main') @section('title', 'Article View') @section('main_content')
+@extends('layouts.main') @section('title', Config::get('site.data.name') . ' - ' . $post->title) @section('main_content')
 <div id="fh5co-main">
     <div class="container">
         <div class="row">
