@@ -12,7 +12,7 @@
 			@foreach($posts as $post)
 			<div class="item">
         		<div class="fh5co-desc">
-				<h1><a href="article/1">{{ $post->title }}</a></h1>
+				<h1><a href="posts/{{$post->id}}">{{ $post->title }}</a></h1>
 					<strong>By</strong> <a href="profile/{{$post->user['id']}}">{{ $post->user['name'] }}</a> <strong>at</strong> {{ $post->created_at }}
 				</div>
         	</div>

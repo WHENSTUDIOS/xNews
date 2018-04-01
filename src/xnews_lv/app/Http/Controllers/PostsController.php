@@ -47,8 +47,11 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $posts = Post::find($id);
-        return view('pages.posts.post')->with('post', $posts);
+        if($posts = Post::find($id)){
+            return view('pages.posts.post')->with('post', $posts);
+        } else {
+            return redirect('/home');
+        }
     }
 
     /**
