@@ -12,10 +12,10 @@
 					</p>
 					<p><small>&copy; xNews <?php echo date('Y'); ?>. All rights reserved. Designed by <a href="http://freehtml5.co">Hydrogen</a> | 
 					@if(!Auth::guest())
-					<a href="logout">Log Out</a></small></p>
+					<a href="{{url('logout')}}">Log Out</a></small></p>
 					@else
 					Wanna join in the fun? 
-					<a href="register">Register</a></small></p>
+					<a href="{{url('register')}}">Register</a></small></p>
 					@endif
 					<p><small><b>LIGHT</b> | DARK</small></p>
 				</div>

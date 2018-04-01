@@ -41,18 +41,34 @@
 			<div class="row">
 				<div class="col-md-12">
                     @if(Request::is('login'))
-                    <a href="register" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Register  <i class="icon-user"></i></a>
+                    <a href="{{url('register')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Register  <i class="icon-user"></i></a>
                     @elseif(Request::is('register'))
-                    <a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
+                    <a href="{{url('login')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
 					@elseif(!Auth::guest())
-					<a href="dashboard" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">{{ Auth::user()->name }}  <i class="icon-user"></i></a>
+						@switch(Auth::user()->level)
+							@case(0)
+							<a href="{{url('dashboard')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn"><span class="label label-default">Banned</span> {{ Auth::user()->name }}  <i class="icon-user"></i></a>
+							@break
+							@case(2)
+							<a href="{{url('dashboard')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn"><span class="label label-info">Editor</span> {{ Auth::user()->name }}  <i class="icon-user"></i></a>
+							@break
+							@case(3)
+							<a href="{{url('dashboard')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn"><span class="label label-success">Moderator</span> {{ Auth::user()->name }}  <i class="icon-user"></i></a>
+							@break
+							@case(4)
+							<a href="{{url('admin')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn"><span class="label label-danger">Admin</span> {{ Auth::user()->name }}  <i class="icon-user"></i></a>
+							@break
+							@default
+							<a href="{{url('dashboard')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">{{ Auth::user()->name }}  <i class="icon-user"></i></a>
+							@break
+						@endswitch
 					@else
-					<a href="login" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
+					<a href="{{url('login')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">Log In  <i class="icon-user"></i></a>
                     @endif
                      @if(Request::is('home'))
                      <a class="navbar-brand">{{ Config::get('site.data.name') }}</a>
                      @else
-                     <a href="{{ Config::get('site.data.url') }}/home" class="navbar-brand">{{ Config::get('site.data.name') }}</a>
+                     <a href="{{ url('home') }}" class="navbar-brand">{{ Config::get('site.data.name') }}</a>
                      @endif
 				</div>
 			</div>
