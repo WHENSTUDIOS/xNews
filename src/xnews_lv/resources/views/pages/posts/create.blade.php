@@ -8,13 +8,15 @@
 					<form action="lib/handlers/newarticle.php" method="post">
 						<div class="row">
 						<div class="col-xl-4">
-                            Supports most <strong>HTML</strong> syntax. Take a look at our <?php a('Cheat Sheet', 'index.php?content=htmlsyntax', '', 'new_tab'); ?>!
-                        <textarea id="editor" class="form-control" name="editor">Article body</textarea>
+                        <label for="title">Post Title</label>
+                        <input id="title" name="title" class="form-control" placeholder="Title" />
+                        <br>
+                        <label for="title">Article Content</label>
+                        <textarea id="article-ckeditor" class="form-control" name="editor"></textarea>
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Post">
-                                    <?php a('Save Draft', 'index.php?action=savedraft', 'btn btn-warning', ''); ?>
 								</div>
 							</div>
 						</div>
