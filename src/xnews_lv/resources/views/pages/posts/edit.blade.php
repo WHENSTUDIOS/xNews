@@ -12,14 +12,14 @@
                         <label for="title">Post Title</label>
                         @if(count($errors) > 0)
                         <div class="has-error">
-                        <input id="title" name="title" class="form-control" placeholder="I need a title! Don't leave me behind..." />
+                        <input id="title" name="title" class="form-control" value="{{$post->title}}" />
                         </div>
                         @else
-                        <input id="title" name="title" class="form-control" placeholder="Title" />
+                        <input id="title" name="title" class="form-control" value="{{$post->title}}" />
                         @endif
                         <br>
                         <label for="title">Article Content</label>
-                        <textarea id="article-ckeditor" class="form-control" name="body"></textarea>
+                        <textarea id="article-ckeditor" class="form-control" value="{{$post->body}}" name="body"></textarea>
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
@@ -34,4 +34,7 @@
         	</div>
        </div>
 	</div>
+    <script>
+    CKEDITOR.instances['article-ckeditor'].setData(<?php echo $post->title ?>);
+    </script>
 @endsection
