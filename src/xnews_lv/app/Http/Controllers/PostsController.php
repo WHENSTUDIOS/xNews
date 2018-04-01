@@ -50,7 +50,8 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->user_id = Auth::user()->id; 
+        $post->user_id = Auth::user()->id;
+        $post->update_id = Auth::user()->id;
         $post->save();
 
         return redirect('/posts');
@@ -103,6 +104,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->update_id = Auth::user()->id;
         $post->save();
         return redirect("/posts/$id");
     }
