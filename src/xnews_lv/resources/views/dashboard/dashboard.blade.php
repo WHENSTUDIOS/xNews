@@ -1,4 +1,4 @@
-@extends('templates/dashboard')
+@extends('dashboard.templates.dashboard')
 @section('title', 'Dashboard')
 @section('page_title', 'Dashboard')
 @section('page_description', 'User control panel')

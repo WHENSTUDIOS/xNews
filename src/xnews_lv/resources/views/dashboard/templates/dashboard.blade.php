@@ -2,6 +2,6 @@
 <html lang="en">
 <head>
     <title>@yield('title')</title>
-@include('dashboard/header')
+@include('dashboard/dashboard/header')
 @yield('main_content')
-@include('dashboard/footer')
+@include('dashboard/dashboard/footer')

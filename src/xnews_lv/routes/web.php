@@ -25,4 +25,8 @@ Route::delete('posts/{post}', 'PostsController@destroy');
 Route::get('posts/{post}/edit', 'PostsController@edit');
 Route::get('/terms', 'PagesController@terms');
 
+//User Dashboard
+
+Route::get('/dashboard', 'DashboardController@dashboard');
+
 Auth::routes();
