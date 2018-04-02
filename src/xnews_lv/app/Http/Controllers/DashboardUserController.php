@@ -62,7 +62,12 @@ class DashboardUserController extends Controller
             'edit-name' => 'required',
             'edit-email' => 'required',
             'edit-level' => 'required', 
-        ]);
+        ], 
+    [
+        'edit-name.required' => 'Please provide a username.',
+        'edit-email.required' => 'Please provide an email address.',
+        'edit-level.required' => 'Please provide an authentication level.',
+    ]);
 
         $user->name = $request->input('edit-name');
         $user->email = $request->input('edit-email');

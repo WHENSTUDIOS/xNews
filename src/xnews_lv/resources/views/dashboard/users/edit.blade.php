@@ -29,15 +29,6 @@ $user->name) @section('main_content')
                 <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/details/'.$user->id)}}">
                     @csrf
                     <div class="box-body">
-                        @if(isset($success))
-                        <div class="alert alert-success">
-                            {{$success}}
-                        </div>
-                        @endif @if(isset($errors)) @foreach($errors->all() as $error)
-                        <div class="alert alert-error">
-                            {{$error}}
-                        </div>
-                        @endforeach @endif
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <input type="text" data-lpignore="true" class="form-control" name="edit-name" placeholder="Username" value="{{$user->name}}"
@@ -138,15 +129,6 @@ $user->name) @section('main_content')
             <form method="POST" autocomplete="nope" action="{{url('dashboard/users/create/user')}}">
                 @csrf
                 <div class="box-body">
-                    @if(isset($success))
-                    <div class="alert alert-success">
-                        {{$success}}
-                    </div>
-                    @endif @if(isset($errors)) @foreach($errors->all() as $error)
-                    <div class="alert alert-error">
-                        {{$error}}
-                    </div>
-                    @endforeach @endif
                     <div class="form-group">
                         <label for="exampleInputEmail1">About Me</label>
                         <textarea name="bio" id="article-ckeditor"></textarea>
