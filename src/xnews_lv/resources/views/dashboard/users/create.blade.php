@@ -36,7 +36,7 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> I agree that I have permission to register a new user using the email provided.
+                                <input type="checkbox" required> I agree that I have permission to register a new user using the email provided.
                             </label>
                         </div>
                     </div>
