@@ -15,7 +15,7 @@
                     <table class="table table-hover">
                         <tbody>
                         @if(count($result) <= 0)
-                            &nbsp;No articles found for '{{$q}}'
+                        
                             @else 
                             <tr>
                                 <th>User ID</th>
