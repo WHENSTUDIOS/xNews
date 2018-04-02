@@ -7,6 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Post;
 use App\User;
+use App\Social;
 use Illuminate\Support\Facades\Redirect;
 
 class DashboardUserController extends Controller
@@ -31,9 +32,15 @@ class DashboardUserController extends Controller
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->level = $request->input('level');
+        $social = new Social;
+        $social->user_id = Auth::user()->id;
 
         if($user->save()){
-            return redirect('dashboard/users/list')->with('success', 'Successfully created user.');
+            if($social->save()){
+                return redirect('dashboard/users/list')->with('success', 'Successfully created user.');
+            } else {
+                return redirect('dashboard/users/list')->with('error', 'Server error creating user.');
+            }
         } else {
             return redirect('dashboard/users/list')->with('error', 'Server error creating user.');
         }
