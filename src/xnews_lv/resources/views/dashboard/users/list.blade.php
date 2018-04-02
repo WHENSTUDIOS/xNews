@@ -8,7 +8,7 @@
         <div class="col-xs-12">
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">
-                    <h3 class="box-title">Articles</h3>
+                    <h3 class="box-title">Users</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">

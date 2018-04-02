@@ -11,8 +11,21 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form method="POST" action="{{url('dashboard/users/list')}}">
+                <form method="POST" action="{{url('dashboard/users/create/user')}}">
+                @csrf
                     <div class="box-body">
+                    @if(isset($success))
+                    <div class="alert alert-success">
+                    {{$success}}
+                    </div>
+                    @endif
+                    @if(isset($errors))
+                        @foreach($errors->all() as $error)
+                        <div class="alert alert-error">
+                        {{$error}}
+                        </div>
+                        @endforeach
+                    @endif
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <input type="text" class="form-control" name="name" placeholder="Username" autocomplete="off" required autofocus />
@@ -28,10 +41,10 @@
                         <div class="form-group">
                             <label>Auth Level</label>
                             <select id="level" name="level" class="form-control">
-                                <option name="1">Normal User</option>
-                                <option name="2">Editor</option>
-                                <option name="3">Moderator</option>
-                                <option name="4">Admin</option>
+                                <option id="1" value="1">Normal User</option>
+                                <option id="2" value="2">Editor</option>
+                                <option id="3" value="3">Moderator</option>
+                                <option id="4" value="4">Admin</option>
                             </select>
                         </div>
                         <div class="checkbox">

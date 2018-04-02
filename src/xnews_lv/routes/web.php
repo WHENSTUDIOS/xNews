@@ -40,6 +40,6 @@ Route::get('/dashboard/users/create', 'DashboardController@create_user');
 
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
-Route::post('/dashboard/users/list', 'DashboardUserController@register');
+Route::post('/dashboard/users/create/user', 'DashboardUserController@register');
 
 Auth::routes();
