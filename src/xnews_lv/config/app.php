@@ -147,7 +147,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
-        Daftspunk\October\Rain\Config\ConfigServiceProvider::class,
 
         /*
          * Package Service Providers...
