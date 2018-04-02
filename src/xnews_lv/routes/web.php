@@ -33,7 +33,7 @@ Route::get('/dashboard/articles/list', 'DashboardController@list_articles');
 Route::get('/dashboard/articles/edit/{id}', 'DashboardController@edit_article');
 Route::put('/dashboard/articles/update/{id}', 'DashboardController@update_post');
 Route::get('/dashboard/articles/create', 'DashboardController@create_article');
-Route::post('dashboard/articles/create/new', 'DashboardController@store_article');
+Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
 Route::get('/dashboard/users/list', 'DashboardController@list_users');
 Route::get('/dashboard/users/search', 'DashboardController@search_user');
 Route::get('/dashboard/users/create', 'DashboardController@create_user');

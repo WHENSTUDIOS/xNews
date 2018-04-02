@@ -54,20 +54,6 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
-    public function store_article(Request $request){
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-        ]);
-
-        $post = new Post;
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->user_id = Auth::user()->id;
-        $post->update_id = Auth::user()->name;
-        $post->save();
-        return redirect('/dashboard/articles/list');
-    }
     public function list_users(){
         $user = new User;
         $users = User::orderBy('created_at','desc')->get();
