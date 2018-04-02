@@ -1,5 +1,5 @@
 @extends('dashboard.templates.dashboard')
-@section('title', 'Search Results')
+@section('title', $q.' - User Search')
 @section('page_title', 'Search Results')
 @section('page_description', 'Did we find something?')
 @section('main_content')
