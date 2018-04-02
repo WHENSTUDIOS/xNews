@@ -216,6 +216,7 @@
           <ul class="treeview-menu">
             <li><a href="{{url('dashboard/content/wcms')}}"><i class="fa fa-clipboard"></i> wCMS</a></li>
             <li><a href="{{url('dashboard/content/templates')}}"><i class="fa fa-code"></i> Article Templates</a></li>
+            <li><a href="{{url('dashboard/content/notices')}}"><i class="fa fa-bullhorn"></i> Notices</a></li>
           </ul>
         </li>
         <li class="treeview">
