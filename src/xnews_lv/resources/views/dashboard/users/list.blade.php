@@ -10,6 +10,10 @@
                     <div class="alert alert-success">
                     {{ Session::get('success') }}
                     </div>
+                @elseif(Session::get('error'))
+                    <div class="alert alert-danger">
+                    {{ Session::get('error') }}
+                    </div>
                 @endif
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">

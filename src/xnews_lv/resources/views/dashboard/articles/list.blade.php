@@ -6,6 +6,15 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
+        @if(Session::get('success'))
+                    <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                    </div>
+                @elseif(Session::get('error'))
+                    <div class="alert alert-danger">
+                    {{ Session::get('error') }}
+                    </div>
+                @endif
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">
                     <h3 class="box-title">Articles</h3>
