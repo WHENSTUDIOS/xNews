@@ -95,4 +95,9 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
+    public function list_staff(){
+        $user = new User;
+        $users = User::where('level', '>=', '2')->orderBy('created_at','desc')->get();
+        return view('dashboard.users.staff')->with('users', $users);
+    }
 }
