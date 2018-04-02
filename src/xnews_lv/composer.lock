@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "05c2ccbc25673921237d88f1beb9ccd2",
+    "content-hash": "d2126b362b64c374e3312acf56df9d36",
     "packages": [
+        {
+            "name": "axdlee/laravel-config-writer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/axdlee/laravel-config-writer.git",
+                "reference": "6dfc17cd3fe7cd052032fed057817e0acefe1ffd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/axdlee/laravel-config-writer/zipball/6dfc17cd3fe7cd052032fed057817e0acefe1ffd",
+                "reference": "6dfc17cd3fe7cd052032fed057817e0acefe1ffd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Axdlee\\Config\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "axdlee",
+                    "email": "xdlee110@gmail.com"
+                }
+            ],
+            "description": "Write to Laravel Config files and maintain file integrity. Support Laravel 5.3+",
+            "homepage": "http://xdlee.com",
+            "support": {
+                "source": "https://github.com/axdlee/laravel-config-writer/tree/1.0.2",
+                "issues": "https://github.com/axdlee/laravel-config-writer/issues"
+            },
+            "time": "2017-04-20T06:45:32+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -452,6 +492,41 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "larapack/config-writer",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/larapack/config-writer.git",
+                "reference": "b36a716833240fe9e8b4b4d007b68ef9e91a1124"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/larapack/config-writer/zipball/b36a716833240fe9e8b4b4d007b68ef9e91a1124",
+                "reference": "b36a716833240fe9e8b4b4d007b68ef9e91a1124",
+                "shasum": ""
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Save changes to the configuration file in script.",
+            "keywords": [
+                "config",
+                "larapack",
+                "laravel",
+                "package",
+                "save",
+                "writer"
+            ],
+            "time": "2016-04-28T12:45:27+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1114,16 +1189,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.17",
+            "version": "v0.8.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "5069b70e8c4ea492c2b5939b6eddc78bfe41cfec"
+                "reference": "5357b1cffc8fb375d6a9e3c86d5c82dd38a40834"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/5069b70e8c4ea492c2b5939b6eddc78bfe41cfec",
-                "reference": "5069b70e8c4ea492c2b5939b6eddc78bfe41cfec",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/5357b1cffc8fb375d6a9e3c86d5c82dd38a40834",
+                "reference": "5357b1cffc8fb375d6a9e3c86d5c82dd38a40834",
                 "shasum": ""
             },
             "require": {
@@ -1182,7 +1257,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-12-28T16:14:16+00:00"
+            "time": "2018-04-02T05:41:44+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -4021,7 +4096,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "axdlee/laravel-config-writer": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

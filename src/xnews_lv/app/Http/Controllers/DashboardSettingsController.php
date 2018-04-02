@@ -20,11 +20,10 @@ class DashboardSettingsController extends Controller
         'db-name.required' => 'Please provide a database name.',
     ]);
 
-    config(['database.connections.mysql.host' => $request->input('db-host')]);
-    config(['database.connections.mysql.username' => $request->input('db-user')]);
-    config(['database.connections.mysql.password' => $request->input('db-pwd')]);
-    config(['database.connections.mysql.database' => $request->input('db-host')]);
-    Config::set('database.connections.mysql.host', $request->input('db-host'));
+    Config::write('database.connections.mysql.host', $request->input('db-host'));
+    Config::write('database.connections.mysql.username', $request->input('db-user'));
+    Config::write('database.connections.mysql.password', $request->input('db-pwd'));
+    Config::write('database.connections.mysql.database', $request->input('db-name'));
 
     return redirect('dashboard/settings/database')->with('success', 'Successfully updated database settings.');
 
