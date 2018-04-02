@@ -64,6 +64,46 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+      <div class="row">
+      <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-success" data-vivaldi-spatnav-clickable="1">
+                <div class="box-header with-border">
+                    <h3 class="box-title">My Articles</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body table-responsive no-padding">
+                    @if(count($myposts) <=0 ) 
+                    <div class="form-group">
+                        <center>You have no articles!
+                        </center>
+                </div>
+                @else
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Title</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                        @foreach($myposts as $mypost)
+                        <tr>
+                            <td>{{$mypost->title}}</td>
+                            <td>{{$mypost->created_at}}</td>
+                            <td>
+                                <a class="btn btn-warning btn-xs" target="_blank" href="{{url('posts/'.$mypost->id)}}">View</a>
+                            </td>
+                        </tr>
+                        @endforeach 
+                        @endif
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        </div>
 
 </div></section>
 @endsection
