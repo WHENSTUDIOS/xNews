@@ -42,4 +42,6 @@ Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
 Route::post('/dashboard/users/create/user', 'DashboardUserController@register');
 
+Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
+
 Auth::routes();

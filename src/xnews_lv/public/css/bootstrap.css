@@ -124,6 +124,14 @@ button,
 select {
   text-transform: none;
 }
+.delete-button {
+  background:none!important;
+  color:#ce8483;
+  border:none; 
+  padding:0!important;
+  font: inherit;
+  cursor: pointer;
+}
 button,
 html input[type="button"],
 input[type="reset"],

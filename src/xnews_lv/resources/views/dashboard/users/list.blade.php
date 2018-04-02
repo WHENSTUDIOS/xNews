@@ -6,6 +6,11 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
+        @if(Session::get('success'))
+                    <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                    </div>
+                @endif
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">
                     <h3 class="box-title">Users</h3>
@@ -32,7 +37,11 @@
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->created_at}} UTC</td>
                                         <td>{{$user->level}}</td>
-                                        <td><a href="{{url('dashboard/users/edit/'.$user->id)}}">Edit</a></td>
+                                        <form action="{{url('dashboard/users/delete/'.$user->id)}}" method="POST">
+                                        @csrf
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <td><a class="btn btn-warning btn-xs" href="{{url('profile/'.$user->id)}}">Profile</a> | <a class="btn btn-success btn-xs" href="{{url('dashboard/users/edit/'.$user->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        </form>
                                     </tr>
                                 @endforeach
                             @endif

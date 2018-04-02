@@ -38,4 +38,13 @@ class DashboardUserController extends Controller
             return view('dashboard.users.create')->with('error', 'Server error creating user.');
         }
     }
+
+    public function delete($id){
+        $user = User::find($id);
+        if($user->delete()){
+            return redirect('dashboard/users/list')->with('success', 'User deleted successfully.');
+        } else {
+            return redirect('dashboard/users/list');
+        }
+    }
 }
