@@ -78,4 +78,11 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
+    public function create_user(){
+        if(Auth::check()){
+            return view('dashboard.users.create');
+            } else {
+            return redirect('login');
+            }
+    }
 }

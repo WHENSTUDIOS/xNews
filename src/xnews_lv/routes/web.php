@@ -36,8 +36,10 @@ Route::get('/dashboard/articles/create', 'DashboardController@create_article');
 Route::post('dashboard/articles/create/new', 'DashboardController@store_article');
 Route::get('/dashboard/users/list', 'DashboardController@list_users');
 Route::get('/dashboard/users/search', 'DashboardController@search_user');
+Route::get('/dashboard/users/create', 'DashboardController@create_user');
 
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
+Route::post('/dashboard/users/list', 'DashboardUserController@register');
 
 Auth::routes();
