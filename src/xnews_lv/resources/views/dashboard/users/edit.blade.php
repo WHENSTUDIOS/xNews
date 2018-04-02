@@ -108,7 +108,7 @@ $user->name) @section('main_content')
                             <td>{{$post->title}}</td>
                             <td>{{$post->created_at}}</td>
                             <td>
-                                <a class="btn btn-warning btn-xs" href="{{url('posts/'.$post->id)}}">View</a>
+                                <a class="btn btn-warning btn-xs" target="_blank" href="{{url('posts/'.$post->id)}}">View</a>
                             </td>
                         </tr>
                         @endforeach @endif
