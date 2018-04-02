@@ -38,7 +38,8 @@ Route::get('/dashboard/users/list', 'DashboardController@list_users');
 Route::get('/dashboard/users/search', 'DashboardController@search_user');
 Route::get('/dashboard/users/create', 'DashboardController@create_user');
 Route::get('/dashboard/users/edit/{id}', 'DashboardController@edit_user');
-Route::geT('/dashboard/users/staff', 'DashboardController@list_staff');
+Route::get('/dashboard/users/staff', 'DashboardController@list_staff');
+Route::get('/dashboard/settings/database', 'DashboardController@database');
 
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
@@ -47,6 +48,7 @@ Route::post('/dashboard/users/edit/details/{id}', 'DashboardUserController@edit_
 Route::post('/dashboard/users/edit/password/{id}', 'DashboardUserController@edit_password');
 Route::post('/dashboard/users/edit/profile/{id}', 'DashboardUserController@edit_profile');
 Route::put('/dashboard/users/demote/{id}', 'DashboardUserController@demote_user');
+Route::post('/dashboard/settings/database', 'DashboardSettingsController@database');
 
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
 Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');

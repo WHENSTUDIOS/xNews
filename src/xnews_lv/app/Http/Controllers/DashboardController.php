@@ -100,4 +100,11 @@ class DashboardController extends Controller
         $users = User::where('level', '>=', '2')->orderBy('created_at','desc')->get();
         return view('dashboard.users.staff')->with('users', $users);
     }
+    public function database(){
+        if(Auth::check()){
+            return view('dashboard.settings.database');
+            } else {
+            return redirect('login');
+            }
+    }
 }
