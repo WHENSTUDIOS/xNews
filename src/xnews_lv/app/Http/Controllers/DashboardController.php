@@ -73,4 +73,13 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
+    public function edit_user($id){
+        if(Auth::check()){
+            $user = User::find($id);
+            $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
+            return view('dashboard.users.edit')->with('user', $user)->with('posts', $posts);
+            } else {
+            return redirect('login');
+            }
+    }
 }

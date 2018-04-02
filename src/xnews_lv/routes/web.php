@@ -37,6 +37,7 @@ Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
 Route::get('/dashboard/users/list', 'DashboardController@list_users');
 Route::get('/dashboard/users/search', 'DashboardController@search_user');
 Route::get('/dashboard/users/create', 'DashboardController@create_user');
+Route::get('/dashboard/users/edit/{id}', 'DashboardController@edit_user');
 
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
