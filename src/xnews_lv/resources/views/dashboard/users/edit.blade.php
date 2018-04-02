@@ -11,7 +11,7 @@ $user->name) @section('main_content')
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form method="POST" autocomplete="nope" action="{{url('dashboard/users/create/user')}}">
+                <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/details/'.$user->id)}}">
                     @csrf
                     <div class="box-body">
                         @if(isset($success))
