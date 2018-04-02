@@ -4,6 +4,21 @@ $user->name) @section('main_content')
     <div class="row">
         <!-- left column -->
         <div class="col-md-6">
+            @if(Session::get('success'))
+                    <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                    </div>
+                @elseif(Session::get('error'))
+                    <div class="alert alert-danger">
+                    {{ Session::get('error') }}
+                    </div>
+                @elseif(isset($errors))
+                    @foreach($errors->all() as $error)
+                    <div class="alert alert-error">
+                            {{$error}}
+                    </div>
+                    @endforeach
+                @endif
             <!-- general form elements -->
             <div class="box box-primary" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header with-border">
@@ -35,7 +50,7 @@ $user->name) @section('main_content')
                         </div>
                         <div class="form-group">
                             <label>Auth Level</label>
-                            <select id="level" name="level" class="form-control">
+                            <select id="level" name="edit-level" class="form-control">
                                 <option id="1" value="1" {{ $user->level === 1 ? 'selected' : '' }}>Normal User</option>
                                 <option id="2" value="2" {{ $user->level === 2 ? 'selected' : '' }}>Editor</option>
                                 <option id="3" value="3" {{ $user->level === 3 ? 'selected' : '' }}>Moderator</option>

@@ -54,4 +54,23 @@ class DashboardUserController extends Controller
             return redirect('dashboard/users/list');
         }
     }
+
+    public function edit_details(Request $request, $id){
+        $user = User::find($id);
+
+        $this->validate($request, [
+            'edit-name' => 'required',
+            'edit-email' => 'required',
+            'edit-level' => 'required', 
+        ]);
+
+        $user->name = $request->input('edit-name');
+        $user->email = $request->input('edit-email');
+        $user->level = $request->input('edit-level');
+        if($user->save()){
+            return redirect('dashboard/users/edit/'.$user->id)->with('success', 'User edited successfully.');
+        } else {
+            return redirect('dashboard/users/list');
+        }
+    }
 }

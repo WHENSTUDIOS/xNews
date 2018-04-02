@@ -42,6 +42,7 @@ Route::get('/dashboard/users/edit/{id}', 'DashboardController@edit_user');
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
 Route::post('/dashboard/users/create/user', 'DashboardUserController@register');
+Route::post('/dashboard/users/edit/details/{id}', 'DashboardUserController@edit_details');
 
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
 Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');
