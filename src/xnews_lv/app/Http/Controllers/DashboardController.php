@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Post;
 use App\User;
+use App\Social;
 
 class DashboardController extends Controller
 {
@@ -77,7 +78,8 @@ class DashboardController extends Controller
         if(Auth::check()){
             $user = User::find($id);
             $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
-            return view('dashboard.users.edit')->with('user', $user)->with('posts', $posts);
+            $social = Social::where('user_id', $user->id)->get()->first();
+            return view('dashboard.users.edit')->with('user', $user)->with('posts', $posts)->with('social', $social);
             } else {
             return redirect('login');
             }

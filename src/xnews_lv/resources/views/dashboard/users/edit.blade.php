@@ -129,22 +129,22 @@ $user->name) @section('main_content')
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Google+</label>
-                            <input type="text" class="form-control" placeholder="Full G+ Profile URL">
+                            <input type="text" value="{{$social->googleplus}}" class="form-control" placeholder="Full G+ Profile URL">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Facebook</label>
-                            <input type="text" class="form-control" placeholder="Full Profile URL">
+                            <input type="text" value="{{$social->facebook}}" class="form-control" placeholder="Full Profile URL">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">YouTube</label>
                         <div class="input-group">
                             <span class="input-group-addon">youtube.com/</span>
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" value="{{$social->facebook}}" class="form-control" placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Skype</label>
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" value="{{$social->facebook}}" class="form-control" placeholder="Username">
                     </div>
                 </div>
                 <!-- /.box-body -->
