@@ -62,12 +62,12 @@ $user->name) @section('main_content')
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/changepassword/'.$user->id)}}">
+                <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/password/'.$user->id)}}">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
                             <label for="exampleInputPassword1">New Password</label>
-                            <input type="password" data-lpignore="true" class="form-control" name="edit-password" placeholder="" autocomplete="new-password"
+                            <input type="password" data-lpignore="true" class="form-control" name="new-password" placeholder="" autocomplete="new-password"
                                 required />
                         </div>
                     </div>
@@ -126,39 +126,39 @@ $user->name) @section('main_content')
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" autocomplete="nope" action="{{url('dashboard/users/create/user')}}">
+            <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/profile/'.$user->id)}}">
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">About Me</label>
-                        <textarea name="bio" id="article-ckeditor"></textarea>
+                        <textarea name="bio" id="article-ckeditor">{!!$social->bio!!}</textarea>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Twitter</label>
                         <div class="input-group">
                             <span class="input-group-addon">@</span>
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" name="twitter" value="{{$social->twitter}}" class="form-control" placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Google+</label>
-                            <input type="text" value="{{$social->googleplus}}" class="form-control" placeholder="Full G+ Profile URL">
+                            <input type="text" name="googleplus" value="{{$social->googleplus}}" class="form-control" placeholder="Full G+ Profile URL">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Facebook</label>
-                            <input type="text" value="{{$social->facebook}}" class="form-control" placeholder="Full Profile URL">
+                            <input type="text" name="facebook" value="{{$social->facebook}}" class="form-control" placeholder="Full Profile URL">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">YouTube</label>
                         <div class="input-group">
                             <span class="input-group-addon">youtube.com/</span>
-                            <input type="text" value="{{$social->facebook}}" class="form-control" placeholder="Username">
+                            <input type="text" name="youtube" value="{{$social->facebook}}" class="form-control" placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Skype</label>
-                            <input type="text" value="{{$social->facebook}}" class="form-control" placeholder="Username">
+                            <input type="text" name="skype" value="{{$social->facebook}}" class="form-control" placeholder="Username">
                     </div>
                 </div>
                 <!-- /.box-body -->

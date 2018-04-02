@@ -43,8 +43,11 @@ Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
 Route::post('/dashboard/users/create/user', 'DashboardUserController@register');
 Route::post('/dashboard/users/edit/details/{id}', 'DashboardUserController@edit_details');
+Route::post('/dashboard/users/edit/password/{id}', 'DashboardUserController@edit_password');
+Route::post('/dashboard/users/edit/profile/{id}', 'DashboardUserController@edit_profile');
 
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
 Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');
+
 
 Auth::routes();

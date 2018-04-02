@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Social extends Model
 {
     protected $table = 'socials';
-    public $primaryKey = 'id';
+    public $primaryKey = 'user_id';
     public $timestamps = true;
 }

@@ -78,4 +78,50 @@ class DashboardUserController extends Controller
             return redirect('dashboard/users/list');
         }
     }
+
+    public function edit_password(Request $request, $id){
+        $user = User::find($id);
+
+        $this->validate($request, [
+            'new-password' => 'required',
+        ],
+    [
+        'new-password.required' => 'Please provide a password.',
+    ]);
+
+        $user->password = Hash::make($request->input('new-password'));
+        if($user->save()){
+            return redirect('dashboard/users/edit/'.$user->id)->with('success', 'Password changed successfully.');
+        } else {
+            return redirect('dashboard/users/list')->with('error', 'Could not change password.');
+        }
+    }
+
+    public function edit_profile(Request $request, $id){
+        $social = Social::find($id);
+
+        $this->validate($request, [
+            'bio' => 'max:1999',
+            'twitter' => '',
+            'googleplus' => '',
+            'facebook' => '',
+            'youtube' => '',
+            'skype' => '',
+        ],
+        [
+            'bio.max' => 'Maximum 2000 characters for your bio.',
+        ]);
+
+        $social->bio = $request->input('bio');
+        $social->twitter = $request->input('twitter');
+        $social->googleplus = $request->input('googleplus');
+        $social->facebook = $request->input('facebook');
+        $social->youtube = $request->input('youtube');
+        $social->skype = $request->input('skype');
+        if($social->save()){
+            return redirect('dashboard/users/edit/'.$id)->with('success', 'Profile information updated.');
+        } else {
+            return redirect('dashboard/users/list')->with('error', 'Could not update profile information.');
+        }
+    }
 }
