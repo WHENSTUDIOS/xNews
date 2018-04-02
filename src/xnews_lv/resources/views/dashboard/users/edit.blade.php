@@ -34,11 +34,6 @@ $user->name) @section('main_content')
                                 autocomplete="new-password" required />
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" data-lpignore="true" class="form-control" name="edit-password" placeholder="" autocomplete="new-password"
-                                required />
-                        </div>
-                        <div class="form-group">
                             <label>Auth Level</label>
                             <select id="level" name="level" class="form-control">
                                 <option id="1" value="1" {{ $user->level === 1 ? 'selected' : '' }}>Normal User</option>
@@ -52,6 +47,28 @@ $user->name) @section('main_content')
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Edit User</button>
+                    </div>
+                </form>
+            </div>
+            <div class="box box-primary" data-vivaldi-spatnav-clickable="1">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Change {{$user->name}}'s Password</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/changepassword/'.$user->id)}}">
+                    @csrf
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">New Password</label>
+                            <input type="password" data-lpignore="true" class="form-control" name="edit-password" placeholder="" autocomplete="new-password"
+                                required />
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Change Password</button>
                     </div>
                 </form>
             </div>
