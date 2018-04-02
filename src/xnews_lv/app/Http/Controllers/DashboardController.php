@@ -11,7 +11,9 @@ class DashboardController extends Controller
 {
     public function dashboard(){
         if(Auth::check()){
-        return view('dashboard.dashboard');
+            $total_posts = Post::count();
+            $total_users = User::count();
+        return view('dashboard.dashboard')->with('users', $total_users)->with('posts', $total_posts);
         } else {
         return redirect('login');
         }

@@ -12,7 +12,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Articles</span>
-              <span class="info-box-number">90<small>%</small></span>
+              <span class="info-box-number">{{$posts}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -25,7 +25,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Users</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number">{{$users}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
