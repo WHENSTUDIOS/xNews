@@ -66,15 +66,6 @@ class DashboardController extends Controller
         $post->save();
         return redirect('/dashboard/articles/list');
     }
-    public function search(Request $request){
-        $this->validate($request, [
-            'q' => 'required',
-        ]);
-
-        $post = new Post;
-        $result = Post::where('title', 'LIKE', '%'.$request->input('q').'%')->orWhere('body','LIKE','%'.$request->input('q').'%')->get();
-        return view('dashboard.articles.search_result')->with('result', $result)->with('q', $request->input('q'));
-    }
     public function list_users(){
         $user = new User;
         $users = User::orderBy('created_at','desc')->get();
@@ -86,14 +77,5 @@ class DashboardController extends Controller
             } else {
             return redirect('login');
             }
-    }
-    public function search_users(Request $request){
-        $this->validate($request, [
-            'q' => 'required',
-        ]);
-
-        $user = new User;
-        $result = User::where('name', 'LIKE', '%'.$request->input('q').'%')->orWhere('email','LIKE','%'.$request->input('q').'%')->get();
-        return view('dashboard.users.search_result')->with('result', $result)->with('q', $request->input('q'));
     }
 }

@@ -37,7 +37,7 @@ Route::post('dashboard/articles/create/new', 'DashboardController@store_article'
 Route::get('/dashboard/users/list', 'DashboardController@list_users');
 Route::get('/dashboard/users/search', 'DashboardController@search_user');
 
-Route::post('/dashboard/users/search/result', 'DashboardController@search_users');
-Route::post('/dashboard/articles/search', 'DashboardController@search');
+Route::post('/dashboard/users/search/result', 'SearchController@user');
+Route::post('/dashboard/articles/search', 'SearchController@post');
 
 Auth::routes();
