@@ -15,7 +15,7 @@ class SearchController extends Controller
         ]);
 
         $user = new User;
-        $result = User::where('name', 'LIKE', '%'.$request->input('q').'%')->orWhere('email1','LIKE','%'.$request->input('q').'%')->get();
+        $result = User::where('name', 'LIKE', '%'.$request->input('q').'%')->orWhere('email','LIKE','%'.$request->input('q').'%')->get();
         return view('dashboard.users.search_result')->with('result', $result)->with('q', $request->input('q'));
     }
 
