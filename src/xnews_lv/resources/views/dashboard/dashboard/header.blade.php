@@ -246,12 +246,7 @@
             <span>My Profile</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="{{url('logout')}}" style="background-color:#d9534f!important;">
-            <i class="fa fa-sign-out"></i>
-            <span>Sign Out</span>
-          </a>
-        </li>
+        <li><a href="{{url('logout')}}" style="background-color:#d9534f!important;"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
 
       </ul>
     </section>
