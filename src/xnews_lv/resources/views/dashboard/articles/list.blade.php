@@ -34,7 +34,11 @@
                                         <td>{{$post->updated_at}} UTC</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->update_id}}
-                                        <td><a href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a></td>
+                                        <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
+                                        @csrf
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        </form>
                                     </tr>
                                 @endforeach
                             @endif
