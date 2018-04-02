@@ -33,9 +33,9 @@ class DashboardUserController extends Controller
         $user->level = $request->input('level');
 
         if($user->save()){
-            return view('dashboard.users.create')->with('success', 'Successfully created user.');
+            return redirect('dashboard/users/list')->with('success', 'Successfully created user.');
         } else {
-            return view('dashboard.users.create')->with('error', 'Server error creating user.');
+            return redirect('dashboard/users/list')->with('error', 'Server error creating user.');
         }
     }
 
