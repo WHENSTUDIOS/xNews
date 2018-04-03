@@ -36,12 +36,12 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">URL</label>
-                            <input type="text" data-lpignore="true" class="form-control" name="edit-email" placeholder="Full URL" value="{{ Config::get('site.data.url') }}"
+                            <input type="text" data-lpignore="true" class="form-control" name="edit-url" placeholder="Full URL" value="{{ Config::get('site.data.url') }}"
                                 autocomplete="new-password" required />
                         </div>
                         <div class="form-group">
                             <label>Language</label>
-                            <select id="level" name="edit-level" class="form-control">
+                            <select id="level" name="edit-lang" class="form-control">
                                 <option id="1" value="en-us" {{ Config::get('site.data.language') === 'en-us' ? 'selected' : '' }}>en-US</option>
                                 <option id="2" value="fr" {{ Config::get('site.data.language') === 'fr' ? 'selected' : '' }}>FR</option>
                             </select>

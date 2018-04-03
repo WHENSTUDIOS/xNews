@@ -28,4 +28,18 @@ class DashboardSettingsController extends Controller
     return redirect('dashboard/settings/database')->with('success', 'Successfully updated database settings.');
 
     }
+
+    public function wcms_data(Request $request){
+        $this->validate($request, [
+            'edit-name' => 'required',
+            'edit-url' => 'required',
+            'edit-lang' => 'required',
+        ]);
+
+        Config::write('site.data.name', $request->input('edit-name'));
+        Config::write('site.data.url', $request->input('edit-url'));
+        Config::write('site.data.lang', $request->input('edit-lang'));
+
+        return redirect('dashboard/settings/wcms')->with('success', 'Successfully updated site data.');
+    }
 }
