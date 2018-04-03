@@ -54,52 +54,18 @@
                     </div>
                 </form>
             </div>
-            <div class="box box-primary" data-vivaldi-spatnav-clickable="1">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Change {{$user->name}}'s Password</h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/password/'.$user->id)}}">
-                    @csrf
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">New Password</label>
-                            <input type="password" data-lpignore="true" class="form-control" name="new-password" placeholder="" autocomplete="new-password"
-                                required />
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                </form>
-            </div>
         </div>
     <div class="col-md-6">
         <!-- general form elements -->
         <div class="box box-danger" data-vivaldi-spatnav-clickable="1">
             <div class="box-header with-border">
-                <h3 class="box-title">Profile Settings</h3>
+                <h3 class="box-title">Access Settings</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/profile/'.$user->id)}}">
                 @csrf
                 <div class="box-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">About Me</label>
-                        <textarea name="bio" id="article-ckeditor">{!!$social->bio!!}</textarea>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Twitter</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">@</span>
-                            <input type="text" name="twitter" value="{{$social->twitter}}" class="form-control" placeholder="Username">
-                        </div>
-                    </div>
                     <div class="form-group">
                   <div class="radio">
                   <label for="exampleInputPassword1">Debug mode</label>
