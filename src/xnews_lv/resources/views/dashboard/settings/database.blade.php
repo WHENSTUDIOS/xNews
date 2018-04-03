@@ -44,7 +44,7 @@
                         </div>
                 </div>
                 <div class="box-footer">
-                        <p><strong>Important</strong>: If the values in this form are entered incorrectly, you will only be able to change them via the config file in the file system.</p>
+                        <p><strong>Important</strong>: If the values in this form are entered incorrectly and/or cannot connect to the database using the new values, you will only be able to change them via the config file in the file system.</p>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                     <a href="{{url('dashboard')}}" class="btn btn-warning">Cancel</a>
                     </form>
