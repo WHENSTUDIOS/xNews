@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label>Language</label>
                             <select id="level" name="edit-lang" class="form-control">
-                                <option id="1" value="en-us" {{ Config::get('site.data.language') === 'en-us' ? 'selected' : '' }}>en-US</option>
+                                <option id="1" value="en" {{ Config::get('app.locale') === 'en' ? 'selected' : '' }}>en-US</option>
                                 <option id="2" value="fr" {{ Config::get('site.data.language') === 'fr' ? 'selected' : '' }}>FR</option>
                             </select>
                         </div>

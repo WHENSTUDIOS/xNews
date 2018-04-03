@@ -38,7 +38,7 @@ class DashboardSettingsController extends Controller
 
         Config::write('site.data.name', $request->input('edit-name'));
         Config::write('site.data.url', $request->input('edit-url'));
-        Config::write('site.data.lang', $request->input('edit-lang'));
+        Config::write('app.locale', $request->input('edit-lang'));
 
         return redirect('dashboard/settings/wcms')->with('success', 'Successfully updated site data.');
     }
