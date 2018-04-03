@@ -77,45 +77,6 @@
                 </form>
             </div>
         </div>
-        <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="box box-success" data-vivaldi-spatnav-clickable="1">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Articles by {{$user->name}}</h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-
-                <div class="box-body table-responsive no-padding">
-                    @if(count($posts)
-                    <=0 ) <div class="form-group">
-                        <center>No articles found for
-                            <strong>{{$user->name}}</strong>
-                        </center>
-                </div>
-                @else
-                <table class="table table-hover">
-                    <tbody>
-                        <tr>
-                            <th>Title</th>
-                            <th>Created</th>
-                            <th>Actions</th>
-                        </tr>
-                        @foreach($posts as $post)
-                        <tr>
-                            <td>{{$post->title}}</td>
-                            <td>{{$post->created_at}}</td>
-                            <td>
-                                <a class="btn btn-warning btn-xs" target="_blank" href="{{url('posts/'.$post->id)}}">View</a>
-                            </td>
-                        </tr>
-                        @endforeach @endif
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.box-body -->
-        </div>
-    </div>
     <div class="col-md-6">
         <!-- general form elements -->
         <div class="box box-danger" data-vivaldi-spatnav-clickable="1">
@@ -140,29 +101,40 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Google+</label>
-                            <input type="text" name="googleplus" value="{{$social->googleplus}}" class="form-control" placeholder="Full G+ Profile URL">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Facebook</label>
-                            <input type="text" name="facebook" value="{{$social->facebook}}" class="form-control" placeholder="Full Profile URL">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">YouTube</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">youtube.com/</span>
-                            <input type="text" name="youtube" value="{{$social->facebook}}" class="form-control" placeholder="Username">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Skype</label>
-                            <input type="text" name="skype" value="{{$social->facebook}}" class="form-control" placeholder="Username">
-                    </div>
+                  <div class="radio">
+                  <label for="exampleInputPassword1">Debug mode</label>
+                    <label>
+                      <input type="radio" name="debug-enabled" id="optionsRadios1" value="option1" checked="">
+                      Enabled
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="debug-disabled" id="optionsRadios2" value="option2">
+                      Disabled
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="radio">
+                  <label for="exampleInputPassword1">User theme switcher</label>
+                    <label>
+                      <input type="radio" name="switcher-enabled" id="optionsRadios1" value="option1" checked="">
+                      Enabled
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="switcher-disabled" id="optionsRadios2" value="option2">
+                      Disabled
+                    </label>
+                  </div>
+                </div>
                 </div>
                 <!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Save Profile Settings</button>
+                    <button type="submit" class="btn btn-primary">Save Settings</button>
                 </div>
             </form>
         </div>
