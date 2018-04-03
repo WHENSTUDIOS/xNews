@@ -58,9 +58,11 @@ class DashboardSettingsController extends Controller
         }
 
         if($request->input('switcher') === 'switcher-enabled'){
-            //set ENABLED SWITCHER config
+            Config::write('site.data.allow-switcher', 'true');
         } elseif($request->input('switcher') === 'switcher-disabled'){
-            //set DISABLED SWITCHER config
+            return redirect('dashboard/settings/wcms')->with('success', 'Successfully enabled theme switcher.');
+            Config::write('site.data.allow-switcher', 'false');
+            return redirect('dashboard/settings/wcms')->with('success', 'Successfully disalbed theme switcher.');
         }
     }
 }
