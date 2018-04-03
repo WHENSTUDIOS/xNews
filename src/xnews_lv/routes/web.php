@@ -40,7 +40,7 @@ Route::get('/dashboard/users/create', 'DashboardController@create_user');
 Route::get('/dashboard/users/edit/{id}', 'DashboardController@edit_user');
 Route::get('/dashboard/users/staff', 'DashboardController@list_staff');
 Route::get('/dashboard/settings/database', 'DashboardController@database');
-Route::get('/dashboard/settings/wcms', 'DashboardController@wcms');
+Route::get('/dashboard/content/wcms', 'DashboardController@wcms');
 
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
@@ -50,7 +50,7 @@ Route::post('/dashboard/users/edit/password/{id}', 'DashboardUserController@edit
 Route::post('/dashboard/users/edit/profile/{id}', 'DashboardUserController@edit_profile');
 Route::put('/dashboard/users/demote/{id}', 'DashboardUserController@demote_user');
 Route::post('/dashboard/settings/database', 'DashboardSettingsController@database');
-Route::post('/dashboard/settings/wcms/general', 'DashboardSettingsController@wcms_data');
+Route::post('/dashboard/content/wcms/general', 'DashboardSettingsController@wcms_data');
 Route::post('/dashboard/settings/access', 'DashboardSettingsController@edit_access');
 
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');

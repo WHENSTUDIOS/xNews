@@ -109,7 +109,7 @@ class DashboardController extends Controller
     }
     public function wcms(){
         if(Auth::check()){
-            return view('dashboard.settings.wcms');
+            return view('dashboard.content.wcms');
             } else {
             return redirect('login');
             }

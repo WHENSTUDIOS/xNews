@@ -40,7 +40,7 @@ class DashboardSettingsController extends Controller
         Config::write('site.data.url', $request->input('edit-url'));
         Config::write('app.locale', $request->input('edit-lang'));
 
-        return redirect('dashboard/settings/wcms')->with('success', 'Successfully updated site data.');
+        return redirect('dashboard/content/wcms')->with('success', 'Successfully updated site data.');
     }
 
     public function edit_access(Request $request){
@@ -51,18 +51,18 @@ class DashboardSettingsController extends Controller
 
         if($request->input('debug') === 'debug-enabled'){
             Config::write('app.debug', true);
-            return redirect('dashboard/settings/wcms')->with('success', 'Successfully enabled debug mode.');
+            return redirect('dashboard/content/wcms')->with('success', 'Successfully enabled debug mode.');
         } elseif($request->input('debug') === 'debug-disabled'){
             Config::write('app.debug', false);
-            return redirect('dashboard/settings/wcms')->with('success', 'Successfully disabled debug mode.');
+            return redirect('dashboard/content/wcms')->with('success', 'Successfully disabled debug mode.');
         }
 
         if($request->input('switcher') === 'switcher-enabled'){
             Config::write('site.data.allow-switcher', 'true');
         } elseif($request->input('switcher') === 'switcher-disabled'){
-            return redirect('dashboard/settings/wcms')->with('success', 'Successfully enabled theme switcher.');
+            return redirect('dashboard/content/wcms')->with('success', 'Successfully enabled theme switcher.');
             Config::write('site.data.allow-switcher', 'false');
-            return redirect('dashboard/settings/wcms')->with('success', 'Successfully disalbed theme switcher.');
+            return redirect('dashboard/content/wcms')->with('success', 'Successfully disalbed theme switcher.');
         }
     }
 }
