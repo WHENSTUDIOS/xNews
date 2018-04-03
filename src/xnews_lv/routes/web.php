@@ -42,6 +42,8 @@ Route::get('/dashboard/users/staff', 'DashboardController@list_staff');
 Route::get('/dashboard/settings/database', 'DashboardController@database');
 Route::get('/dashboard/content/wcms', 'DashboardController@wcms');
 Route::get('/dashboard/settings/access', 'DashboardController@access');
+Route::get('/dashboard/settings/data', 'DashboardController@settings_data');
+
 
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');

@@ -121,4 +121,11 @@ class DashboardController extends Controller
             return redirect('login');
         }
     }
+    public function settings_data(){
+        if(Auth::check()){
+            return view('dashboard.settings.data');
+        } else {
+            return redirect('login');
+        }
+    }
 }
