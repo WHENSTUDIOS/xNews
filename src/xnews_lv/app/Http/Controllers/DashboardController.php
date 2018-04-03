@@ -107,4 +107,11 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
+    public function wcms(){
+        if(Auth::check()){
+            return view('dashboard.settings.wcms');
+            } else {
+            return redirect('login');
+            }
+    }
 }
