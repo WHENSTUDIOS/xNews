@@ -42,4 +42,23 @@ class DashboardSettingsController extends Controller
 
         return redirect('dashboard/settings/wcms')->with('success', 'Successfully updated site data.');
     }
+
+    public function edit_access(Request $request){
+        $this->validate($request, [
+            'debug' => 'required',
+            'switcher' => 'required',
+        ]);
+
+        if($request->input('debug') === 'debug-enabled'){
+            //set ENABLED DEBUG config
+        } elseif($request->input('debug') === 'debug-disabled'){
+            //set DISABLED DEBUG config
+        }
+
+        if($request->input('switcher') === 'switcher-enabled'){
+            //set ENABLED SWITCHER config
+        } elseif($request->input('switcher') === 'switcher-disabled'){
+            //set DISABLED SWITCHER config
+        }
+    }
 }

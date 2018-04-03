@@ -63,20 +63,20 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" autocomplete="nope" action="{{url('dashboard/users/edit/profile/'.$user->id)}}">
+            <form method="POST" autocomplete="nope" action="{{url('dashboard/settings/access')}}">
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
                   <div class="radio">
                   <label for="exampleInputPassword1">Debug mode</label>
                     <label>
-                      <input type="radio" name="debug-enabled" id="optionsRadios1" value="option1" checked="">
+                      <input type="radio" name="debug" id="optionsRadios1" value="debug-disabled" checked="">
                       Enabled
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="debug-disabled" id="optionsRadios2" value="option2">
+                      <input type="radio" name="debug" id="optionsRadios2" value="debug-disabled">
                       Disabled
                     </label>
                   </div>
@@ -85,13 +85,13 @@
                   <div class="radio">
                   <label for="exampleInputPassword1">User theme switcher</label>
                     <label>
-                      <input type="radio" name="switcher-enabled" id="optionsRadios1" value="option1" checked="">
+                      <input type="radio" name="switcher" id="optionsRadios1" value="switcher-enabled" checked="">
                       Enabled
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="switcher-disabled" id="optionsRadios2" value="option2">
+                      <input type="radio" name="switcher" id="optionsRadios2" value="switcher-disabled">
                       Disabled
                     </label>
                   </div>

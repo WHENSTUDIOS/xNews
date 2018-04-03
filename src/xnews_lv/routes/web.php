@@ -51,6 +51,7 @@ Route::post('/dashboard/users/edit/profile/{id}', 'DashboardUserController@edit_
 Route::put('/dashboard/users/demote/{id}', 'DashboardUserController@demote_user');
 Route::post('/dashboard/settings/database', 'DashboardSettingsController@database');
 Route::post('/dashboard/settings/wcms/general', 'DashboardSettingsController@wcms_data');
+Route::post('/dashboard/settings/access', 'DashboardSettingsController@edit_access');
 
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
 Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');
