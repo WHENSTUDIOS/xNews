@@ -2,8 +2,7 @@
 'Edit the main data on the website') @section('main_content')
 <section class="content">
     <div class="row">
-        <!-- left column -->
-        <div class="col-md-6">
+    <div class="col-md-6">
             @if(Session::get('success'))
                     <div class="alert alert-success">
                     {{ Session::get('success') }}
@@ -19,6 +18,7 @@
                     </div>
                     @endforeach
                 @endif
+        <!-- left column -->
             <!-- general form elements -->
             <div class="box box-primary" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header with-border">
@@ -43,7 +43,7 @@
                             <label>Language</label>
                             <select id="level" name="edit-lang" class="form-control">
                                 <option id="1" value="en" {{ Config::get('app.locale') === 'en' ? 'selected' : '' }}>en-US</option>
-                                <option id="2" value="fr" {{ Config::get('site.data.language') === 'fr' ? 'selected' : '' }}>FR</option>
+                                <option id="2" value="fr" {{ Config::get('app.locale') === 'fr' ? 'selected' : '' }}>FR</option>
                             </select>
                         </div>
                     </div>
