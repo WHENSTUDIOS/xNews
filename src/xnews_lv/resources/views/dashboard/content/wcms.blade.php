@@ -26,7 +26,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form method="POST" autocomplete="nope" action="{{url('dashboard/settings/wcms/general')}}">
+                <form method="POST" autocomplete="nope" action="{{url('dashboard/content/wcms/general')}}">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
