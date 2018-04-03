@@ -51,18 +51,22 @@ class DashboardSettingsController extends Controller
 
         if($request->input('debug') === 'debug-enabled'){
             Config::write('app.debug', true);
-            return redirect('dashboard/content/wcms')->with('success', 'Successfully enabled debug mode.');
+            if($request->input('switcher') === 'switcher-enabled'){
+                Config::write('site.data.allow-switcher', 'true');
+                return redirect('dashboard/content/wcms')->with('success', 'Successfully edited access settings.');
+            } elseif($request->input('switcher') === 'switcher-disabled'){
+                Config::write('site.data.allow-switcher', 'false');
+                return redirect('dashboard/content/wcms')->with('success', 'Successfully edited access settings.');
+            }
         } elseif($request->input('debug') === 'debug-disabled'){
             Config::write('app.debug', false);
-            return redirect('dashboard/content/wcms')->with('success', 'Successfully disabled debug mode.');
-        }
-
-        if($request->input('switcher') === 'switcher-enabled'){
-            Config::write('site.data.allow-switcher', 'true');
-        } elseif($request->input('switcher') === 'switcher-disabled'){
-            return redirect('dashboard/content/wcms')->with('success', 'Successfully enabled theme switcher.');
-            Config::write('site.data.allow-switcher', 'false');
-            return redirect('dashboard/content/wcms')->with('success', 'Successfully disalbed theme switcher.');
+            if($request->input('switcher') === 'switcher-enabled'){
+                Config::write('site.data.allow-switcher', 'true');
+                return redirect('dashboard/content/wcms')->with('success', 'Successfully edited access settings.');
+            } elseif($request->input('switcher') === 'switcher-disabled'){
+                Config::write('site.data.allow-switcher', 'false');
+                return redirect('dashboard/content/wcms')->with('success', 'Successfully edited access settings.');
+            }
         }
     }
 }

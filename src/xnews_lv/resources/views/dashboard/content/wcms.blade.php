@@ -67,31 +67,33 @@
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
+                    <label for="exampleInputPassword1">Debug (maintenance) mode</label>
+
                   <div class="radio">
-                  <label for="exampleInputPassword1">Debug mode</label>
                     <label>
-                      <input type="radio" name="debug" id="optionsRadios1" value="debug-disabled" checked="">
+                      <input type="radio" name="debug" id="optionsRadios1" value="debug-enabled" {{ Config::get('app.debug') === true ? 'checked' : '' }}>
                       Enabled
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="debug" id="optionsRadios2" value="debug-disabled">
+                      <input type="radio" name="debug" id="optionsRadios2" value="debug-disabled" {{ Config::get('app.debug') === false ? 'checked' : '' }}>
                       Disabled
                     </label>
                   </div>
                 </div>
                 <div class="form-group">
+                <label for="exampleInputPassword1">User theme switcher</label>
+
                   <div class="radio">
-                  <label for="exampleInputPassword1">User theme switcher</label>
                     <label>
-                      <input type="radio" name="switcher" id="optionsRadios1" value="switcher-enabled" checked="">
+                      <input type="radio" name="switcher" id="optionsRadios1" value="switcher-enabled" {{ Config::get('site.data.allow-switcher') === 'true' ? 'checked' : '' }}>
                       Enabled
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="switcher" id="optionsRadios2" value="switcher-disabled">
+                      <input type="radio" name="switcher" id="optionsRadios2" value="switcher-disabled" {{ Config::get('site.data.allow-switcher') === 'false' ? 'checked' : '' }}>
                       Disabled
                     </label>
                   </div>
