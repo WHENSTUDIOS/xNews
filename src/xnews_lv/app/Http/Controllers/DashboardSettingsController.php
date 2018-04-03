@@ -50,9 +50,11 @@ class DashboardSettingsController extends Controller
         ]);
 
         if($request->input('debug') === 'debug-enabled'){
-            //set ENABLED DEBUG config
+            Config::write('app.debug', true);
+            return redirect('dashboard/settings/wcms')->with('success', 'Successfully enabled debug mode.');
         } elseif($request->input('debug') === 'debug-disabled'){
-            //set DISABLED DEBUG config
+            Config::write('app.debug', false);
+            return redirect('dashboard/settings/wcms')->with('success', 'Successfully disabled debug mode.');
         }
 
         if($request->input('switcher') === 'switcher-enabled'){
