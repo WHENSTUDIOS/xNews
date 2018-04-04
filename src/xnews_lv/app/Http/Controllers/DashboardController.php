@@ -139,4 +139,11 @@ class DashboardController extends Controller
             return redirect('login');
         } 
     }
+    public function create_template(){
+        if(Auth::check()){
+            return view('dashboard.content.createtemplate');
+        } else {
+            return redirect('login');
+        }
+    }
 }

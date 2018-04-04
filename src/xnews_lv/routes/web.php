@@ -44,6 +44,7 @@ Route::get('/dashboard/content/wcms', 'DashboardController@wcms');
 Route::get('/dashboard/settings/access', 'DashboardController@access');
 Route::get('/dashboard/settings/data', 'DashboardController@settings_data');
 Route::get('/dashboard/content/templates', 'DashboardController@article_templates');
+Route::get('/dashboard/content/templates/craete', 'DashboardController@create_template');
 
 
 Route::post('/dashboard/users/search/result', 'SearchController@user');
