@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Template;
 use Config;
 
 class DashboardSettingsController extends Controller
@@ -67,6 +68,21 @@ class DashboardSettingsController extends Controller
                 Config::write('site.data.allow-switcher', 'false');
                 return redirect('dashboard/content/wcms')->with('success', 'Successfully edited access settings.');
             }
+        }
+    }
+
+    public function create_template(Request $request){
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'body' => 'required|max:2000',
+        ]);
+        
+        $template = new Template;
+        $template->name = $request->input('name');
+        $template->body = $request->input('body');
+        $template->status = '0';
+        if($template->save()){
+            return redirect('dashboard/content/templates')->with('success', 'Successfully created article template.');
         }
     }
 }
