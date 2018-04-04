@@ -75,7 +75,13 @@ class DashboardSettingsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'body' => 'required|max:2000',
-        ]);
+        ],
+    [
+        'title.required' => 'Please provide a template title.',
+        'title.max' => 'Maximum 50 characters for the title.',
+        'body.required' => 'Please provide a template body.',
+        'body.max' => 'Maximum 2000 characters for the template body.',
+    ]);
         
         $template = new Template;
         $template->name = $request->input('name');
