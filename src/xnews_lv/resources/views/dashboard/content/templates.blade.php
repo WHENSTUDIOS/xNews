@@ -66,7 +66,7 @@
                         </div>
                         </div>
                         @else
-                        <textarea name="body" disabled id="article-ckeditor"></textarea>
+                        <textarea name="body" disabled id="article-ckeditor">{!! $activetemplate->body !!}</textarea>
                         @endif
                 </div>
             </div>
