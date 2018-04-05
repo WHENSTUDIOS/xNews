@@ -38,8 +38,8 @@
                                         <form action="{{url('dashboard/settings/templates/active/'.$template->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
-                                        </form>
                                         <td><input type="submit" class="btn btn-primary btn-xs">Make Active</a> |
+                                        </form>
                                         <form action="{{url('dashboard/settings/templates/delete/'.$template->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/settings/templates/edit/'.$template->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
