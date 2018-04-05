@@ -37,19 +37,6 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
-    public function update_post(Request $request, $id){
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-        ]);
-
-        $post = Post::find($id);
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->update_id = Auth::user()->name;
-        $post->save();
-        return redirect('/dashboard/articles/list');
-    }
     public function create_article(){
         if(Auth::check()){
             return view('dashboard.articles.create');
@@ -57,7 +44,7 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
-    public function list_users(){
+    public function users_list(){
         $user = new User;
         $users = User::orderBy('created_at','desc')->get();
         return view('dashboard.users.list')->with('users', $users);
@@ -96,26 +83,26 @@ class DashboardController extends Controller
             return redirect('login');
             }
     }
-    public function list_staff(){
+    public function users_staff(){
         $user = new User;
         $users = User::where('level', '>=', '2')->orderBy('created_at','desc')->get();
         return view('dashboard.users.staff')->with('users', $users);
     }
-    public function database(){
+    public function settings_database(){
         if(Auth::check()){
             return view('dashboard.settings.database');
             } else {
             return redirect('login');
             }
     }
-    public function wcms(){
+    public function content_wcms(){
         if(Auth::check()){
             return view('dashboard.content.wcms');
             } else {
             return redirect('login');
             }
     }
-    public function access(){
+    public function settings_access(){
         if(Auth::check()){
             return view('dashboard.settings.access');
         } else {
