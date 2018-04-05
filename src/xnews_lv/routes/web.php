@@ -58,6 +58,7 @@ Route::post('/dashboard/settings/database', 'DashboardSettingsController@databas
 Route::post('/dashboard/content/wcms/general', 'DashboardSettingsController@wcms_data');
 Route::post('/dashboard/settings/access', 'DashboardSettingsController@edit_access');
 Route::post('/dashboard/content/templates/create', 'DashboardSettingsController@create_template');
+Route::put('/dashboard/settings/templates/active/{id}', 'DashboardSettingsController@template_active');
 
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
 Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');
