@@ -11,9 +11,8 @@
 |
 */
 
-Route::redirect('/', 'home');
-// Route::get('/login', 'PagesController@login');
-// Route::get('/register', 'PagesController@register');
+
+//Main Website Routes
 Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::resource('posts', 'PostsController');
@@ -25,15 +24,11 @@ Route::delete('posts/{post}', 'PostsController@destroy');
 Route::get('posts/{post}/edit', 'PostsController@edit');
 Route::get('/terms', 'PagesController@terms');
 
-//User Dashboard
-
+//User Dashboard Routes
 Route::get('/dashboard', 'DashboardController@dashboard');
-Route::redirect('/admin', '/dashboard');
 Route::get('/dashboard/articles/list', 'DashboardController@list_articles');
 Route::get('/dashboard/articles/edit/{id}', 'DashboardController@edit_article');
-Route::put('/dashboard/articles/update/{id}', 'DashboardController@update_post');
 Route::get('/dashboard/articles/create', 'DashboardController@create_article');
-Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
 Route::get('/dashboard/users/list', 'DashboardController@list_users');
 Route::get('/dashboard/users/search', 'DashboardController@search_user');
 Route::get('/dashboard/users/create', 'DashboardController@create_user');
@@ -46,7 +41,9 @@ Route::get('/dashboard/settings/data', 'DashboardController@settings_data');
 Route::get('/dashboard/content/templates', 'DashboardController@article_templates');
 Route::get('/dashboard/content/templates/craete', 'DashboardController@create_template');
 
-
+//Dashboard Form Post Routes
+Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
+Route::put('/dashboard/articles/update/{id}', 'DashboardController@update_post');
 Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/articles/search', 'SearchController@post');
 Route::post('/dashboard/users/create/user', 'DashboardUserController@register');
@@ -60,8 +57,12 @@ Route::post('/dashboard/settings/access', 'DashboardSettingsController@edit_acce
 Route::post('/dashboard/content/templates/create', 'DashboardSettingsController@create_template');
 Route::put('/dashboard/settings/templates/active/{id}', 'DashboardSettingsController@template_active');
 
+//Dashboard Delete Routes
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
 Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');
 
+//Redirect Routes
+Route::redirect('/admin', '/dashboard');
+Route::redirect('/', 'home');
 
 Auth::routes();
