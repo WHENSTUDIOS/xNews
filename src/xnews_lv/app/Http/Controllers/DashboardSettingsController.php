@@ -100,6 +100,7 @@ class DashboardSettingsController extends Controller
             $new = Template::find($id);
             $new->status = ' 1';
             if($new->save()){
+                unset($new);
                 return redirect('dashboard/content/templates')->with('success', 'Successfully set active template.'); 
             } else {
                 return redirect('dashboard/content/templates')->with('error', 'Unable to set active template.'); 
