@@ -6,7 +6,8 @@ return array(
         'url' => 'http://localhost:8000',
         'allow_username_change' => 'true',
         'allow-switcher' => 'false',
-        'maintenance' => 'false'
+        'maintenance' => 'false',
+        'install' => 'false'
     )
 )
 
