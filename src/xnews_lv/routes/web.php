@@ -12,6 +12,10 @@
 */
 
 
+if(Config::get('site.data.install') === 'true'){
+    return redirect('/install');
+}
+
 //Main Website Routes
 Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -23,6 +27,7 @@ Route::get('posts/{post}', 'PostsController@show');
 Route::delete('posts/{post}', 'PostsController@destroy');
 Route::get('posts/{post}/edit', 'PostsController@edit');
 Route::get('/terms', 'PagesController@terms');
+Route::get('/install', 'InstallController@show');
 
 //User Dashboard Routes
 Route::get('/dashboard', 'DashboardController@dashboard');
