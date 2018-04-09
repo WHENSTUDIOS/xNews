@@ -38,7 +38,7 @@
                                         <form action="{{url('dashboard/settings/templates/active/'.$template->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
-                                        <td><input type="submit" class="btn btn-primary btn-xs">Make Active</a> |
+                                        <td><input type="submit" class="btn btn-primary btn-xs" value="Make Active"> |
                                         </form>
                                         <form action="{{url('dashboard/settings/templates/delete/'.$template->id)}}" method="POST">
                                         @csrf
