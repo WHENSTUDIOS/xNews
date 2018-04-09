@@ -44,7 +44,7 @@ Route::get('/dashboard/content/wcms', 'DashboardController@content_wcms');
 Route::get('/dashboard/settings/access', 'DashboardController@settings_access');
 Route::get('/dashboard/settings/data', 'DashboardController@settings_data');
 Route::get('/dashboard/content/templates', 'DashboardController@article_templates');
-Route::get('/dashboard/content/templates/craete', 'DashboardController@create_template');
+Route::get('/dashboard/content/templates/create', 'DashboardController@create_template');
 
 //Dashboard Form Post Routes
 Route::post('dashboard/articles/create/new', 'DashboardPostController@store');

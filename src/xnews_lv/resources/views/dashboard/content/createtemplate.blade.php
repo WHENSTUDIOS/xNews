@@ -31,12 +31,12 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" data-lpignore="true" class="form-control" name="title" placeholder="Username" value="{{$user->name}}"
+                            <input type="text" data-lpignore="true" class="form-control" name="title" placeholder="Username"
                                 autocomplete="new-password" required />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Template</label>
-                            <input type="text" data-lpignore="true" class="form-control" name="body" placeholder="example@example.com" value="{{$user->email}}"
+                            <input type="text" data-lpignore="true" class="form-control" name="body" placeholder="example@example.com"
                                 autocomplete="new-password" required />
                         </div>
                     </div>
