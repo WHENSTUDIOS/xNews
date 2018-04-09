@@ -6,15 +6,7 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-6">
-        @if(Session::get('success'))
-                    <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                    </div>
-                @elseif(Session::get('error'))
-                    <div class="alert alert-danger">
-                    {{ Session::get('error') }}
-                    </div>
-                @endif
+        @include('dashboard.dashboard.messages')
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">
                     <h3 class="box-title">Templates</h3>
@@ -34,12 +26,26 @@
                                 @foreach($templates as $template)
                                     <tr>
                                         <td>{{$template->name}}</td>
-                                        <td>{{$template->status}}</td>
+                                        <td>
+                                            @if($template->status == '0')
+                                            Inactive
+                                            @elseif($template->status == '1')
+                                            Active
+                                            @endif
+                                        </td>
+                                        @if($template->status == '0')
                                         <form action="{{url('dashboard/settings/templates/active/'.$template->id)}}" method="POST" style="display:inline !important;">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
                                         <td><input type="submit" class="btn btn-primary btn-xs" value="Make Active"> |
                                         </form>
+                                        @elseif($template->status == '1')
+                                        <form action="{{url('dashboard/settings/templates/inactive/'.$template->id)}}" method="POST" style="display:inline !important;">
+                                        @csrf
+                                        <input name="_method" type="hidden" value="PUT">
+                                        <td><input type="submit" class="btn btn-warning btn-xs" value="Make Inactive"> |
+                                        </form>
+                                        @endif
                                         <form style="display:inline !important;" action="{{url('dashboard/settings/templates/delete/'.$template->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/settings/templates/edit/'.$template->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
