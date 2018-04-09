@@ -1,5 +1,5 @@
-@extends('dashboard.templates.dashboard') @section('title', 'New Template') @section('page_title', 'New Article Template') @section('page_description',
-'Create a new template for new articles') @section('main_content')
+@extends('dashboard.templates.dashboard') @section('title', 'New Template') @section('page_title', 'New Template') 
+@section('page_description', 'New Template') @section('main_content')
 <section class="content">
     <div class="row">
         <!-- left column -->
@@ -26,7 +26,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form method="POST" autocomplete="nope" action="{{url('dashboard/content/templates/create)}}">
+                <form method="POST" autocomplete="nope" action="{{url('dashboard/content/templates/create')}}">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
