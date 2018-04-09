@@ -29,6 +29,7 @@
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Create</button>
+                        <a href="{{url('dashboard/content/templates')}}" class="btn btn-warning">Cancel</a>
                     </div>
                 </form>
             </div>
