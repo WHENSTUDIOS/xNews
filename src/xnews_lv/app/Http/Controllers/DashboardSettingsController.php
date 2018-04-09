@@ -139,4 +139,13 @@ class DashboardSettingsController extends Controller
         $post->save();
         return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post');
     }
+
+    public function delete_template($id){
+        $template = Template::find($id);
+        if($template->delete()){
+            return redirect('/dashboard/content/templates')->with('success', 'Succesfully deleted template.');
+        } else {
+            return redirect('/dashboard/content/templates')->with('error', 'Unable to delete template.'); 
+        }
+    }
 }

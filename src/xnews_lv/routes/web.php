@@ -66,6 +66,7 @@ Route::put('/dashboard/settings/templates/inactive/{id}', 'DashboardSettingsCont
 //Dashboard Delete Routes
 Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
 Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');
+Route::delete('/dashboard/settings/templates/delete/{id}', 'DashboardSettingsController@delete_template');
 
 //Redirect Routes
 Route::redirect('/admin', '/dashboard');
