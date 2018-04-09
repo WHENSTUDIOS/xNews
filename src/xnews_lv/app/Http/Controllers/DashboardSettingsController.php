@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Template;
+use App\Template;
 use Config;
 
 class DashboardSettingsController extends Controller
@@ -84,7 +84,7 @@ class DashboardSettingsController extends Controller
     ]);
         
         $template = new Template;
-        $template->name = $request->input('name');
+        $template->name = $request->input('title');
         $template->body = $request->input('body');
         $template->status = '0';
         if($template->save()){
