@@ -93,9 +93,8 @@ class DashboardSettingsController extends Controller
     }
 
     public function template_active($id){
-        $current = Template::find($id);
-        $current->status = '1';
-        if($current->save()){
+        $current = Template::where('status', '1');
+        if($current = Template::where('status', '1')->update(['status' => '0'])){
             unset($current);
             $new = Template::find($id);
             $new->status = '1';
@@ -111,10 +110,6 @@ class DashboardSettingsController extends Controller
     }
 
     public function template_inactive($id){
-        $current = Template::find($id);
-        $current->status = '0';
-        if($current->save()){
-            unset($current);
             $new = Template::find($id);
             $new->status = '0';
             if($new->save()){
@@ -123,9 +118,6 @@ class DashboardSettingsController extends Controller
             } else {
                 return redirect('dashboard/content/templates')->with('error', 'Unable to set inactive template.'); 
             }
-        } else {
-            return redirect('dashboard/content/templates')->with('error', 'Unable to remove current inactive template.'); 
-        }
     }
     
     public function edit_post(Request $request, $id){
