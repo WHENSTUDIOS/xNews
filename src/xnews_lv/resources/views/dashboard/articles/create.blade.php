@@ -16,7 +16,11 @@
                             <input type="text" id="title" name="title" class="form-control">
                         </div>
                         <label>Body</label>
-                        <textarea name="body" id="article-ckeditor"></textarea>
+                        <textarea name="body" id="article-ckeditor">
+                            @if(isset($template))
+                            {!!$template->body!!}
+                            @endif
+                        </textarea>
                 </div>
                 <div class="box-footer">
 

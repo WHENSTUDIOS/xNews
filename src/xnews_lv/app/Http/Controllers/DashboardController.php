@@ -39,8 +39,12 @@ class DashboardController extends Controller
     }
     public function create_article(){
         if(Auth::check()){
-            return view('dashboard.articles.create');
-            } else {
+            if($template = Template::where('status', '1')->first()){
+                    return view('dashboard.articles.create')->with('template', $template);
+                } else {
+                    return view('dashboard.articles.create');
+                }
+        } else {
             return redirect('login');
             }
     }
