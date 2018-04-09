@@ -35,12 +35,12 @@
                                     <tr>
                                         <td>{{$template->name}}</td>
                                         <td>{{$template->status}}</td>
-                                        <form action="{{url('dashboard/settings/templates/active/'.$template->id)}}" method="POST">
+                                        <form action="{{url('dashboard/settings/templates/active/'.$template->id)}}" method="POST" style="display:inline !important;">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
                                         <td><input type="submit" class="btn btn-primary btn-xs" value="Make Active"> |
                                         </form>
-                                        <form action="{{url('dashboard/settings/templates/delete/'.$template->id)}}" method="POST">
+                                        <form style="display:inline !important;" action="{{url('dashboard/settings/templates/delete/'.$template->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/settings/templates/edit/'.$template->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
                                         </form>
@@ -64,7 +64,7 @@
                     <h3 class="box-title">Active Template</h3>
                 </div>
                 <div class="box-body pad">
-                        @if(count($activetemplate) <=0 ) <div class="form-group">
+                        @if(!isset($activetemplate)) <div class="form-group">
                                 <center>No active template found.
                                 </center>
                         </div>

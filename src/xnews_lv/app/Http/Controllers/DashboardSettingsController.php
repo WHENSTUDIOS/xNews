@@ -93,7 +93,7 @@ class DashboardSettingsController extends Controller
     }
 
     public function template_active($id){
-        $current = Template::where('status', '1')->get();
+        $current = Template::find($id);
         $current->status = '1';
         if($current->save()){
             unset($current);

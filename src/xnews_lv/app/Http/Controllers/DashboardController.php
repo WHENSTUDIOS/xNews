@@ -120,7 +120,7 @@ class DashboardController extends Controller
         if(Auth::check()){
             $templates = Template::orderBy('created_at','desc')->get();
 
-            $activetemplate = Template::where('status', '1')->get();
+            $activetemplate = Template::where('status', '1')->first();
             return view('dashboard.content.templates')->with('templates', $templates)->with('activetemplate', $activetemplate);
         } else {
             return redirect('login');
