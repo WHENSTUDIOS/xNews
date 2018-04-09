@@ -4,21 +4,7 @@ $user->name) @section('main_content')
     <div class="row">
         <!-- left column -->
         <div class="col-md-6">
-            @if(Session::get('success'))
-                    <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                    </div>
-                @elseif(Session::get('error'))
-                    <div class="alert alert-danger">
-                    {{ Session::get('error') }}
-                    </div>
-                @elseif(isset($errors))
-                    @foreach($errors->all() as $error)
-                    <div class="alert alert-error">
-                            {{$error}}
-                    </div>
-                    @endforeach
-                @endif
+        @include('dashboard.dashboard.messages')
             <!-- general form elements -->
             <div class="box box-primary" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header with-border">

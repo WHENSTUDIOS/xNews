@@ -14,18 +14,7 @@
                 <form method="POST" action="{{url('dashboard/users/create/user')}}">
                 @csrf
                     <div class="box-body">
-                    @if(isset($success))
-                    <div class="alert alert-success">
-                    {{$success}}
-                    </div>
-                    @endif
-                    @if(isset($errors))
-                        @foreach($errors->all() as $error)
-                        <div class="alert alert-error">
-                        {{$error}}
-                        </div>
-                        @endforeach
-                    @endif
+                    @include('dashboard.dashboard.messages')
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <input type="text" class="form-control" name="name" placeholder="Username" autocomplete="off" required autofocus />

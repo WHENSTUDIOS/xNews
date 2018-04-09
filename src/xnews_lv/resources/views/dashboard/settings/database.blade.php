@@ -3,21 +3,7 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-        @if(Session::get('success'))
-                    <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                    </div>
-                @elseif(Session::get('error'))
-                    <div class="alert alert-danger">
-                    {{ Session::get('error') }}
-                    </div>
-                @elseif(isset($errors))
-                    @foreach($errors->all() as $error)
-                    <div class="alert alert-error">
-                            {{$error}}
-                    </div>
-                    @endforeach
-                @endif
+        @include('dashboard.dashboard.messages')
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">
                     <!-- /. tools -->
