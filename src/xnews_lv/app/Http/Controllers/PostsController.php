@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Auth;
 use App\Social;
+use App\Template;
 
 class PostsController extends Controller
 {
@@ -28,7 +29,10 @@ class PostsController extends Controller
     public function create()
     {
         if(Auth::check()){
-            return view('pages.posts.create');
+            $templates = Template::orderBy('created_at','desc')->get();
+
+            $activetemplate = Template::where('status', '1')->first();
+            return view('pages.posts.create')->with('templates', $templates)->with('activetemplate', $activetemplate);
         } else {
             return redirect('/home');
         }

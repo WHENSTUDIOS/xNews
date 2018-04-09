@@ -19,7 +19,11 @@
                         @endif
                         <br>
                         <label for="title">Article Content</label>
-                        <textarea id="article-ckeditor" class="form-control" name="body"></textarea>
+                        <textarea name="body" class="form-control" id="article-ckeditor">
+                            @if(isset($template))
+                            {!!$template->body!!}
+                            @endif
+                        </textarea>
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
