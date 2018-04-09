@@ -51,7 +51,7 @@
                     </table>
                 </div>
                 <div class="box-footer">
-                <a href="dashboard/content/templates/create" class="btn btn-primary">New Template</a>
+                <a href="{{url('dashboard/content/templates/create')}}" class="btn btn-primary">New Template</a>
                 </div>
                 <!-- /.box-body -->
             </div>
