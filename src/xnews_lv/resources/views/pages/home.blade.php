@@ -5,9 +5,15 @@
 		<div class="container">
 
 			<div class="row">
-
         <div id="fh5co-board" data-columns>
-
+		@if(count($notices) >= 1)
+			@foreach($notices as $notice)
+			<div class="alert alert-danger">
+				<strong><p>{{$notice->name}}</p></strong>
+				{{$notice->content}}
+			</div>
+			@endforeach
+		@endif
 			@if(count($posts) >= 1)
 			@foreach($posts as $post)
 			<div class="item">

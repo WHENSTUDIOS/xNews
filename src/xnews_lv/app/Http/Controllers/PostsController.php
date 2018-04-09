@@ -7,6 +7,7 @@ use App\Post;
 use Auth;
 use App\Social;
 use App\Template;
+use App\Notice;
 
 class PostsController extends Controller
 {
@@ -18,7 +19,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at','desc')->get();
-        return view('pages.home')->with('posts', $posts);
+        $notices = Notice::where('status', '1')->get();
+        return view('pages.home')->with('posts', $posts)->with('notices', $notices);
     }
 
     /**
