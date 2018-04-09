@@ -31,13 +31,12 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" data-lpignore="true" class="form-control" name="title" placeholder="Username"
+                            <input type="text" data-lpignore="true" class="form-control" name="title"
                                 autocomplete="new-password" required />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Template</label>
-                            <input type="text" data-lpignore="true" class="form-control" name="body" placeholder="example@example.com"
-                                autocomplete="new-password" required />
+                            <textarea name="body" id="article-ckeditor"></textarea>
                         </div>
                     </div>
                     <!-- /.box-body -->
