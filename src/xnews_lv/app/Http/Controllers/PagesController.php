@@ -62,7 +62,7 @@ class PagesController extends Controller
             if(Auth::user()->level === 0){
                 return view('pages.banned');
             } else {
-                return redirect('/banned');
+                return redirect('/home');
             }
         } else {
             return redirect('/login');
