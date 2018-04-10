@@ -11,7 +11,6 @@
 |
 */
 
-
 if(Config::get('site.data.install') === 'true'){
     return redirect('/install');
 }
