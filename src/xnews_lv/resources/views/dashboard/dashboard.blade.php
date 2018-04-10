@@ -55,7 +55,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Staff Members</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-number">{{count($staff)}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
