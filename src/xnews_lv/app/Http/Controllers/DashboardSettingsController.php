@@ -125,20 +125,6 @@ class DashboardSettingsController extends Controller
                 return redirect('dashboard/content/templates')->with('error', 'Unable to set inactive template.'); 
             }
     }
-    
-    public function edit_post(Request $request, $id){
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-        ]);
-
-        $post = Post::find($id);
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->update_id = Auth::user()->name;
-        $post->save();
-        return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post');
-    }
 
     public function delete_template($id){
         $template = Template::find($id);

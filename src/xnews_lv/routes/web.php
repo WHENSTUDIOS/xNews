@@ -48,8 +48,7 @@ Route::get('/dashboard/content/templates/create', 'DashboardController@create_te
 
 //Dashboard Form Post Routes
 Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
-Route::put('/dashboard/articles/update/{id}', 'DashboardController@update_post');
-Route::post('/dashboard/users/search/result', 'SearchController@user');
+Route::put('/dashboard/articles/update/{id}', 'DashboardPostController@update');
 Route::post('/dashboard/articles/search', 'SearchController@post');
 Route::post('/dashboard/users/create/user', 'DashboardUserController@register');
 Route::post('/dashboard/users/edit/details/{id}', 'DashboardUserController@edit_details');
