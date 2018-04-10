@@ -67,7 +67,7 @@
       <div class="row">
       <div class="col-md-6">
             <!-- general form elements -->
-            <div class="box box-success" data-vivaldi-spatnav-clickable="1">
+            <div class="box box-primary" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header with-border">
                     <h3 class="box-title">My Articles</h3>
                 </div>
@@ -103,6 +103,44 @@
             </div>
             <!-- /.box-body -->
         </div>
+        </div>
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-danger" data-vivaldi-spatnav-clickable="1">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Newest Users</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body table-responsive no-padding">
+                    @if(count($new_users) <=0 ) 
+                    <div class="form-group">
+                        <center>There are no users.
+                        </center>
+                </div>
+                @else
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Username</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                        @foreach($new_users as $new_user)
+                        <tr>
+                            <td>{{$new_user->name}}</td>
+                            <td>{{$new_user->created_at->diffForHumans()}}</td>
+                            <td>
+                                <a class="btn btn-warning btn-xs" target="_blank" href="{{url('profile/'.$new_user->id)}}">Profile</a>
+                            </td>
+                        </tr>
+                        @endforeach 
+                        @endif
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
         </div>
 
 </div></section>

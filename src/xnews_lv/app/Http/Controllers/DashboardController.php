@@ -15,8 +15,9 @@ class DashboardController extends Controller
         if(Auth::check()){
             $total_posts = Post::count();
             $total_users = User::count();
-            $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
-        return view('dashboard.dashboard')->with('users', $total_users)->with('posts', $total_posts)->with('myposts', $posts);
+            $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->take(12)->get();
+            $new_users = User::orderBy('created_at')->take(12)->get();
+        return view('dashboard.dashboard')->with('users', $total_users)->with('posts', $total_posts)->with('myposts', $posts)->with('new_users', $new_users);
         } else {
         return redirect('login');
         }
