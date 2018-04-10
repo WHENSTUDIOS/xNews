@@ -19,7 +19,7 @@
 			<div class="item">
         		<div class="fh5co-desc">
 				<h1><a href="posts/{{$post->id}}">{{ $post->title }}</a></h1>
-					<strong>By</strong> <a href="profile/{{$post->user['id']}}">{{ $post->user['name'] }}</a> <strong>at</strong> {{ $post->created_at }}
+					<strong>By</strong> <a href="profile/{{$post->user['id']}}">{{ $post->user['name'] }}</a> {{ $post->created_at->diffForHumans() }}
 				</div>
         	</div>
 			@endforeach

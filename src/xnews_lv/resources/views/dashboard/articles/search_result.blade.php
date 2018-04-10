@@ -30,8 +30,8 @@
                                     <tr>
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
-                                        <td>{{$post->created_at}} UTC</td>
-                                        <td>{{$post->updated_at}} UTC</td>
+                                        <td>{{$post->created_at->diffForHumans()}}</td>
+                                        <td>{{$post->updated_at->diffForHumans()}}</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->update_id}}
                                         <td><a href="{{url('posts/'.$post->id)}}" target="_blank">View on Website</a></td>

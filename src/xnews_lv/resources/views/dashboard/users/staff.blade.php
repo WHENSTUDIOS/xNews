@@ -31,7 +31,7 @@
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->created_at}} UTC</td>
+                                        <td>{{$user->created_at->diffForHumans()}}</td>
                                         <td>{{$user->level}}</td>
                                         <form action="{{url('dashboard/users/demote/'.$user->id)}}" method="POST">
                                         @csrf

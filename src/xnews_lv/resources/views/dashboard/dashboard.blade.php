@@ -91,7 +91,7 @@
                         @foreach($myposts as $mypost)
                         <tr>
                             <td>{{$mypost->title}}</td>
-                            <td>{{$mypost->created_at}}</td>
+                            <td>{{$mypost->created_at->diffForHumans()}}</td>
                             <td>
                                 <a class="btn btn-warning btn-xs" target="_blank" href="{{url('posts/'.$mypost->id)}}">View</a>
                             </td>

@@ -31,8 +31,8 @@
                                     <tr>
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
-                                        <td>{{$post->created_at}} UTC</td>
-                                        <td>{{$post->updated_at}} UTC</td>
+                                        <td>{{$post->created_at->diffForHumans()}}</td>
+                                        <td>{{$post->updated_at->diffForHumans()}}</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->update_id}}
                                         <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
