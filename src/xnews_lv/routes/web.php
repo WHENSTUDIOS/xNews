@@ -61,6 +61,7 @@ Route::post('/dashboard/users/edit/details/{id}', 'DashboardUserController@edit_
 Route::post('/dashboard/users/edit/password/{id}', 'DashboardUserController@edit_password');
 Route::post('/dashboard/users/edit/profile/{id}', 'DashboardUserController@edit_profile');
 Route::put('/dashboard/users/demote/{id}', 'DashboardUserController@demote_user');
+Route::post('/dashboard/users/search/result', 'SearchController@user');
 Route::post('/dashboard/settings/database', 'DashboardSettingsController@edit_database');
 Route::post('/dashboard/content/wcms/general', 'DashboardSettingsController@edit_wcms_data');
 Route::post('/dashboard/settings/access', 'DashboardSettingsController@edit_access');
