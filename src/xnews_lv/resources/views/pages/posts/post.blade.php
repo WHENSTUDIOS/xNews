@@ -14,7 +14,7 @@
                             <strong>
                                 @csrf
                                 <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a></strong>
-                                | Last modified at <strong>{{$post->updated_at}}</strong>
+                                | Last modified <i>{{$post->updated_at->diffForHumans()}}</i>
                                 @if(Auth::check() && Auth::user()->level >=2)
                                 <span class="functions"><a href="../posts/{{$post->id}}/edit">Edit</a>
                                 @if(Auth::check() && Auth::user()->level >=3)
