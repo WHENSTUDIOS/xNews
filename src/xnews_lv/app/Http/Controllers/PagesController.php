@@ -57,4 +57,15 @@ class PagesController extends Controller
         if (!$full) $string = array_slice($string, 0, 1);
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
+    public function banned(){
+        if(Auth::check()){
+            if(Auth::user()->level === 0){
+                return view('pages.banned');
+            } else {
+                return redirect('/banned');
+            }
+        } else {
+            return redirect('/login');
+        }
+    }
 }

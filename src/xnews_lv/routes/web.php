@@ -15,6 +15,11 @@
 if(Config::get('site.data.install') === 'true'){
     return redirect('/install');
 }
+if(Auth::check()){
+    if(Auth::user()->level === 0){
+        return redirect('/banned');
+    }
+}
 
 //Main Website Routes
 Route::get('/home', 'PostsController@index')->name('home');
@@ -28,6 +33,7 @@ Route::delete('posts/{post}', 'PostsController@destroy');
 Route::get('posts/{post}/edit', 'PostsController@edit');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/install', 'InstallController@show');
+Route::get('/banned', 'PagesController@banned');
 
 //User Dashboard Routes
 Route::get('/dashboard', 'DashboardController@dashboard');
