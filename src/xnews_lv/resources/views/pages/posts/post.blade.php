@@ -14,7 +14,11 @@
                             <strong>
                                 @csrf
                                 <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a></strong>
+                                @if($post->created_at == $post->updated_at)
+                                {{$post->created_at->diffForHumans()}}
+                                @else
                                 | Last modified <i>{{$post->updated_at->diffForHumans()}}</i>
+                                @endif
                                 @if(Auth::check() && Auth::user()->level >=2)
                                 <span class="functions"><a href="../posts/{{$post->id}}/edit">Edit</a>
                                 @if(Auth::check() && Auth::user()->level >=3)
