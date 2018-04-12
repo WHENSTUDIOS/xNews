@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use Auth;
 use App\Data;
+use App\Social;
+use App\User;
 
 class PagesController extends Controller
 {
@@ -67,5 +69,10 @@ class PagesController extends Controller
         } else {
             return redirect('/login');
         }
+    }
+    public function profile($id){
+        $social = Social::find($id);
+        $user = User::find($id);
+        return view('pages.profile')->with('social', $social)->with('user', $user);
     }
 }

@@ -33,6 +33,7 @@ Route::get('posts/{post}/edit', 'PostsController@edit');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/install', 'InstallController@show');
 Route::get('/banned', 'PagesController@banned');
+Route::get('/profile/{id}', 'PagesController@profile');
 
 //User Dashboard Routes
 Route::get('/dashboard', 'DashboardController@dashboard');
