@@ -7,6 +7,7 @@
 			<div class="row">
         <div id="fh5co-board" data-columns>
             <center><h1>{{$user->name}}</h1>
+            <input type="submit" value="Follow" class="btn btn-danger btn-sm">
             <p class="fh5co-social-icons">
                         @if($social->twitter != null)
 						<a href="https://twitter.com/{{$social->twitter}}"><i class="icon-twitter"></i></a>
