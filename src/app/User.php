@@ -18,6 +18,10 @@ class User extends Authenticatable
         'name', 'email', 'password', 'level',
     ];
 
+    public static function level(){
+        return Auth::user()->level;
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
