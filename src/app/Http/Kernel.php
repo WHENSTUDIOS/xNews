@@ -61,5 +61,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'postperms' => \App\Http\Middleware\PostPX::class,
+        'dashboardperms' => \App\Http\Middleware\DashboardPX::class,
     ];
 }
