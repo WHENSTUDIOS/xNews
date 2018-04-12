@@ -47,7 +47,7 @@
                 <p>{!!$social->bio!!}</p>
                 @endif
                 <hr>
-                @if($user->name == Auth::user()->name)
+                @if(Auth::check() && $user->name == Auth::user()->name)
                 [ <a href="{{url('profile/edit')}}">Edit Profile</a> ]
                 @endif
             </center>
