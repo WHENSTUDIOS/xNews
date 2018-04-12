@@ -6,7 +6,26 @@
 
 			<div class="row">
         <div id="fh5co-board" data-columns>
-            <center><h1>{{$user->name}}</h1>
+            <center><h1>{{$user->name}}
+            <small>
+            @switch($user->level)
+							@case(0)
+							Banned
+							@break
+							@case(2)
+                            Editor
+							@break
+							@case(3)
+                            Moderator
+							@break
+							@case(4)
+                            Administrator
+							@break
+							@default
+							@break
+						@endswitch
+            </small>
+            </h1>
             <a href="">{{count($posts)}} {{ count($posts) == '1' ? 'post' : 'posts' }}</a> | <a href="">2 comments</a>
             <p class="fh5co-social-icons">
                         @if($social->twitter != null)
