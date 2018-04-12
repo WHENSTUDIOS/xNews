@@ -74,15 +74,19 @@ class DashboardController extends Controller
             $user = User::find($id);
             $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
             $social = Social::where('user_id', $user->id)->get()->first();
-            if($social === null){
-                $new_social = new Social;
-                $new_social->user_id = $id;
-                if($new_social->save()){
-                    $mod_social = Social::where('user_id', $user->id)->get()->first();
-                    return view('dashboard.users.edit')->with('user', $user)->with('posts', $posts)->with('social', $mod_social);
+            if(Auth::user()->level >= $user->level){
+                if($social === null){
+                    $new_social = new Social;
+                    $new_social->user_id = $id;
+                    if($new_social->save()){
+                        $mod_social = Social::where('user_id', $user->id)->get()->first();
+                        return view('dashboard.users.edit')->with('user', $user)->with('posts', $posts)->with('social', $mod_social);
+                    }
+                } else {
+                    return view('dashboard.users.edit')->with('user', $user)->with('posts', $posts)->with('social', $social);
                 }
             } else {
-                return view('dashboard.users.edit')->with('user', $user)->with('posts', $posts)->with('social', $social);
+                return redirect('dashboard/users/list')->with('error', 'You cannot edit a user higher than yourself.');
             }
 
             } else {
