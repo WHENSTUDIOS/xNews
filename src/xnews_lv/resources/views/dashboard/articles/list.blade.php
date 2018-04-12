@@ -21,7 +21,7 @@
                                 <th>Created On</th>
                                 <th>Last Updated</th>
                                 <th>Author</th>
-                                <th>Last Editor (ID)</th>
+                                <th>Last Editor</th>
                                 <th>Actions</th>
                             </tr>
                             @if(count($posts) <= 0)
