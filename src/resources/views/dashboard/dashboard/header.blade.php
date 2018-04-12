@@ -154,7 +154,23 @@
         </div>
         <div class="pull-left info">
           <p>{{Auth::user()->name}}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> 
+          
+          @switch(Auth::user()->level)
+            @case(2)
+            Editor
+            @break
+            @case(3)
+            Moderator
+            @break
+            @case(4)
+            Administrator
+            @break
+            @default
+            User
+            @break
+          @endswitch
+          </a>
         </div>
       </div>
       <!-- search form -->
