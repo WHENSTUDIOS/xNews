@@ -93,7 +93,7 @@ $user->name) @section('main_content')
                         @foreach($posts as $post)
                         <tr>
                             <td>{{$post->title}}</td>
-                            <td>{{$post->created_at}}</td>
+                            <td>{{$post->created_at->diffForHumans()}}</td>
                             <td>
                                 <a class="btn btn-warning btn-xs" target="_blank" href="{{url('posts/'.$post->id)}}">View</a>
                             </td>
