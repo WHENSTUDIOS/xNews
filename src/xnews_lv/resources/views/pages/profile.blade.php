@@ -3,7 +3,6 @@
 @section('main_content')
 <div id="fh5co-main">
 		<div class="container">
-
 			<div class="row">
         <div id="fh5co-board" data-columns>
             <center><h1>{{$user->name}}
@@ -46,6 +45,10 @@
                 <p>No description given.</p>
                 @else
                 <p>{!!$social->bio!!}</p>
+                @endif
+                <hr>
+                @if($user->name == Auth::user()->name)
+                [ <a href="{{url('profile/edit')}}">Edit Profile</a> ]
                 @endif
             </center>
             

@@ -74,7 +74,7 @@ class PagesController extends Controller
     public function profile($id){
         $social = Social::find($id);
         $user = User::find($id);
-        $post_count = Post::where('user_id', '=', Auth::user()->name)->get();
+        $post_count = Post::where('user_id', '=', Auth::user()->id)->get();
         return view('pages.profile')->with('social', $social)->with('user', $user)->with('posts', $post_count);
     }
 }
