@@ -8,6 +8,7 @@ use Auth;
 use App\Social;
 use App\Template;
 use App\Notice;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -31,10 +32,14 @@ class PostsController extends Controller
     public function create()
     {
         if(Auth::check()){
+            if(User::level() >= 4){
             $templates = Template::orderBy('created_at','desc')->get();
 
             $activetemplate = Template::where('status', '1')->first();
             return view('pages.posts.create')->with('templates', $templates)->with('activetemplate', $activetemplate);
+            } else {
+                return redirect('/home');
+            }
         } else {
             return redirect('/home');
         }
@@ -87,8 +92,16 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        if($posts = Post::find($id)){
-            return view('pages.posts.edit')->with('post', $posts);
+        if(Auth::check()){
+            if(User::level() >= 2){
+                if($posts = Post::find($id)){
+                    return view('pages.posts.edit')->with('post', $posts);
+                } else {
+                    return redirect('/home');
+                }
+            } else {
+                return redirect('/home');
+            }
         } else {
             return redirect('/home');
         }
