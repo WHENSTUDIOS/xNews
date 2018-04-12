@@ -8,6 +8,7 @@ use Auth;
 use App\Data;
 use App\Social;
 use App\User;
+use App\Post;
 
 class PagesController extends Controller
 {
@@ -73,6 +74,7 @@ class PagesController extends Controller
     public function profile($id){
         $social = Social::find($id);
         $user = User::find($id);
-        return view('pages.profile')->with('social', $social)->with('user', $user);
+        $post_count = Post::where('user_id', '=', Auth::user()->name)->get();
+        return view('pages.profile')->with('social', $social)->with('user', $user)->with('posts', $post_count);
     }
 }

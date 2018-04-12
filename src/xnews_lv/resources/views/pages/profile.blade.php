@@ -7,7 +7,7 @@
 			<div class="row">
         <div id="fh5co-board" data-columns>
             <center><h1>{{$user->name}}</h1>
-            <input type="submit" value="Follow" class="btn btn-danger btn-sm">
+            <a href="">{{count($posts)}} {{ count($posts) == '1' ? 'post' : 'posts' }}</a> | <a href="">2 comments</a>
             <p class="fh5co-social-icons">
                         @if($social->twitter != null)
 						<a href="https://twitter.com/{{$social->twitter}}"><i class="icon-twitter"></i></a>
@@ -22,6 +22,7 @@
                         <a href="https://instagram.com/{{$social->instagram}}"><i class="icon-instagram"></i></a>
                         @endif
 					</p>
+                    <hr>
                 @if($social->bio == '')
                 <p>No description given.</p>
                 @else
