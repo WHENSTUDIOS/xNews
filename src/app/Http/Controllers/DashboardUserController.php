@@ -68,9 +68,15 @@ class DashboardUserController extends Controller
         'edit-email.required' => 'Please provide an email address.',
     ]);
 
+        if($request->input('edit-level') <= 4 && $request->input('edit-level') >=0){
+            $level = $request->input('edit-level');
+        } else {
+            $level = $user->level;
+        }
+
         $user->name = $request->input('edit-name');
         $user->email = $request->input('edit-email');
-        $user->level = $request->input('edit-level');
+        $user->level = $level;
         if($user->save()){
             return redirect('dashboard/users/edit/'.$user->id)->with('success', 'User edited successfully.');
         } else {
