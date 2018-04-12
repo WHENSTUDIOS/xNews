@@ -129,8 +129,11 @@ $user->name) @section('main_content')
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Google+</label>
-                            <input type="text" name="googleplus" value="{{$social->googleplus}}" class="form-control" placeholder="Full G+ Profile URL">
+                        <label for="exampleInputPassword1">Instagram</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" name="instagram" value="{{$social->instagram}}" class="form-control" placeholder="Username">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Facebook</label>

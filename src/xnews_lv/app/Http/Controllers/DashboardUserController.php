@@ -103,7 +103,7 @@ class DashboardUserController extends Controller
         $this->validate($request, [
             'bio' => 'max:1999',
             'twitter' => '',
-            'googleplus' => '',
+            'instagram' => '',
             'facebook' => '',
             'youtube' => '',
             'skype' => '',
@@ -114,7 +114,7 @@ class DashboardUserController extends Controller
 
         $social->bio = $request->input('bio');
         $social->twitter = $request->input('twitter');
-        $social->googleplus = $request->input('googleplus');
+        $social->instagram = $request->input('instagram');
         $social->facebook = $request->input('facebook');
         $social->youtube = $request->input('youtube');
         $social->skype = $request->input('skype');
