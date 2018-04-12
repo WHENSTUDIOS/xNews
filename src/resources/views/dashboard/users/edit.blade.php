@@ -25,6 +25,7 @@ $user->name) @section('main_content')
                             <input type="text" data-lpignore="true" class="form-control" name="edit-email" placeholder="example@example.com" value="{{$user->email}}"
                                 autocomplete="new-password" required />
                         </div>
+                        @if(Auth::user()->name !== $user->name)
                         <div class="form-group">
                             <label>Auth Level</label>
                             <select id="level" name="edit-level" class="form-control">
@@ -35,6 +36,7 @@ $user->name) @section('main_content')
                                 <option id="4" value="4" {{ $user->level === 4 ? 'selected' : '' }}>Admin</option>
                             </select>
                         </div>
+                        @endif
                     </div>
                     <!-- /.box-body -->
 
