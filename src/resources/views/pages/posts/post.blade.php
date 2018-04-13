@@ -17,6 +17,9 @@
                             @if($post->created_at == $post->updated_at) {{$post->created_at->diffForHumans()}} @else | Last modified
                             <i>{{$post->updated_at->diffForHumans()}}</i>
                             @endif @if(Auth::check() && Auth::user()->level >=2)
+                            @if($post->visible == 0)
+                            | This post is <strong>hidden</strong>. You can un-hide it from the <a href="{{url('dashboard/articles/edit/'.$post->id)}}">Dashboard</a>.
+                            @endif
                             <span class="functions">
                                 <a href="../posts/{{$post->id}}/edit">Edit</a>
                                 @if(Auth::check() && Auth::user()->level >=3) |
