@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
 	<link rel="stylesheet" href="{{asset('css/salvattore.css')}}">
 	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+	<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 	<script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
 
 	</head>

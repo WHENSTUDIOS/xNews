@@ -10,6 +10,7 @@
                     <h3>
                                 <form action="../posts/{{$post->id}}" method="POST">
                                 <small>
+                            -1 <a href="" style="color:#990f0f"><span class="fa fa-chevron-up"></span></a> <a href=""><span class="fa fa-chevron-down"></span></a></span> | 
                             Posted by
                             <strong>
                                 @csrf
