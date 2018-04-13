@@ -18,7 +18,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->get();
+        $posts = Post::where('visible', '=', 1)->orderBy('created_at','desc')->get();
         $notices = Notice::where('status', '1')->get();
         return view('pages.home')->with('posts', $posts)->with('notices', $notices);
     }
