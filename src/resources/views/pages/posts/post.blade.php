@@ -9,7 +9,7 @@
                     <hr>
                     <h3>
                         <small>
-                            | Posted by
+                            Posted by
                             <strong>
                                 @csrf
                                 <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a>
