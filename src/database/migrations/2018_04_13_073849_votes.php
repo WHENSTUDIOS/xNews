@@ -13,7 +13,13 @@ class Votes extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('votes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('post_id');
+            $table->string('vote');
+            $table->string('sender');
+            $table->timestamps();
+        });
     }
 
     /**
