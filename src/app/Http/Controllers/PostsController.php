@@ -74,7 +74,11 @@ class PostsController extends Controller
     public function show($id)
     {
         if($posts = Post::find($id)){
-            return view('pages.posts.post')->with('post', $posts);
+            if($posts->visible == 0 && Auth::user()->level >= 2){
+                return view('pages.posts.post')->with('post', $posts);
+            } else {
+                return view('pages.nopermission');
+            }
         } else {
             return redirect('/home');
         }
