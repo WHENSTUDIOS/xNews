@@ -45,6 +45,6 @@ class DashboardPostController extends Controller
         $post->update_id = Auth::user()->name;
         $post->visible = $request->input('visible');
         $post->save();
-        return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post');
+        return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post.');
     }
 }
