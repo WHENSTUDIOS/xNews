@@ -28,7 +28,11 @@
                             No articles to display.
                             @else  
                                 @foreach($posts as $post)
+                                    @if($post->visible == 0)
+                                    <tr class="visno">
+                                    @else
                                     <tr>
+                                    @endif
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
                                         <td>{{$post->created_at->diffForHumans()}}</td>
