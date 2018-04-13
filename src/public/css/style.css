@@ -8333,6 +8333,11 @@ a > img.fh5co-align-center {
   margin-right: auto;
 }
 
+.vote {
+  color: #EF5353 !important;
+  cursor: pointer;
+}
+
 .voted {
   color: #990f0f !important;
 }

@@ -8,27 +8,24 @@
                     {!!$post->body!!}
                     <hr>
                     <h3>
-                                <form action="../posts/{{$post->id}}" method="POST">
-                                <small>
-                            -1 <a href="" style="color:#990f0f"><span class="fa fa-chevron-up"></span></a> <a href=""><span class="fa fa-chevron-down"></span></a></span> | 
-                            Posted by
+                        <small>
+                            | Posted by
                             <strong>
                                 @csrf
-                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a></strong>
-                                @if($post->created_at == $post->updated_at)
-                                {{$post->created_at->diffForHumans()}}
-                                @else
-                                | Last modified <i>{{$post->updated_at->diffForHumans()}}</i>
-                                @endif
-                                @if(Auth::check() && Auth::user()->level >=2)
-                                <span class="functions"><a href="../posts/{{$post->id}}/edit">Edit</a>
-                                @if(Auth::check() && Auth::user()->level >=3)
-                                |
-                                <input name="_method" type="hidden" value="DELETE">
-                                <input type="submit" class="delete-button error" value="Delete"/></span>
-                                @endif
-                                @endif
-                                </form>
+                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a>
+                            </strong>
+                            @if($post->created_at == $post->updated_at) {{$post->created_at->diffForHumans()}} @else | Last modified
+                            <i>{{$post->updated_at->diffForHumans()}}</i>
+                            @endif @if(Auth::check() && Auth::user()->level >=2)
+                            <span class="functions">
+                                <a href="../posts/{{$post->id}}/edit">Edit</a>
+                                @if(Auth::check() && Auth::user()->level >=3) |
+                                <form action="../posts/{{$post->id}}" method="POST" style="display:inline;">
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <input type="submit" class="delete-button error" value="Delete" />
+                            </span>
+                            @endif @endif
+                            </form>
                         </small>
                         </h2>
                 </div>
