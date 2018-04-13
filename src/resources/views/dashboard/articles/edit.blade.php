@@ -15,6 +15,13 @@ $post->title) @section('main_content')
                             <label>Title</label>
                             <input type="text" id="title" name="title" class="form-control" value="{{$post->title}}">
                         </div>
+                        <div class="form-group">
+                            <label>Index Visibility</label>
+                            <select id="visible" name="visible" class="form-control">
+                                <option id="1" value="1" {{ $post->visible === 1 ? 'selected' : '' }}>Visible</option>
+                                <option id="0" value="0" {{ $post->visible === 0 ? 'selected' : '' }}>Not Visible</option>
+                            </select>
+                        </div>
                         <label>Body</label>
                         <textarea name="body" id="article-ckeditor">{!!$post->body!!}</textarea>
                 </div>
