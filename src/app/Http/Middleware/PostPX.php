@@ -26,7 +26,7 @@ class PostPX
                 }
             }
         } else {
-            return response()->redirect('login');
+            return redirect('login');
         }
         return $next($request);
     }

@@ -40,7 +40,7 @@ class DashboardPX
                 }
             }
         } else {
-            return response()->redirect('login');
+            return redirect('login');
         }
         return $next($request);
     }
