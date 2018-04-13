@@ -58,6 +58,11 @@
 							@break
 							@case(4)
 							<a href="{{url('admin')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn"><span class="label label-danger">Admin</span> {{ Auth::user()->name }}  <i class="icon-user"></i></a>
+							@if(Request::is('home'))
+							<a href="{{url('posts/create')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn" style="float:left!important;"><span class="fa fa-plus"></span> New Article</a>
+							@else
+							<a href="{{url('home')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn" style="float:left!important;"><span class="fa fa-chevron-left"></span> Home</a>
+							@endif
 							@break
 							@default
 							<a href="{{url('dashboard')}}" class="fh5co-menu-btn js/Hydrogen-fh5co-menu-btn">{{ Auth::user()->name }}  <i class="icon-user"></i></a>
