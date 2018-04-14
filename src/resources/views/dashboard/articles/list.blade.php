@@ -15,6 +15,10 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody>
+                        @if(count($posts) <= 0)
+                            &nbsp; No articles to display.
+                            <br>
+                            @else  
                             <tr>
                                 <th>Post ID</th>
                                 <th>Title</th>
@@ -24,9 +28,6 @@
                                 <th>Last Editor</th>
                                 <th>Actions</th>
                             </tr>
-                            @if(count($posts) <= 0)
-                            No articles to display.
-                            @else  
                                 @foreach($posts as $post)
                                     @if($post->visible == 0)
                                     <tr class="visno">

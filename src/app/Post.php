@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $table = 'posts';
+    protected $table = 'posts_temp';
     public $primaryKey = 'id';
     public $timestamps = true;
 

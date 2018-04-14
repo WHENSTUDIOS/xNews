@@ -2,7 +2,7 @@
 
 return array(
     'data' => array(
-        'name' => 'thefsX',
+        'name' => 'black people',
         'url' => 'http://localhost:8000',
         'allow_username_change' => 'true',
         'allow-switcher' => 'false',
