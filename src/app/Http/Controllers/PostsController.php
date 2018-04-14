@@ -74,7 +74,7 @@ class PostsController extends Controller
     public function show($id)
     {
         if($posts = Post::find($id)){
-            if($posts->visible == 0 && Auth::user()->level >= 2){
+            if($posts->visible == 0 && Auth::user()->level <= 1){
                 return view('pages.nopermission');
             } else {
                 return view('pages.posts.post')->with('post', $posts);
