@@ -1402,7 +1402,6 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.42857;
   color: #333333;
   background-color: #fff;
 }
@@ -7342,7 +7341,7 @@ body {
   font-family: "Roboto", arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
-  line-height: 26px;
+  line-height: 20px;
   color: #818892;
   background: #f5f6f7;
 }
@@ -7356,9 +7355,6 @@ a:hover, a:active, a:focus {
   outline: none;
 }
 
-p {
-  margin-bottom: 1.5em;
-}
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
