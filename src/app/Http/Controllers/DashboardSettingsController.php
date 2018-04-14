@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Template;
+use App\Notice;
 use Config;
 
 class DashboardSettingsController extends Controller
@@ -133,5 +134,60 @@ class DashboardSettingsController extends Controller
         } else {
             return redirect('/dashboard/content/templates')->with('error', 'Unable to delete template.'); 
         }
+    }
+
+    public function create_notice(Request $request){
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'content' => 'required|max:300',
+        ],
+    [
+        'title.required' => 'Please provide a notice title.',
+        'title.max' => 'Maximum 50 characters for the title.',
+        'body.required' => 'Please provide a notice body.',
+        'body.max' => 'Maximum 300 characters for the notice body.',
+    ]);
+        
+        $notice = new Notice;
+        $notice->name = $request->input('title');
+        $notice->content = $request->input('content');
+        $notice->status = '0';
+        if($notice->save()){
+            return redirect('dashboard/content/notices')->with('success', 'Successfully created notice.');
+        }
+    }
+
+    public function notice_active($id){
+        if($current = Notice::where('status', '1')->update(['status' => '0'])){
+            unset($current);
+            $new = Notice::find($id);
+            $new->status = '1';
+            if($new->save()){
+                unset($new);
+                return redirect('dashboard/content/notices')->with('success', 'Successfully set active notice.'); 
+            } else {
+                return redirect('dashboard/content/notices')->with('error', 'Unable to set active notice.'); 
+            }
+        } else {
+            $new = Notice::find($id);
+            $new->status = '1';
+            if($new->save()){
+                unset($new);
+                return redirect('dashboard/content/notices')->with('success', 'Successfully set active notice.'); 
+            } else {
+                return redirect('dashboard/content/notices')->with('error', 'Unable to set active notice.'); 
+            }
+        }
+    }
+
+    public function notice_inactive($id){
+            $new = Notice::find($id);
+            $new->status = '0';
+            if($new->save()){
+                unset($new);
+                return redirect('dashboard/content/notices')->with('success', 'Successfully set inactive notice.'); 
+            } else {
+                return redirect('dashboard/content/notices')->with('error', 'Unable to set inactive notice.'); 
+            }
     }
 }

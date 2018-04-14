@@ -35,21 +35,21 @@
                                             @endif
                                         </td>
                                         @if($notice->status == '0')
-                                        <form action="{{url('dashboard/settings/notices/active/'.$notice->id)}}" method="POST" style="display:inline !important;">
+                                        <form action="{{url('dashboard/content/notices/active/'.$notice->id)}}" method="POST" style="display:inline !important;">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
                                         <td><input type="submit" class="btn btn-primary btn-xs" value="Make Active"> |
                                         </form>
                                         @elseif($notice->status == '1')
-                                        <form action="{{url('dashboard/settings/notices/inactive/'.$notice->id)}}" method="POST" style="display:inline !important;">
+                                        <form action="{{url('dashboard/content/notices/inactive/'.$notice->id)}}" method="POST" style="display:inline !important;">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
                                         <td><input type="submit" class="btn btn-warning btn-xs" value="Make Inactive"> |
                                         </form>
                                         @endif
-                                        <form style="display:inline !important;" action="{{url('dashboard/settings/notices/delete/'.$notice->id)}}" method="POST">
+                                        <form style="display:inline !important;" action="{{url('dashboard/content/notices/delete/'.$notice->id)}}" method="POST">
                                         @csrf
-                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/settings/notices/edit/'.$notice->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/content/notices/edit/'.$notice->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
                                         </form>
                                     </tr>
                                 @endforeach

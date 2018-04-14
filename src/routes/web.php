@@ -56,6 +56,7 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::get('/dashboard/content/templates', 'DashboardController@article_templates');
     Route::get('/dashboard/content/templates/create', 'DashboardController@create_template');
     Route::get('/dashboard/content/notices', 'DashboardController@list_notices');
+    Route::get('/dashboard/content/notices/create', 'DashboardController@create_notice');
 
     //Dashboard Form Post Routes
     Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
@@ -73,9 +74,9 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::post('/dashboard/content/templates/create', 'DashboardSettingsController@create_template');
     Route::put('/dashboard/content/templates/active/{id}', 'DashboardSettingsController@template_active');
     Route::put('/dashboard/content/templates/inactive/{id}', 'DashboardSettingsController@template_inactive');
-    Route::post('/dashboard/content/notices/create', 'DashboardSettingsController@create_template');
-    Route::put('/dashboard/content/notices/active/{id}', 'DashboardSettingsController@template_active');
-    Route::put('/dashboard/content/notices/inactive/{id}', 'DashboardSettingsController@template_inactive');
+    Route::post('/dashboard/content/notices/create', 'DashboardSettingsController@create_notice');
+    Route::put('/dashboard/content/notices/active/{id}', 'DashboardSettingsController@notice_active');
+    Route::put('/dashboard/content/notices/inactive/{id}', 'DashboardSettingsController@notice_inactive');
 
     //Dashboard Delete Routes
     Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');

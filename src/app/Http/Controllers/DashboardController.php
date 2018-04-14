@@ -152,4 +152,11 @@ class DashboardController extends Controller
             return redirect('login');
         }
     }
+    public function create_notice(){
+        if(Auth::check()){
+            return view('dashboard.content.createnotice');
+        } else {
+            return redirect('login');
+        }
+    }
 }
