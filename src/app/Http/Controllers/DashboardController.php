@@ -8,6 +8,7 @@ use App\Post;
 use App\User;
 use App\Social;
 use App\Template;
+use App\Notice;
 
 class DashboardController extends Controller
 {
@@ -139,6 +140,14 @@ class DashboardController extends Controller
     public function create_template(){
         if(Auth::check()){
             return view('dashboard.content.createtemplate');
+        } else {
+            return redirect('login');
+        }
+    }
+    public function list_notices(){
+        if(Auth::check()){
+            $notice = Notice::orderBy('created_at','desc')->get();
+            return view('dashboard.content.notices')->with('notices', $notice);
         } else {
             return redirect('login');
         }
