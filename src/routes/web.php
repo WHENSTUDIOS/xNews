@@ -81,7 +81,8 @@ Route::middleware(['dashboardperms'])->group(function (){
     //Dashboard Delete Routes
     Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');
     Route::delete('dashboard/articles/delete/{id}', 'DashboardPostController@delete');
-    Route::delete('/dashboard/settings/templates/delete/{id}', 'DashboardSettingsController@delete_template');
+    Route::delete('/dashboard/content/templates/delete/{id}', 'DashboardSettingsController@delete_template');
+    Route::delete('/dashboard/content/notices/delete/{id}', 'DashboardSettingsController@delete_notice');
 });
 
 //Redirect Routes

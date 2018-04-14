@@ -190,4 +190,14 @@ class DashboardSettingsController extends Controller
                 return redirect('dashboard/content/notices')->with('error', 'Unable to set inactive notice.'); 
             }
     }
+
+    public function delete_notice($id){
+        $notice = Notice::find($id);
+        if($notice->delete()){
+            return redirect('/dashboard/content/notices')->with('success', 'Succesfully deleted notice.');
+        } else {
+            return redirect('/dashboard/content/notices')->with('error', 'Unable to delete notice.'); 
+        }
+    }
+
 }
