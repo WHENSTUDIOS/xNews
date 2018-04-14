@@ -28,7 +28,7 @@ $post->title) @section('main_content')
                 <div class="box-footer">
                     <input name="_method" type="hidden" value="PUT">
 
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                     <a href="{{url('dashboard/articles/list')}}" class="btn btn-warning">Cancel</a>
                     </form>
                 </div>
