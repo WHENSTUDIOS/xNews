@@ -71,8 +71,11 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::post('/dashboard/content/wcms/general', 'DashboardSettingsController@edit_wcms_data');
     Route::post('/dashboard/settings/access', 'DashboardSettingsController@edit_access');
     Route::post('/dashboard/content/templates/create', 'DashboardSettingsController@create_template');
-    Route::put('/dashboard/settings/templates/active/{id}', 'DashboardSettingsController@template_active');
-    Route::put('/dashboard/settings/templates/inactive/{id}', 'DashboardSettingsController@template_inactive');
+    Route::put('/dashboard/content/templates/active/{id}', 'DashboardSettingsController@template_active');
+    Route::put('/dashboard/content/templates/inactive/{id}', 'DashboardSettingsController@template_inactive');
+    Route::post('/dashboard/content/notices/create', 'DashboardSettingsController@create_template');
+    Route::put('/dashboard/content/notices/active/{id}', 'DashboardSettingsController@template_active');
+    Route::put('/dashboard/content/notices/inactive/{id}', 'DashboardSettingsController@template_inactive');
 
     //Dashboard Delete Routes
     Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');

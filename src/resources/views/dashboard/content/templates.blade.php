@@ -34,21 +34,21 @@
                                             @endif
                                         </td>
                                         @if($template->status == '0')
-                                        <form action="{{url('dashboard/settings/templates/active/'.$template->id)}}" method="POST" style="display:inline !important;">
+                                        <form action="{{url('dashboard/content/templates/active/'.$template->id)}}" method="POST" style="display:inline !important;">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
                                         <td><input type="submit" class="btn btn-primary btn-xs" value="Make Active"> |
                                         </form>
                                         @elseif($template->status == '1')
-                                        <form action="{{url('dashboard/settings/templates/inactive/'.$template->id)}}" method="POST" style="display:inline !important;">
+                                        <form action="{{url('dashboard/content/templates/inactive/'.$template->id)}}" method="POST" style="display:inline !important;">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
                                         <td><input type="submit" class="btn btn-warning btn-xs" value="Make Inactive"> |
                                         </form>
                                         @endif
-                                        <form style="display:inline !important;" action="{{url('dashboard/settings/templates/delete/'.$template->id)}}" method="POST">
+                                        <form style="display:inline !important;" action="{{url('dashboard/content/templates/delete/'.$template->id)}}" method="POST">
                                         @csrf
-                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/settings/templates/edit/'.$template->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/content/templates/edit/'.$template->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
                                         </form>
                                     </tr>
                                 @endforeach
