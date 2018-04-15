@@ -20,7 +20,7 @@
                                 <th>Name</th>
                                 <th>Email Address</th>
                                 <th>Account Created</th>
-                                <th>Auth Level</th>
+                                <th>Role</th>
                                 <th>Actions</th>
                             </tr>
                             @if(count($users) <= 0)
@@ -32,7 +32,25 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->created_at->diffForHumans()}}</td>
-                                        <td>{{$user->level}}</td>
+                                        <td>
+                                        @switch($user->level)
+                                        @case(0)
+                                        Banned
+                                        @break
+                                        @case(2)
+                                        Editor
+                                        @break
+                                        @case(3)
+                                        Moderator
+                                        @break
+                                        @case(4)
+                                        Admin
+                                        @break
+                                        @default
+                                        User
+                                        @break
+                                        @endswitch
+                                        </td>
                                         <form action="{{url('dashboard/users/delete/'.$user->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
