@@ -132,7 +132,7 @@ class DashboardUserController extends Controller
 
     public function demote_user($id){
         $user = User::find($id);
-        if($user->level !== Auth::user()->level){
+        if($user->id !== Auth::user()->id){
             if($user->level !== 4){
                 $user->level = '1';
                 if($user->save()){
