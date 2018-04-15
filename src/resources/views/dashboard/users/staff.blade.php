@@ -54,7 +54,10 @@
                                         <form action="{{url('dashboard/users/demote/'.$user->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="PUT">
-                                        <td><a class="btn btn-warning btn-xs" href="{{url('profile/'.$user->id)}}">Profile</a> | <a class="btn btn-success btn-xs" href="{{url('dashboard/users/edit/'.$user->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Demote"/></span></td>
+                                        <td><a class="btn btn-warning btn-xs" href="{{url('profile/'.$user->id)}}">Profile</a> | <a class="btn btn-success btn-xs" href="{{url('dashboard/users/edit/'.$user->id)}}">Edit</a>
+                                        @if(Auth::user()->level == 4)
+                                         | <input type="submit" class="btn btn-danger btn-xs" value="Demote"/></span></td>
+                                         @endif
                                         </form>
                                     </tr>
                                 @endforeach
