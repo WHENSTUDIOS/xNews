@@ -29,7 +29,9 @@ $user->name) @section('main_content')
                         <div class="form-group">
                             <label>Auth Level</label>
                             <select id="level" name="edit-level" class="form-control">
+                                @if(Auth::user()->id !== $user->id)
                                 <option class="bg-danger text-white" id="0" value="0" {{ $user->level === 1 ? 'selected' : '' }}>Banned</option>
+                                @endif
                                 <option id="1" value="1" {{ $user->level === 1 ? 'selected' : '' }}>Normal User</option>
                                 <option id="2" value="2" {{ $user->level === 2 ? 'selected' : '' }}>Editor</option>
                                 <option id="3" value="3" {{ $user->level === 3 ? 'selected' : '' }}>Moderator</option>
