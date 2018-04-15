@@ -132,11 +132,19 @@ class DashboardUserController extends Controller
 
     public function demote_user($id){
         $user = User::find($id);
-        $user->level = '1';
-        if($user->save()){
-            return redirect('dashboard/users/staff')->with('success', 'User demoted back to user status successfully.');
+        if($user->level !== Auth::user()->level){
+            if($user->level !== 4){
+                $user->level = '1';
+                if($user->save()){
+                    return redirect('dashboard/users/staff')->with('success', 'User demoted back to user status successfully.');
+                } else {
+                    return redirect('dashboard/users/staff')->with('error', 'Could not demote user.');
+                }
+            } else {
+                return redirect('dashboard/users/staff')->with('error', 'You cannot demote an administrator.');
+            }
         } else {
-            return redirect('dashboard/users/staff')->with('error', 'Could not demote user.');
+            return redirect('dashboard/users/staff')->with('error', 'You cannot demote yourself!');  
         }
     }
 }
