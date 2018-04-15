@@ -76,11 +76,15 @@ class DashboardUserController extends Controller
 
         $user->name = $request->input('edit-name');
         $user->email = $request->input('edit-email');
-        $user->level = $level;
-        if($user->save()){
-            return redirect('dashboard/users/edit/'.$user->id)->with('success', 'User edited successfully.');
+        if(Auth::user()->id !== $id && $request->input('edit-level') !== 0){
+            $user->level = $level;
+            if($user->save()){
+                return redirect('dashboard/users/edit/'.$user->id)->with('success', 'User edited successfully.');
+            } else {
+                return redirect('dashboard/users/list');
+            }
         } else {
-            return redirect('dashboard/users/list');
+            return redirect('dashboard/users/edit')->with('error', 'You cannot ban yourself!');
         }
     }
 
