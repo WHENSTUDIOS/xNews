@@ -5,8 +5,10 @@
 @section('main_content')
 <section class="content">
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-md-12">
         @include('dashboard.dashboard.messages')
+        </div>
+        <div class="col-xs-6">
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">
                     <h3 class="box-title">Templates</h3>
