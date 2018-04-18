@@ -15,7 +15,7 @@ class SearchController extends Controller
         ]);
 
         $user = new User;
-        $result = User::where('name', 'LIKE', '%'.$request->input('q').'%')->orWhere('email','LIKE','%'.$request->input('q').'%')->get();
+        $result = User::where('name', 'LIKE', '%'.$request->input('q').'%')->orWhere('email','LIKE','%'.$request->input('q').'%')->orderBy('created_at', 'desc')->get();
         return view('dashboard.users.search_result')->with('result', $result)->with('q', $request->input('q'));
     }
 
@@ -25,7 +25,7 @@ class SearchController extends Controller
         ]);
 
         $post = new Post;
-        $result = Post::where('title', 'LIKE', '%'.$request->input('q').'%')->orWhere('body','LIKE','%'.$request->input('q').'%')->get();
+        $result = Post::where('title', 'LIKE', '%'.$request->input('q').'%')->orWhere('body','LIKE','%'.$request->input('q').'%')->orderBy('created_at', 'desc')->get();
         return view('dashboard.articles.search_result')->with('result', $result)->with('q', $request->input('q'));
     }
 }
