@@ -54,7 +54,7 @@
                     <hr>
                     @endforeach
                     @endif
-                    
+                
                     @if(!Auth::check())
                     <h4>Please <a href="{{url('login')}}">log in</a> to post a comment.</h4>
                     @else

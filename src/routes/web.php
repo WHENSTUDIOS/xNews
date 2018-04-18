@@ -88,6 +88,8 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::post('/dashboard/articles/categories/create', 'DashboardSettingsController@create_category');
     Route::post('/dashboard/articles/categories/edit/{id}', 'DashboardSettingsController@edit_category');
     Route::get('/dashboard/articles/clearviews/{id}', 'DashboardPostController@clear_views');
+    Route::get('/dashboard/articles/clearcomments/{id}', 'DashboardSettingsController@clear_comments');
+
 
     //Dashboard Delete Routes
     Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');

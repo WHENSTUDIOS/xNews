@@ -51,7 +51,7 @@
                                         <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/> | <a class="btn btn-warning btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';">Reset Views</a></span></td>
+                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/> | <a class="btn btn-warning btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';">Reset Views</a> | <a class="btn btn-primary btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearcomments/'.$post->id)}}';">Clear Comments</a></td>
                                         </form>
                                     </tr>
                                 @endforeach

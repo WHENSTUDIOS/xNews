@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Template;
 use App\Notice;
 use App\Categories;
+use App\Comment;
 use Config;
 
 class DashboardSettingsController extends Controller
@@ -255,6 +256,14 @@ class DashboardSettingsController extends Controller
         } else {
             return redirect('dashboard/articles/categories')->with('error', 'Could not edit category.');
         }
+    }
+
+    public function clear_comments($id){
+        $comments = Comment::where('post_id', $id)->get();
+        foreach($comments as $comment){
+            $comment->delete();
+        }
+        return redirect('dashboard/articles/list')->with('success', 'Successfully cleared comments.');
     }
 
 }
