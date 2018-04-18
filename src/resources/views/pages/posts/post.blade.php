@@ -49,9 +49,8 @@
                     @else
                     <p><a href="{{url('profile/'.$comment->user['id'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}}</p>
                     @endif
-                    </p><?php 
-                    $n_com = preg_replace('/@([^@ ]+)/', '<a href="../profile/$1">@$1</a> ', $comment->comment); ?>
-                    <p>{!! $n_com !!}</p>
+                    </p>
+                    <p>{!! $comment->comment !!}</p>
                     <hr>
                     @endforeach
                     @endif

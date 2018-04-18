@@ -24,6 +24,9 @@ class CommentsController extends Controller
         $comment->post_id = $id;
         $comment->user_id = Auth::user()->id;
         $comment->comment = $request->input('comment');
+
+        $mention = preg_replace('/@([^@ ]+)/', '<a href="../profile/$1">@$1</a> ', $request->input('comment'));
+
         if($comment->save()){
             return redirect('posts/'.$id);
         } else {
