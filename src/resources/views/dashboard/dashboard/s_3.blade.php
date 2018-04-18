@@ -50,13 +50,7 @@
         </li>
         <li class="header">ME</li>
         <li class="treeview">
-          <a href="{{url('dashboard/me/info')}}">
-            <i class="fa fa-info"></i>
-            <span>User Info</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{url('dashboard/me/profile')}}">
+        <a href="{{url('profile/'.Auth::user()->id)}}" target="_blank">
             <i class="fa fa-user"></i>
             <span>My Profile</span>
           </a>
