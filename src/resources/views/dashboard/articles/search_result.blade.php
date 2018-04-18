@@ -23,7 +23,7 @@
                                 <th>Created On</th>
                                 <th>Last Updated</th>
                                 <th>Author</th>
-                                <th>Last Editor (ID)</th>
+                                <th>Last Editor</th>
                                 <th>Actions</th>
                             </tr>
                                 @foreach($result as $post)
@@ -33,7 +33,7 @@
                                         <td>{{$post->created_at->diffForHumans()}}</td>
                                         <td>{{$post->updated_at->diffForHumans()}}</td>
                                         <td>{{$post->user['name']}}</td>
-                                        <td>{{$post->update_id}}
+                                        <td>{{$post->updater['name']}}
                                         <td><a href="{{url('posts/'.$post->id)}}" target="_blank">View on Website</a></td>
                                     </tr>
                                 @endforeach
