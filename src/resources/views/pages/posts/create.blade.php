@@ -25,6 +25,9 @@
                             @endif
                         </textarea>
                         <br>
+                        <strong>Notice</strong>: You can add categories to this post from the <a href="{{url('dashboard/articles/list')}}" target="_BLANK">dashboard</a>.
+                        <br>
+                        <br>
 							<div class="col-xl-4">
 								<div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Post">
