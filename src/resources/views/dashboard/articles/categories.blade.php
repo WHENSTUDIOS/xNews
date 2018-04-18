@@ -28,9 +28,9 @@
                                     <tr>
                                         <td>{{$category->name}}</td>
                                         <td>
-                                        <form style="display:inline !important;" action="{{url('dashboard/content/categories/delete/'.$category->id)}}" method="POST">
+                                        <form style="display:inline !important;" action="{{url('dashboard/articles/categories/delete/'.$category->id)}}" method="POST">
                                         @csrf
-                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/content/categories/edit/'.$category->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/categories/edit/'.$category->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
                                         </form>
                                     </tr>
                                 @endforeach
@@ -39,7 +39,7 @@
                     </table>
                 </div>
                 <div class="box-footer">
-                <a href="{{url('dashboard/content/categories/create')}}" class="btn btn-primary">New Category</a>
+                <a href="{{url('dashboard/articles/categories/create')}}" class="btn btn-primary">New Category</a>
                 </div>
                 <!-- /.box-body -->
             </div>

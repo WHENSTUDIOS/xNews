@@ -168,4 +168,11 @@ class DashboardController extends Controller
             return redirect('login');
         }
     }
+    public function create_category(){
+        if(Auth::check()){
+            return view('dashboard.articles.createcategory');
+        } else {
+            return redirect('login');
+        }
+    }
 }

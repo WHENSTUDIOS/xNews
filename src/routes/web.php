@@ -58,6 +58,7 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::get('/dashboard/content/notices', 'DashboardController@list_notices');
     Route::get('/dashboard/content/notices/create', 'DashboardController@create_notice');
     Route::get('/dashboard/articles/categories', 'DashboardController@list_categories');
+    Route::get('/dashboard/articles/categories/create', 'DashboardController@create_category');
 
     //Dashboard Form Post Routes
     Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
