@@ -22,6 +22,7 @@
                             <tr>
                                 <th>Post ID</th>
                                 <th>Title</th>
+                                <th>Category</th>
                                 <th>Created On</th>
                                 <th>Last Updated</th>
                                 <th>Author</th>
@@ -36,6 +37,11 @@
                                     @endif
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
+                                        @if($post->category == 0)
+                                        <td>None</td>
+                                        @else
+                                        <td>{{$post->categories['name']}}</td>
+                                        @endif
                                         <td>{{$post->created_at->diffForHumans()}}</td>
                                         <td>{{$post->updated_at->diffForHumans()}}</td>
                                         <td>{{$post->user['name']}}</td>
