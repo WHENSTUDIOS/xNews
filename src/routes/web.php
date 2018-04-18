@@ -77,6 +77,7 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::post('/dashboard/content/notices/create', 'DashboardSettingsController@create_notice');
     Route::put('/dashboard/content/notices/active/{id}', 'DashboardSettingsController@notice_active');
     Route::put('/dashboard/content/notices/inactive/{id}', 'DashboardSettingsController@notice_inactive');
+    Route::post('/dashboard/content/wcms/theme', 'DashboardSettingsController@edit_theme');
 
     //Dashboard Delete Routes
     Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');

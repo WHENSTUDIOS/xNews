@@ -12,7 +12,7 @@ return array(
         'db_user' => 'root',
         'db_pass' => '',
         'db_name' => 'xnews-lv',
-        'dashtheme' => 'purple'
+        'dashtheme' => 'default'
     )
 )
 

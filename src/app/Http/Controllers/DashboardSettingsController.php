@@ -72,6 +72,16 @@ class DashboardSettingsController extends Controller
         }
     }
 
+    public function edit_theme(Request $request){
+        $this->validate($request, [
+            'theme' => 'required',
+            'itheme' => 'required',
+        ]);
+
+        Config::write('site.data.dashtheme', $request->input('theme'));
+        return redirect('dashboard/content/wcms')->with('success', 'Successfully updated themes.');
+    }
+
     public function create_template(Request $request){
         $this->validate($request, [
             'title' => 'required|max:50',
