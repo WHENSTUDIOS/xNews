@@ -48,7 +48,7 @@ class DashboardController extends Controller
                 $category = Categories::orderBy('created_at','desc')->get();
                     return view('dashboard.articles.create')->with('template', $template)->with('categories', $category);
                 } else {
-                    return view('dashboard.articles.create');
+                    return view('dashboard.articles.create')->with('template', $template)->with('categories', $category);
                 }
         } else {
             return redirect('login');
