@@ -23,18 +23,18 @@ if(Auth::check()){
 //Main Website Routes
 Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::resource('posts', 'PostsController');
+Route::get('posts', 'PostsController@index');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/install', 'InstallController@show');
 Route::get('/banned', 'PagesController@banned');
 Route::get('/profile/{id}', 'PagesController@profile');
 Route::get('/profile/{id}/posts', 'PagesController@profile_posts');
+Route::get('posts/{post}', 'PostsController@show');
 
 Route::middleware(['postperms'])->group(function () {
     Route::post('posts', 'PostsController@store');
     Route::get('posts/create', 'PostsController@create');
     Route::put('posts/{post}', 'PostsController@update');
-    Route::get('posts/{post}', 'PostsController@show');
     Route::delete('posts/{post}', 'PostsController@destroy');
     Route::get('posts/{post}/edit', 'PostsController@edit');
 });

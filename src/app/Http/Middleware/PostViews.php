@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\User;
+use App\Post;
 
 class PostViews
 {
@@ -15,6 +17,7 @@ class PostViews
      */
     public function handle($request, Closure $next)
     {
+        
         return $next($request);
     }
 }
