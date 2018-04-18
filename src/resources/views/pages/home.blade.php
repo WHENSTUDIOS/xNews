@@ -18,7 +18,7 @@
 							<a href="posts/{{$post->id}}">{{ $post->title }}</a>
 						</h1>
 						<strong>By</strong>
-						<a href="profile/{{$post->user['id']}}">{{ $post->user['name'] }}</a> {{ $post->created_at->diffForHumans() }}
+						<a href="profile/{{$post->user['id']}}">{{ $post->user['name'] }}</a> {{ $post->created_at->diffForHumans() }} | {{$post->views}} view{{ $post->views == 1 ? '' : 's' }}
 					</div>
 				</div>
 				@endforeach @else

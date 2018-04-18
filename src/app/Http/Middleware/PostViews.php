@@ -20,8 +20,10 @@ class PostViews
         $post = Post::find($request->route('post'));
         $views = $post->views;
         $views++;
+        $post->timestamps = false;
         $post->views = $views;
         if($post->save()){
+            $post->timestamps = true;
             return $next($request);
         } else {
             return redirect('home');
