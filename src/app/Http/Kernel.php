@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
         'postperms' => \App\Http\Middleware\PostPX::class,
         'dashboardperms' => \App\Http\Middleware\DashboardPX::class,
         'views' => \App\Http\Middleware\PostViews::class,
+        'comment' => \App\Http\Middleware\CommentPX::class,
     ];
 }

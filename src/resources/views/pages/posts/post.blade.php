@@ -41,8 +41,19 @@
                     <p>Great article!</p>
                     <hr>
                     <h5>Write Comment</h5>
-                    <form action="{{url('posts/comment')}}">
-                    <textarea style="resize:none;" class="form-control"></textarea>
+                    @if ($errors->any())
+                    <small class="error">
+                    <strong>Error</strong>: 
+                            @foreach ($errors->all() as $error)
+                                {{$error}}&nbsp;
+                            @endforeach
+                    </small>
+                    <br>
+                    <br>
+                    @endif
+                    <form method="POST" action="{{url('posts/'.$post->id.'/comment')}}">
+                    @csrf
+                    <textarea style="resize:none;" name="comment" min="3" max="250" class="form-control"></textarea>
                     <br>
                     <input type="submit" value="Comment" class="btn btn-sm btn-primary">
                     </form>

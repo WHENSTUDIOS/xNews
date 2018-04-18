@@ -30,6 +30,7 @@ Route::get('/banned', 'PagesController@banned');
 Route::get('/profile/{id}', 'PagesController@profile');
 Route::get('/profile/{id}/posts', 'PagesController@profile_posts');
 Route::get('posts/{post}', 'PostsController@show')->middleware('views');
+Route::post('posts/{id}/comment', 'CommentsController@store');
 
 Route::middleware(['postperms'])->group(function () {
     Route::post('posts', 'PostsController@store');
