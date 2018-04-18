@@ -31,7 +31,7 @@
                             </tr>
                                 @foreach($posts as $post)
                                     @if($post->visible == 0)
-                                    <tr class="visno">
+                                    <tr class="visno" title="This article is not visible on the main index.">
                                     @else
                                     <tr>
                                     @endif
