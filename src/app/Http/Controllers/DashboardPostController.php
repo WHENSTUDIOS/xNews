@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\History;
 use Auth;
 
 class DashboardPostController extends Controller
@@ -40,6 +41,7 @@ class DashboardPostController extends Controller
             'body' => 'required',
             'visible' => 'required',
             'category' => 'required',
+            'changes' => 'required',
         ]);
 
         $post = Post::find($id);
@@ -49,6 +51,12 @@ class DashboardPostController extends Controller
         $post->visible = $request->input('visible');
         $post->category = $request->input('category');
         $post->save();
+        
+        $edithistory = new History;
+        $edithistory->post = $id;
+        $edithistory->user_id = Auth::user()->id;
+        $edithistory->changes = $request->input('changes');
+        $edithistory->save();
         return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post.');
     }
     public function clear_views($id){
