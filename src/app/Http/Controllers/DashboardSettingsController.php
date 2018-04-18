@@ -213,11 +213,11 @@ class DashboardSettingsController extends Controller
 
     public function create_category(Request $request){
         $this->validate($request, [
-            'name' => 'required|max:30',
+            'name' => 'required|max:15',
         ],
     [
         'name.required' => 'Please enter a category name.',
-        'name.max' => 'Category names must be 30 characters or less.',
+        'name.max' => 'Category names must be 15 characters or less.',
     ]);
 
         $category = new Categories;
