@@ -14,7 +14,7 @@
                             Posted by
                             <strong>
                                 @csrf
-                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}}</a>
+                                <a href="../profile/{{$post->user['name']}}">{{$post->user['name']}}</a>
                             </strong> |
                             <strong>{{$post->views}}</strong> view{{ $post->views == 1 ? '' : 's' }}
                             </strong>
@@ -44,10 +44,10 @@
                     <form name="delete" style="display:inline !important;" method="POST" action="{{url('posts/'.$post->id.'/comment/'.$comment->id.'/delete')}}">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
-                    <p><a href="{{url('profile/'.$comment->user['id'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}} | <a style="display:inline;cursor:pointer" onclick="document.forms['delete'].submit();">Delete</a>
+                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}} | <a style="display:inline;cursor:pointer" onclick="document.forms['delete'].submit();">Delete</a>
                     </form>
                     @else
-                    <p><a href="{{url('profile/'.$comment->user['id'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}}</p>
+                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}}</p>
                     @endif
                     </p>
                     <p>{!! $comment->comment !!}</p>

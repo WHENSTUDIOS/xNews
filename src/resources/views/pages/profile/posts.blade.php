@@ -35,7 +35,7 @@
                     </div>
                     <hr>
                     <center>
-                        <a href="{{url('profile/'.$user->id)}}" class="btn btn-sm btn-primary">Back to Profile</a>
+                        <a href="{{url('profile/'.$user->name)}}" class="btn btn-sm btn-primary">Back to Profile</a>
                     </center>
 
                 </div>
