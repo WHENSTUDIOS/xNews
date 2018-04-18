@@ -39,7 +39,7 @@
                                         <td>{{$post->created_at->diffForHumans()}}</td>
                                         <td>{{$post->updated_at->diffForHumans()}}</td>
                                         <td>{{$post->user['name']}}</td>
-                                        <td>{{$post->update_id}}
+                                        <td>{{$post->updater['name']}}
                                         <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
