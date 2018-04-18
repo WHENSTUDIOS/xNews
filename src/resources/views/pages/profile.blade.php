@@ -28,16 +28,16 @@
             <a href="{{url('profile/'.$user->id.'/posts')}}">{{count($posts)}} {{ count($posts) == '1' ? 'post' : 'posts' }}</a> | <a href="{{url('profile/'.$user->id.'/comments')}}">0 comments</a>
             <p class="fh5co-social-icons">
                         @if($social->twitter != null)
-						<a href="https://twitter.com/{{$social->twitter}}" target="_blank"><i class="icon-twitter"></i></a>
+						<a href="https://twitter.com/{{$social->twitter}}" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
                         @endif
                         @if($social->facebook !=null)
-						<a href="{{$social->facebook}}" target="_blank"><i class="icon-facebook"></i></a>
+						<a href="{{$social->facebook}}" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>
                         @endif
                         @if($social->youtube !=null)
-						<a href="https://youtube.com/c/{{$social->youtube}}" target="_blank"><i class="icon-youtube"></i></a>
+						<a href="https://youtube.com/c/{{$social->youtube}}" title="YouTube" target="_blank"><i class="icon-youtube"></i></a>
                         @endif
                         @if($social->instagram != null)
-                        <a href="https://instagram.com/{{$social->instagram}}" target="_blank"><i class="icon-instagram"></i></a>
+                        <a href="https://instagram.com/{{$social->instagram}}" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
                         @endif
 					</p>
                     <hr>
