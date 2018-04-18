@@ -28,6 +28,7 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/install', 'InstallController@show');
 Route::get('/banned', 'PagesController@banned');
 Route::get('/profile/{id}', 'PagesController@profile');
+Route::get('/profile/{id}/posts', 'PagesController@profile_posts');
 
 Route::middleware(['postperms'])->group(function () {
     Route::post('posts', 'PostsController@store');
