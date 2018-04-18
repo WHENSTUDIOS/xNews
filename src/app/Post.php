@@ -14,6 +14,10 @@ class Post extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function categories(){
+        return $this->belongsTo('App\Categories', 'category');
+    }
+
     public function updater(){
         return $this->belongsTo('App\User', 'update_id');
     }
