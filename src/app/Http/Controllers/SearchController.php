@@ -25,7 +25,7 @@ class SearchController extends Controller
         ]);
 
         $post = new Post;
-        $result = Post::where('title', 'LIKE', '%'.$request->input('q').'%')->orWhere('body','LIKE','%'.$request->input('q').'%')->orWhere('user_id','LIKE','%'.$request->input('q').'%')->get();
+        $result = Post::where('title', 'LIKE', '%'.$request->input('q').'%')->orWhere('body','LIKE','%'.$request->input('q').'%')->get();
         return view('dashboard.articles.search_result')->with('result', $result)->with('q', $request->input('q'));
     }
 }
