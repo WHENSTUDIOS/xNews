@@ -79,7 +79,7 @@ class PagesController extends Controller
     }
     public function profile_posts($id){
         $user = User::find($id);
-        $posts = Post::where('user_id','=',Auth::user()->id)->orderBy('created_at','desc')->get();
+        $posts = Post::where('user_id', $id)->orderBy('created_at','desc')->get();
         return view('pages.profile.posts')->with('user', $user)->with('posts', $posts);
     }
 }

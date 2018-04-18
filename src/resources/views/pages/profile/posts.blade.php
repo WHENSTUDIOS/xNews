@@ -9,8 +9,10 @@
                         <center>Posts by {{$user->name}}</center>
                     </h2>
                     <div class="fh5co-spacer fh5co-spacer-sm"></div>
-                    <form action="lib/handlers/login.php" method="post">
                         <div class="row">
+                            @if(count($posts) == 0)
+                            <center>No posts to display.</center>
+                            @else
                             <div class="col-xl-4">
                                 <br>
                                 <div class="col-xl-4">
@@ -29,8 +31,7 @@
                                     </table>
                                 </div>
                             </div>
-                    </form>
-
+                            @endif
                     </div>
                     <hr>
                     <center>

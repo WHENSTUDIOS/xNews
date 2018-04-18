@@ -18,6 +18,9 @@ class DashboardPX
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
+            if($request->is(['dashboard/*', 'dashboard']) && User::level() <= 1){
+                return redirect('home');
+            }
             if($request->is(['dashboard/articles/*', 'dashboard/users/list'])){
                 if(User::level() >= 2){
                     return $next($request);
