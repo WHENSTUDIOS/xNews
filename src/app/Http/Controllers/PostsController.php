@@ -8,6 +8,7 @@ use Auth;
 use App\Social;
 use App\Template;
 use App\Notice;
+use App\Comment;
 
 class PostsController extends Controller
 {
@@ -77,7 +78,8 @@ class PostsController extends Controller
             if($posts->visible == 0 && Auth::user()->level <= 1){
                 return view('pages.nopermission');
             } else {
-                return view('pages.posts.post')->with('post', $posts);
+                $comments = Comment::where('post_id','=',$id)->orderBy('created_at','desc')->get();
+                return view('pages.posts.post')->with('post', $posts)->with('comments', $comments);
             }
         } else {
             return redirect('/home');

@@ -30,7 +30,8 @@ Route::get('/banned', 'PagesController@banned');
 Route::get('/profile/{id}', 'PagesController@profile');
 Route::get('/profile/{id}/posts', 'PagesController@profile_posts');
 Route::get('posts/{post}', 'PostsController@show')->middleware('views');
-Route::post('posts/{id}/comment', 'CommentsController@store');
+Route::post('posts/{id}/comment', 'CommentsController@store')->middleware('comment');
+Route::delete('posts/{post}/comment/{id}/delete', 'CommentsController@destroy')->middleware('comment');
 
 Route::middleware(['postperms'])->group(function () {
     Route::post('posts', 'PostsController@store');

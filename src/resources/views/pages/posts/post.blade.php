@@ -32,14 +32,29 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h4>Comments</h4>
+                    <h4>Comments ({{count($comments)}})</h4>
                     <br>
-                    <p><a>whenofficial</a> | 2 weeks ago</p>
-                    <p>Great article!</p>
+                    @if(count($comments) == 0)
+                    No comments to display. How about you start the discussion?
+                    <br>
+                    <br>
+                    @else
+                    @foreach($comments as $comment)
+                    @if($comment->user['id'] == Auth::user()->id)
+                    <form name="delete" style="display:inline !important;" method="POST" action="{{url('posts/'.$post->id.'/comment/'.$comment->id.'/delete')}}">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <p><a href="{{url('profile/'.$comment->user['id'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}} | <a style="display:inline;cursor:pointer" onclick="document.forms['delete'].submit();">Delete</a>
+                    </form>
+                    @else
+                    <p><a href="{{url('profile/'.$comment->user['id'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}}</p>
+                    @endif
+                    </p>
+                    <p>{{$comment->comment}}</p>
                     <hr>
-                    <p><a>whenofficial</a> | 2 weeks ago</p>
-                    <p>Great article!</p>
-                    <hr>
+                    @endforeach
+                    @endif
+                    
                     <h5>Write Comment</h5>
                     @if ($errors->any())
                     <small class="error">

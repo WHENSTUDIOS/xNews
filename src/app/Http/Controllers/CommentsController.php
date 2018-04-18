@@ -30,4 +30,10 @@ class CommentsController extends Controller
             return redirect('posts/'.$id)->with('error', 'Could not post comment.');
         }
     }
+
+    public function destroy($post, $id){
+        $comment = Comment::find($id);
+        $comment->delete();
+        return redirect('posts/'.$post);
+    }
 }
