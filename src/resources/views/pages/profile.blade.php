@@ -25,7 +25,7 @@
 						@endswitch
             </small>
             </h1>
-            <a href="">{{count($posts)}} {{ count($posts) == '1' ? 'post' : 'posts' }}</a> | <a href="">2 comments</a>
+            <a href="{{url('profile/'.$user->id.'/posts')}}">{{count($posts)}} {{ count($posts) == '1' ? 'post' : 'posts' }}</a> | <a href="{{url('profile/'.$user->id.'/comments')}}">0 comments</a>
             <p class="fh5co-social-icons">
                         @if($social->twitter != null)
 						<a href="https://twitter.com/{{$social->twitter}}" target="_blank"><i class="icon-twitter"></i></a>
