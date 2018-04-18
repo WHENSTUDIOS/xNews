@@ -40,7 +40,7 @@
                     <br>
                     @else
                     @foreach($comments as $comment)
-                    @if($comment->user['id'] == Auth::user()->id)
+                    @if(Auth::check() && $comment->user['id'] == Auth::user()->id)
                     <form name="delete" style="display:inline !important;" method="POST" action="{{url('posts/'.$post->id.'/comment/'.$comment->id.'/delete')}}">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
@@ -55,6 +55,9 @@
                     @endforeach
                     @endif
                     
+                    @if(!Auth::check())
+                    <h4>Please <a href="{{url('login')}}">log in</a> to post a comment.</h4>
+                    @else
                     <h5>Write Comment</h5>
                     @if ($errors->any())
                     <small class="error">
@@ -72,6 +75,7 @@
                     <br>
                     <input type="submit" value="Comment" class="btn btn-sm btn-primary">
                     </form>
+                    @endif
 
                 </div>
             </div>
