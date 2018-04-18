@@ -36,7 +36,7 @@
                                         <td>{{$post->views}}</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->updater['name']}}
-                                        <td><a href="{{url('posts/'.$post->id)}}" target="_blank">View on Website</a></td>
+                                        <td><a class="btn btn-warning btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('posts/'.$post->id)}}';">View</a> | <a class="btn btn-success btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/edit/'.$post->id)}}';">Edit</a></td>
                                     </tr>
                                 @endforeach
                             @endif
