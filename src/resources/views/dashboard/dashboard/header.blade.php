@@ -144,9 +144,11 @@ skin-{{Config::get('site.data.dashtheme')}}
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
+          @if(Auth::user()->level >= 3)
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            <a href="{{url('dashboard/users/edit/'.Auth::user()->id)}}"><i class="fa fa-gears"></i></a>
           </li>
+          @endif
         </ul>
       </div>
     </nav>
