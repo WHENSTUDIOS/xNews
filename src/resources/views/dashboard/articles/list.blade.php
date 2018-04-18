@@ -59,6 +59,9 @@
                 </div>
                 <!-- /.box-body -->
             </div>
+            <div class="table-center">
+                        {{$posts->links()}}
+                    </div>
             <!-- /.box -->
         </div>
     </div>

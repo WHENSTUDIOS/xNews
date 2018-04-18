@@ -27,7 +27,7 @@ class DashboardController extends Controller
     }
     public function list_articles(){
         if(Auth::check()){
-            $posts = Post::orderBy('created_at','desc')->get();
+            $posts = Post::orderBy('created_at','desc')->paginate(20);
             return view('dashboard.articles.list')->with('posts', $posts);
             } else {
             return redirect('login');
