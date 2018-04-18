@@ -20,8 +20,7 @@
                             <br>
                             @else  
                             <tr>
-                                <th>Template Name</th>
-                                <th>Status</th>
+                                <th>Category Name</th>
                                 <th>Actions</th>
                             </tr>
                                 @foreach($categories as $category)

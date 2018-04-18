@@ -12,7 +12,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form method="POST" autocomplete="nope" action="{{url('dashboard/content/categories/create')}}">
+                <form method="POST" autocomplete="nope" action="{{url('dashboard/articles/categories/create')}}">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
@@ -25,7 +25,7 @@
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Create</button>
-                        <a href="{{url('dashboard/content/categories')}}" class="btn btn-warning">Cancel</a>
+                        <a href="{{url('dashboard/articles/categories')}}" class="btn btn-warning">Cancel</a>
                     </div>
                 </form>
             </div>

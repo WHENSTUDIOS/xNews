@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Template;
 use App\Notice;
+use App\Categories;
 use Config;
 
 class DashboardSettingsController extends Controller
@@ -208,6 +209,25 @@ class DashboardSettingsController extends Controller
         } else {
             return redirect('/dashboard/content/notices')->with('error', 'Unable to delete notice.'); 
         }
+    }
+
+    public function create_category(Request $request){
+        $this->validate($request, [
+            'name' => 'required|max:30',
+        ],
+    [
+        'name.required' => 'Please enter a category name.',
+        'name.max' => 'Category names must be 30 characters or less.',
+    ]);
+
+        $category = new Categories;
+        $category->name = $request->input('name');
+        if($category->save()){
+            return redirect('dashboard/articles/categories')->with('success', 'Successfully created category.');
+        } else {
+            return redirect('dashboard/articles/categories')->with('error', 'Could not create category.');
+        }
+
     }
 
 }
