@@ -11,7 +11,8 @@ return array(
         'db_host' => '127.0.0.1',
         'db_user' => 'root',
         'db_pass' => '',
-        'db_name' => 'xnews-lv'
+        'db_name' => 'xnews-lv',
+        'dashtheme' => 'purple'
     )
 )
 

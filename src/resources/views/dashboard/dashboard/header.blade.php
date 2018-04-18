@@ -9,7 +9,8 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
 
-  <link rel="stylesheet" href="{{ asset('css/skins/_all-skins.min.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('css/skins/skin-'.Config::get('site.data.dashtheme').'.min.css') }}">
   <!-- Morris chart -->
   <link rel="stylesheet" href="bower_components/morris.js/morris.css">
   <!-- jvectormap -->
@@ -31,7 +32,14 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition 
+@if(Config::get('site.data.dashtheme') == 'default')
+skin-blue
+@else
+skin-{{Config::get('site.data.dashtheme')}}
+@endif
+
+ sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
