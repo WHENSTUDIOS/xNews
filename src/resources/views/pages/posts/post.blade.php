@@ -4,7 +4,7 @@
         <div class="row">
             <div class="item">
                 <div class="fh5co-desc">
-                    <h1>{{$post->title}}</h1>
+                    <h1>{{$post->title}} <small>Category template</small></h1>
                     {!!$post->body!!}
                     <hr>
                     <h3>
