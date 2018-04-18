@@ -30,6 +30,7 @@ class DashboardPostController extends Controller
         $post->update_id = Auth::user()->id;
         $post->category = $request->input('category');
         $post->visible = 1;
+        $post->views = 0;
         $post->save();
         return redirect('/dashboard/articles/list')->with('success', 'Post created.');
     }
