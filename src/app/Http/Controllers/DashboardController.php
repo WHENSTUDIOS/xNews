@@ -9,6 +9,7 @@ use App\User;
 use App\Social;
 use App\Template;
 use App\Notice;
+use App\Categories;
 
 class DashboardController extends Controller
 {
@@ -155,6 +156,14 @@ class DashboardController extends Controller
     public function create_notice(){
         if(Auth::check()){
             return view('dashboard.content.createnotice');
+        } else {
+            return redirect('login');
+        }
+    }
+    public function list_categories(){
+        if(Auth::check()){
+            $categories = Categories::orderBy('created_at','desc')->get();
+            return view('dashboard.articles.categories')->with('categories', $categories);
         } else {
             return redirect('login');
         }

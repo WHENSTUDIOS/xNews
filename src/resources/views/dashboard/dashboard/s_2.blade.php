@@ -12,6 +12,7 @@
           <ul class="treeview-menu">
             <li><a href="{{url('dashboard/articles/list')}}"><i class="fa fa-list"></i> All Articles</a></li>
             <li><a href="{{url('dashboard/articles/create')}}"><i class="fa fa-edit"></i> Create New</a></li>
+            <li><a href="{{url('dashboard/articles/categories')}}"><i class="fa fa-tags"></i> Categories</a></li>
             <li><a href="{{url('dashboard/articles/layout')}}"><i class="fa fa-question"></i> Article Requests</a></li>
           </ul>
         </li>
