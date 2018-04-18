@@ -21,7 +21,7 @@ $post->title) @section('main_content')
                             <select id="category" name="category" class="form-control">
                             <option id="none" value="0">None</option>
                                 @foreach($categories as $category)
-                                    <option id="{{$category->id}}" value="{{$category->id}}">{{$category->name}}</option>
+                                    <option id="{{$category->id}}" value="{{$category->id}}" {{ $post->category == $category->id ? 'selected' : '' }}>{{$category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
