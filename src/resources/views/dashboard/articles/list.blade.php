@@ -44,7 +44,7 @@
                                         <td>{{$post->categories['name']}}</td>
                                         @endif
                                         <td>{{$post->created_at->diffForHumans()}}</td>
-                                        <td>{{$post->updated_at->diffForHumans()}}</td>
+                                        <td><a href="{{url('dashboard/articles/edit/'.$post->id.'/history')}}">{{$post->updated_at->diffForHumans()}}</a></td>
                                         <td>{{$post->views}}</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->updater['name']}}

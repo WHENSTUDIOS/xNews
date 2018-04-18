@@ -10,6 +10,7 @@ use App\Social;
 use App\Template;
 use App\Notice;
 use App\Categories;
+use App\History;
 
 class DashboardController extends Controller
 {
@@ -182,5 +183,15 @@ class DashboardController extends Controller
     public function edit_category($id){
         $category = Categories::where('id','=',$id)->first();
         return view('dashboard.articles.editcategory')->with('category', $category);
+    }
+    public function edit_history($id){
+        $temp = History::where('post', $id)->get();
+        if($temp !== null){
+            $history = History::where('post','=',$id)->orderBy('created_at','asc')->get();
+            $post = Post::where('id','=',$id)->first();
+            return view('dashboard.articles.edithistory')->with('post', $post)->with('histories', $history)->with('i', 0);
+        } else {
+            return redirect('dashboard/articles/list')->with('error', 'That post does not have any edit history.');
+        }
     }
 }
