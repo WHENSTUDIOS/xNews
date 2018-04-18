@@ -29,7 +29,7 @@ Route::get('/install', 'InstallController@show');
 Route::get('/banned', 'PagesController@banned');
 Route::get('/profile/{id}', 'PagesController@profile');
 Route::get('/profile/{id}/posts', 'PagesController@profile_posts');
-Route::get('posts/{post}', 'PostsController@show');
+Route::get('posts/{post}', 'PostsController@show')->middleware('views');
 
 Route::middleware(['postperms'])->group(function () {
     Route::post('posts', 'PostsController@store');

@@ -17,7 +17,14 @@ class PostViews
      */
     public function handle($request, Closure $next)
     {
-        
-        return $next($request);
+        $post = Post::find($request->route('post'));
+        $views = $post->views;
+        $views++;
+        $post->views = $views;
+        if($post->save()){
+            return $next($request);
+        } else {
+            return redirect('home');
+        }
     }
 }

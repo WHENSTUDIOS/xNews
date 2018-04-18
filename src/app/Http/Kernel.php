@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'postperms' => \App\Http\Middleware\PostPX::class,
         'dashboardperms' => \App\Http\Middleware\DashboardPX::class,
+        'views' => \App\Http\Middleware\PostViews::class,
     ];
 }
