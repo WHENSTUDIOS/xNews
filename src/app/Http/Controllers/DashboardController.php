@@ -48,6 +48,7 @@ class DashboardController extends Controller
                 $category = Categories::orderBy('created_at','desc')->get();
                     return view('dashboard.articles.create')->with('template', $template)->with('categories', $category);
                 } else {
+                    $category = Categories::orderBy('created_at','desc')->get();
                     return view('dashboard.articles.create')->with('template', $template)->with('categories', $category);
                 }
         } else {
