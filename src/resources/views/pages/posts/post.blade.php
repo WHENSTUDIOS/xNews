@@ -39,6 +39,14 @@
                     <hr>
                     <p><a>whenofficial</a> | 2 weeks ago</p>
                     <p>Great article!</p>
+                    <hr>
+                    <h5>Write Comment</h5>
+                    <form action="{{url('posts/comment')}}">
+                    <textarea style="resize:none;" class="form-control"></textarea>
+                    <br>
+                    <input type="submit" value="Comment" class="btn btn-sm btn-primary">
+                    </form>
+
                 </div>
             </div>
         </div>
