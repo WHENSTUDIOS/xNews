@@ -41,7 +41,9 @@ class DashboardPostController extends Controller
             'body' => 'required',
             'visible' => 'required',
             'category' => 'required',
-            'changes' => '',
+            'changes' => 'max:50',
+        ],[
+            'changes.max' => 'Maximum 50 characters for the edited changes summary.',
         ]);
 
         $post = Post::find($id);
