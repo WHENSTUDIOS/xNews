@@ -50,4 +50,13 @@ class DashboardPostController extends Controller
         $post->save();
         return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post.');
     }
+    public function clear_views($id){
+        $post = Post::find($id);
+        $post->views = 0;
+        if($post->save()){
+            return redirect('/dashboard/articles/list')->with('success', 'Succesfully reset views to 0 for "'.$post->title.'".');
+        } else {
+            return redirect('/dashboard/articles/list')->with('error', 'Could not reset views.');
+        }
+    }
 }

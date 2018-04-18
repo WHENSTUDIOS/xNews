@@ -25,6 +25,7 @@
                                 <th>Category</th>
                                 <th>Created On</th>
                                 <th>Last Updated</th>
+                                <th>Views</th>
                                 <th>Author</th>
                                 <th>Last Editor</th>
                                 <th>Actions</th>
@@ -44,12 +45,13 @@
                                         @endif
                                         <td>{{$post->created_at->diffForHumans()}}</td>
                                         <td>{{$post->updated_at->diffForHumans()}}</td>
+                                        <td>{{$post->views}}</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->updater['name']}}
                                         <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/> | <a class="btn btn-warning btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';">Reset Views</a></span></td>
                                         </form>
                                     </tr>
                                 @endforeach
