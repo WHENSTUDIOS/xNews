@@ -132,7 +132,7 @@
                             <td>{{$new_user->name}}</td>
                             <td>{{$new_user->created_at->diffForHumans()}}</td>
                             <td>
-                                <a class="btn btn-warning btn-xs" target="_blank" href="{{url('profile/'.$new_user->id)}}">Profile</a>
+                                <a class="btn btn-warning btn-xs" target="_blank" href="{{url('profile/'.$new_user->name)}}">Profile</a>
                             </td>
                         </tr>
                         @endforeach 
