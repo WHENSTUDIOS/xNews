@@ -60,8 +60,8 @@
                 <!-- /.box-body -->
             </div>
             <div class="table-center">
-                        {{$posts->links()}}
-                    </div>
+                {{$posts->links()}}
+            </div>
             <!-- /.box -->
         </div>
     </div>

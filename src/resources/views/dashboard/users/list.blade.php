@@ -64,6 +64,9 @@
                 </div>
                 <!-- /.box-body -->
             </div>
+            <div class="table-center">
+                {{$users->links()}}
+            </div>
             <!-- /.box -->
         </div>
     </div>

@@ -56,7 +56,7 @@ class DashboardController extends Controller
     }
     public function users_list(){
         $user = new User;
-        $users = User::orderBy('created_at','desc')->get();
+        $users = User::orderBy('created_at','desc')->paginate(20);
         return view('dashboard.users.list')->with('users', $users);
     }
     public function search_user(){
