@@ -239,4 +239,22 @@ class DashboardSettingsController extends Controller
         }
     }
 
+    public function edit_category(Request $request, $id){
+        $category = Categories::find($id);
+        $this->validate($request, [
+            'name' => 'required|max:30',
+        ],
+    [
+        'name.required' => 'Please enter a category name.',
+        'name.max' => 'Category names must be 30 characters or less.',
+    ]);
+        
+        $category->name = $request->input('name');
+        if($category->save()){
+            return redirect('dashboard/articles/categories')->with('success', 'Successfully edited category.');
+        } else {
+            return redirect('dashboard/articles/categories')->with('error', 'Could not edit category.');
+        }
+    }
+
 }

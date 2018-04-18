@@ -59,6 +59,7 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::get('/dashboard/content/notices/create', 'DashboardController@create_notice');
     Route::get('/dashboard/articles/categories', 'DashboardController@list_categories');
     Route::get('/dashboard/articles/categories/create', 'DashboardController@create_category');
+    Route::get('/dashboard/articles/categories/edit/{id}', 'DashboardController@edit_category');
 
     //Dashboard Form Post Routes
     Route::post('dashboard/articles/create/new', 'DashboardPostController@store');
@@ -81,6 +82,7 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::put('/dashboard/content/notices/inactive/{id}', 'DashboardSettingsController@notice_inactive');
     Route::post('/dashboard/content/wcms/theme', 'DashboardSettingsController@edit_theme');
     Route::post('/dashboard/articles/categories/create', 'DashboardSettingsController@create_category');
+    Route::post('/dashboard/articles/categories/edit/{id}', 'DashboardSettingsController@edit_category');
 
     //Dashboard Delete Routes
     Route::delete('dashboard/users/delete/{id}', 'DashboardUserController@delete');

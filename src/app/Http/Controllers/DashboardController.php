@@ -175,4 +175,8 @@ class DashboardController extends Controller
             return redirect('login');
         }
     }
+    public function edit_category($id){
+        $category = Categories::where('id','=',$id)->first();
+        return view('dashboard.articles.editcategory')->with('category', $category);
+    }
 }
