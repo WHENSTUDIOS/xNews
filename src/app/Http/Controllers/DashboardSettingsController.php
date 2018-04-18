@@ -230,4 +230,13 @@ class DashboardSettingsController extends Controller
 
     }
 
+    public function delete_category($id){
+        $category = Categories::find($id);
+        if($category->delete()){
+            return redirect('/dashboard/articles/categories')->with('success', 'Succesfully deleted category.');
+        } else {
+            return redirect('/dashboard/articles/categories')->with('error', 'Unable to delete category.'); 
+        }
+    }
+
 }
