@@ -36,7 +36,8 @@ class DashboardController extends Controller
     public function edit_article($id){
         if(Auth::check()){
             $posts = Post::find($id);
-            return view('dashboard.articles.edit')->with('post', $posts);
+            $category = Categories::orderBy('created_at','desc')->get();
+            return view('dashboard.articles.edit')->with('post', $posts)->with('categories', $category);
             } else {
             return redirect('login');
             }
@@ -44,7 +45,8 @@ class DashboardController extends Controller
     public function create_article(){
         if(Auth::check()){
             if($template = Template::where('status', '1')->first()){
-                    return view('dashboard.articles.create')->with('template', $template);
+                $category = Categories::orderBy('created_at','desc')->get();
+                    return view('dashboard.articles.create')->with('template', $template)->with('categories', $category);
                 } else {
                     return view('dashboard.articles.create');
                 }

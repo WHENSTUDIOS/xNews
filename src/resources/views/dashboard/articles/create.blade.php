@@ -15,6 +15,17 @@
                             <label>Title</label>
                             <input type="text" id="title" name="title" class="form-control">
                         </div>
+                        @if(count($categories) >= 1)
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="category" name="category" class="form-control">
+                            <option id="none" value="0">None</option>
+                                @foreach($categories as $category)
+                                    <option id="{{$category->id}}" value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @endif
                         <label>Body</label>
                         <textarea name="body" id="article-ckeditor">
                             @if(isset($template))

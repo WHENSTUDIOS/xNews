@@ -15,6 +15,17 @@ $post->title) @section('main_content')
                             <label>Title</label>
                             <input type="text" id="title" name="title" class="form-control" value="{{$post->title}}">
                         </div>
+                        @if(count($categories) >= 1)
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="category" name="category" class="form-control">
+                            <option id="none" value="0">None</option>
+                                @foreach($categories as $category)
+                                    <option id="{{$category->id}}" value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @endif
                         <div class="form-group">
                             <label>Index Visibility</label>
                             <select id="visible" name="visible" class="form-control">
