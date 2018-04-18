@@ -17,7 +17,7 @@ class DashboardController extends Controller
         if(Auth::check()){
             $total_posts = Post::count();
             $total_users = User::count();
-            $posts = Post::where('user_id', Auth::user()->name)->orderBy('created_at', 'DESC')->take(12)->get();
+            $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->take(12)->get();
             $new_users = User::orderBy('created_at', 'desc')->take(12)->get();
             $staff = $users = User::where('level', '>=', '2')->orderBy('created_at','desc')->get();
         return view('dashboard.dashboard')->with('users', $total_users)->with('posts', $total_posts)->with('myposts', $posts)->with('new_users', $new_users)->with('staff', $staff);
