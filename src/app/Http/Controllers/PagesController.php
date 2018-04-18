@@ -9,6 +9,7 @@ use App\Data;
 use App\Social;
 use App\User;
 use App\Post;
+use App\Comment;
 
 class PagesController extends Controller
 {
@@ -75,7 +76,8 @@ class PagesController extends Controller
         $user = User::where('name', $id)->first();
         $social = Social::find($user->id);
         $post_count = Post::where('user_id', '=', $user->id)->get();
-        return view('pages.profile')->with('social', $social)->with('user', $user)->with('posts', $post_count);
+        $comment_count = Comment::where('user_id', '=', $user->id)->get();
+        return view('pages.profile')->with('social', $social)->with('user', $user)->with('posts', $post_count)->with('comments', $comment_count);
     }
     public function profile_posts($id){
         $user = User::where('name', $id)->first();
