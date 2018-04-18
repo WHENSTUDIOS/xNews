@@ -38,11 +38,11 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-question"></i></span>
+            <span class="info-box-icon bg-green"><i class="fa fa-undo"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Article Requests</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-text">Posts (Last 14 Days)</span>
+              <span class="info-box-number">{{$week}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>

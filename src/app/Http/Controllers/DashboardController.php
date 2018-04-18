@@ -20,7 +20,8 @@ class DashboardController extends Controller
             $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->take(12)->get();
             $new_users = User::orderBy('created_at', 'desc')->take(12)->get();
             $staff = $users = User::where('level', '>=', '2')->orderBy('created_at','desc')->get();
-        return view('dashboard.dashboard')->with('users', $total_users)->with('posts', $total_posts)->with('myposts', $posts)->with('new_users', $new_users)->with('staff', $staff);
+            $weekarticles = Post::whereDate('created_at', '>=', date('Y-m-d H:i:s',strtotime('-14 days')))->count();
+        return view('dashboard.dashboard')->with('users', $total_users)->with('posts', $total_posts)->with('week', $weekarticles)->with('myposts', $posts)->with('new_users', $new_users)->with('staff', $staff);
         } else {
         return redirect('login');
         }
