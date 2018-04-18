@@ -12,7 +12,7 @@
                             Posted by
                             <strong>
                                 @csrf
-                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}} </a>
+                                <a href="../profile/{{$post->user['id']}}">{{$post->user['name']}}</a>
                             </strong>
                             @if($post->created_at == $post->updated_at) {{$post->created_at->diffForHumans()}} @else | Last modified
                             <i>{{$post->updated_at->diffForHumans()}}</i> by {{$post->updater['name']}}
