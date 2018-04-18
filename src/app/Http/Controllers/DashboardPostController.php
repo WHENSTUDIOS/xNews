@@ -41,7 +41,7 @@ class DashboardPostController extends Controller
             'body' => 'required',
             'visible' => 'required',
             'category' => 'required',
-            'changes' => 'required',
+            'changes' => '',
         ]);
 
         $post = Post::find($id);
@@ -56,6 +56,7 @@ class DashboardPostController extends Controller
         $edithistory->post = $id;
         $edithistory->user_id = Auth::user()->id;
         $edithistory->changes = $request->input('changes');
+        $edithistory->changeid = strtoupper(base_convert(time(), 10, 36));
         $edithistory->save();
         return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post.');
     }

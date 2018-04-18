@@ -35,7 +35,12 @@ $post->title) @section('main_content')
                         </div>
                         <label>Body</label>
                         <textarea name="body" id="article-ckeditor">{!!$post->body!!}</textarea>
-                </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Changes</label>
+                            <input type="text" id="changes" name="changes" class="form-control" value="" placeholder="Briefly explain what was changed in this edit...">
+                        </div>
+                        </div>
                 <div class="box-footer">
                     <input name="_method" type="hidden" value="PUT">
 
