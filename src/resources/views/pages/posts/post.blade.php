@@ -40,7 +40,7 @@
                     <br>
                     @else
                     @foreach($comments as $comment)
-                    @if(Auth::check() && $comment->user['id'] == Auth::user()->id)
+                    @if(Auth::check() && $comment->user['id'] == Auth::user()->id || Auth::user()->level >= 3)
                     <form name="delete" style="display:inline !important;" method="POST" action="{{url('posts/'.$post->id.'/comment/'.$comment->id.'/delete')}}">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
