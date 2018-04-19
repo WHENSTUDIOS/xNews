@@ -12,6 +12,7 @@ class DashboardPostController extends Controller
 {
     public function delete($id){
         $post = Post::find($id);
+        User::notifyStaff('Post Deleted', Auth::user()->name.' deleted '.$post->title);
         if($post->delete()){
             return redirect('dashboard/articles/list')->with('success', 'Post successfully deleted.');
         } else {
@@ -54,6 +55,8 @@ class DashboardPostController extends Controller
         $post->visible = $request->input('visible');
         $post->category = $request->input('category');
         $post->save();
+
+        User::notifyStaff('Post Updated', Auth::user()->name.' edited '.$post->title);
         
         $edithistory = new History;
         $edithistory->post = $id;
@@ -67,6 +70,7 @@ class DashboardPostController extends Controller
         $post = Post::find($id);
         $post->views = 0;
         if($post->save()){
+            User::notifyStaff('Post Views Cleared', Auth::user()->name.' reset views for '.$post->title);
             return redirect('/dashboard/articles/list')->with('success', 'Succesfully reset views to 0 for "'.$post->title.'".');
         } else {
             return redirect('/dashboard/articles/list')->with('error', 'Could not reset views.');
