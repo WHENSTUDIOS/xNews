@@ -82,7 +82,8 @@ class PostsController extends Controller
             } else {
                 $comments = Comment::where('post_id','=',$id)->orderBy('created_at','desc')->get();
                 $post = Post::orderBy('created_at','desc')->where('visible','1')->take(10)->get();
-                return view('pages.posts.post')->with('post', $posts)->with('comments', $comments)->with('recent', $post);
+                $index = 0;
+                return view('pages.posts.post')->with('post', $posts)->with('comments', $comments)->with('recent', $post)->with('index', $index);
             }
         } else {
             return redirect('/home');
