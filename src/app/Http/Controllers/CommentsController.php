@@ -28,7 +28,7 @@ class CommentsController extends Controller
         $comment->comment = $finished;
 
         if($comment->save()){
-            User::notifyLink($post->user_id, 'New comment on your post', Auth::user()->name.' commented on your post.');
+            User::notifyLink($post->user_id, 'New comment on your post', Auth::user()->name.' commented on your post.', 'posts/'.$id);
             return redirect('posts/'.$id);
         } else {
             return redirect('posts/'.$id)->with('error', 'Could not post comment.');
