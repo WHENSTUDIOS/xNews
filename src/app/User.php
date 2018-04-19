@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
+use App\Notification;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,14 @@ class User extends Authenticatable
 
     public static function level(){
         return Auth::user()->level;
+    }
+
+    public function notify($user, $title, $comment){
+        $not = new Notification;
+        $not->title = $title;
+        $not->user_id = $user;
+        $not->comment = $comment;
+        return $not->save();
     }
 
     /**
