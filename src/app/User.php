@@ -44,6 +44,27 @@ class User extends Authenticatable
         }
     }
 
+    public static function notifyStaffLink($title, $comment, $link){
+        $not = new Notification;
+        $staffs = User::where('level','>=','2')->get();
+        foreach($staffs as $staff){
+            $not->title = $title;
+            $not->user_id = $staff->id;
+            $not->comment = $comment;
+            $not->link = $link;
+            return $not->save();
+        }
+    }
+
+    public static function notifyLink($user, $title, $comment, $link){
+        $not = new Notification;
+        $not->title = $title;
+        $not->user_id = $user;
+        $not->comment = $comment;
+        $not->link = $link;
+        return $not->save();
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
