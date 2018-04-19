@@ -20,15 +20,19 @@ class EditProfileController extends Controller
         $user = User::find(Auth::user()->id);
         $social = Social::where('user_id','=',Auth::user()->id)->first();
         if(Config::get('site.data.allow_username_change') == 'false'){
+            $sanitized = strip_tags($request->input('bio'));
+            $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a> ', $sanitized);    
             $user->email = $request->input('email');
-            $social->bio = $request->input('bio');
+            $social->bio = $finished;
             $user->save();
             $social->save();
             return redirect('profile/edit')->with('success', 'Updated profile.');
         } else {
+            $sanitized = strip_tags($request->input('bio'));
+            $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a> ', $sanitized);    
             $user->name = $request->input('name');
             $user->email = $request->input('email');
-            $social->bio = $request->input('bio');
+            $social->bio = $finished;
             $user->save();
             $social->save();
             return redirect('profile/edit')->with('success', 'Updated profile.');
@@ -47,7 +51,6 @@ class EditProfileController extends Controller
             'skype' => '',
         ]);
 
-        $social->bio = $request->input('bio');
         $social->twitter = $request->input('twitter');
         $social->instagram = $request->input('instagram');
         $social->facebook = $request->input('facebook');
