@@ -48,6 +48,7 @@ class DashboardUserController extends Controller
 
     public function delete($id){
         $user = User::find($id);
+        User::notifyStaff('Deleted User', Auth::user()->name.' deleted '.$user->name);
         if($user->delete()){
             return redirect('dashboard/users/list')->with('success', 'User deleted successfully.');
         } else {
@@ -139,6 +140,7 @@ class DashboardUserController extends Controller
         if($user->id !== Auth::user()->id){
             $user->level = '1';
             if($user->save()){
+                User::notifyStaff('Demoted User', Auth::user()->name.' demoted '.$user->name);
                 return redirect('dashboard/users/staff')->with('success', 'User demoted back to user status successfully.');
             } else {
                 return redirect('dashboard/users/staff')->with('error', 'Could not demote user.');

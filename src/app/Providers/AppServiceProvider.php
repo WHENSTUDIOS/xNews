@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         view()->composer('dashboard.dashboard.header', function($view){
-            $notifications = Notification::where('user_id',Auth::user()->id)->take(8)->get();
+            $notifications = Notification::where('user_id',Auth::user()->id)->orderBy('created_at','desc')->take(8)->get();
             $callback = $this->app->request->getRequestUri();
             $view->with('notifications', $notifications)->with('callback', $callback);
         });
