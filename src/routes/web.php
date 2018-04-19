@@ -21,6 +21,15 @@ if(Auth::check()){
 }
 
 //Main Website Routes
+
+Route::middleware(['postperms'])->group(function () {
+    Route::post('posts', 'PostsController@store');
+    Route::get('posts/create', 'PostsController@create');
+    Route::put('posts/{post}', 'PostsController@update');
+    Route::delete('posts/{post}', 'PostsController@destroy');
+    Route::get('posts/{post}/edit', 'PostsController@edit');
+});
+
 Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('posts', 'PostsController@index');
@@ -32,14 +41,6 @@ Route::get('/profile/{id}/posts', 'PagesController@profile_posts');
 Route::get('posts/{post}', 'PostsController@show')->middleware('views');
 Route::post('posts/{id}/comment', 'CommentsController@store')->middleware('comment');
 Route::delete('posts/{post}/comment/{id}/delete', 'CommentsController@destroy')->middleware('comment');
-
-Route::middleware(['postperms'])->group(function () {
-    Route::post('posts', 'PostsController@store');
-    Route::get('posts/create', 'PostsController@create');
-    Route::put('posts/{post}', 'PostsController@update');
-    Route::delete('posts/{post}', 'PostsController@destroy');
-    Route::get('posts/{post}/edit', 'PostsController@edit');
-});
 
 Route::middleware(['dashboardperms'])->group(function (){
     //User Dashboard Routes
