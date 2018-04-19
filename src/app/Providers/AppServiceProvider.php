@@ -6,6 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Auth;
 use App\Notification;
+use Illuminate\Http\Request;
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,13 +17,14 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Request $request)
     {
         Schema::defaultStringLength(191);
 
         view()->composer('dashboard.dashboard.header', function($view){
             $notifications = Notification::where('user_id',Auth::user()->id)->take(8)->get();
-            $view->with('notifications', $notifications);
+            $callback = $this->app->request->getRequestUri();
+            $view->with('notifications', $notifications)->with('callback', $callback);
         });
     }
 

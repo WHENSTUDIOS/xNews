@@ -47,6 +47,7 @@ Route::delete('posts/{post}/comment/{id}/delete', 'CommentsController@destroy')-
 
 Route::middleware(['dashboardperms'])->group(function (){
     //User Dashboard Routes
+    Route::get('/dashboard/notifications/clear', 'NotificationsController@clear');
     Route::get('/dashboard', 'DashboardController@dashboard');
     Route::get('/dashboard/articles/list', 'DashboardController@list_articles');
     Route::get('/dashboard/articles/edit/{id}', 'DashboardController@edit_article');

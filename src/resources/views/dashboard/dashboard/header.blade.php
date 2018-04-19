@@ -83,6 +83,9 @@ skin-{{Config::get('site.data.dashtheme')}}
                 </ul>
               </li>
               <li class="footer"><a href="#">View all</a></li>
+              @if(count($notifications) !== 0)
+              <li class="footer"><a href="{{url('dashboard/notifications/clear')}}">Clear notifications</a></li>
+              @endif
             </ul>
           </li>
           <!-- User Account: style can be found in dropdown.less -->
