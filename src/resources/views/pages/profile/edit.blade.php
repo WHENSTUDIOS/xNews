@@ -21,7 +21,7 @@
                         <input type="text" id="" name="email" class="form-control" required value="{{$user->email}}"/>
                         <br>
                         <label for="title">About Me</label>
-                        <textarea id="article-ckeditor" class="form-control" name="bio">{!! $social->bio !!}</textarea>
+                        <textarea style="resize:vertical;" rows="8" max="2000" class="form-control" name="bio">{!! $social->bio !!}</textarea>
                         <br>
 							<div class="col-xl-4">
 								<div class="form-group">
