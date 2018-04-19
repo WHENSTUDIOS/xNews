@@ -35,7 +35,11 @@ class CommentsController extends Controller
 
     public function destroy($post, $id){
         $comment = Comment::find($id);
-        $comment->delete();
-        return redirect('posts/'.$post);
+        if($comment->user_id == Auth::user()->id || Auth::user()->level >= 3){
+            $comment->delete();
+            return redirect('posts/'.$post);
+        } else {
+            return redirect('posts/'.$post);
+        }
     }
 }
