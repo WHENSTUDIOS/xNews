@@ -75,7 +75,7 @@ class PagesController extends Controller
     public function profile($id){
         $user = User::where('name', $id)->first();
         if($user !== null){
-            $social = Social::find($user->id);
+            $social = Social::find($user->id)->first();
             $post_count = Post::where('user_id', '=', $user->id)->get();
             $comment_count = Comment::where('user_id', '=', $user->id)->get();
             return view('pages.profile')->with('social', $social)->with('user', $user)->with('posts', $post_count)->with('comments', $comment_count);

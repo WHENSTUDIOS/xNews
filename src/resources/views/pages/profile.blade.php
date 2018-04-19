@@ -27,7 +27,8 @@
             </h1>
             <p><a href="{{url('profile/'.$user->name.'/posts')}}">{{count($posts)}} {{ count($posts) == '1' ? 'post' : 'posts' }}</a> | <a style="cursor:pointer">{{count($comments)}} {{ count($comments) == '1' ? 'comment' : 'comments' }}</a></p>
             <p class="fh5co-social-icons">
-                        @if($social->twitter != null)
+            {{dd($social)}}
+                        @if($social->twitter !=null)
 						<a href="https://twitter.com/{{$social->twitter}}" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
                         @endif
                         @if($social->facebook !=null)
