@@ -33,6 +33,7 @@ class DashboardPostController extends Controller
         $post->visible = 1;
         $post->views = 0;
         $post->save();
+        User::notifyStaff('New Post', 'A new post was created by '.Auth::user()->name);
         return redirect('/dashboard/articles/list')->with('success', 'Post created.');
     }
     public function update(Request $request, $id){

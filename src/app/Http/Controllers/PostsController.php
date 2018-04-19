@@ -9,6 +9,7 @@ use App\Social;
 use App\Template;
 use App\Notice;
 use App\Comment;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -62,6 +63,7 @@ class PostsController extends Controller
         $post->update_id = Auth::user()->name;
         $post->visible = 1;
         $post->save();
+        User::notifyStaff('New Post', 'A new post was created by '.Auth::user()->name);
 
         return redirect('/posts');
     }
