@@ -44,7 +44,7 @@
                     <form name="delete" style="display:inline !important;" method="POST" action="{{url('posts/'.$post->id.'/comment/'.$comment->id.'/delete')}}">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
-                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}} | <a style="display:inline;cursor:pointer" onclick="document.forms['delete'].submit();">Delete</a>
+                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} | <a style="display:inline;cursor:pointer" onclick="document.forms['delete'].submit();">Delete</a>
                     </form>
                     @else
                     <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a> | {{$comment->created_at->diffForHumans()}}</p>
