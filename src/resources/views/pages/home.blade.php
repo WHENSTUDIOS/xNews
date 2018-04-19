@@ -38,6 +38,9 @@
 				@endif
 			</div>
 		</div>
+		<div style="text-align:center;">
+		{{ $posts->links() }}
+		</div>
 	</div>
 </div>
 @endsection
