@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Auth;
+use App\Notification;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        view()->composer('dashboard.dashboard.header', function($view){
+            $notifications = Notification::where('user_id',Auth::user()->id)->take(8)->get();
+            $view->with('notifications', $notifications);
+        });
     }
 
     /**

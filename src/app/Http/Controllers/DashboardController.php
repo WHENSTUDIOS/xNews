@@ -11,6 +11,7 @@ use App\Template;
 use App\Notice;
 use App\Categories;
 use App\History;
+use App\Notification;
 
 class DashboardController extends Controller
 {
