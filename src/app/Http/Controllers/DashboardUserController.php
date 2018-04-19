@@ -80,8 +80,14 @@ class DashboardUserController extends Controller
         $user->email = $request->input('edit-email');
         if(Auth::user()->id !== $id && $request->input('edit-level') !== 0){
             $user->level = $level;
+            if($request->input('edit-level') == '0' && $user->level >= '1'){
+                User::notifyStaff('User Banned', $request->input('edit-name').' was banned by '.Auth::user()->name);
+            }
+            if($request->input('edit-level') >= '1' && $user->level == '0'){
+                User::notifyStaff('User Unbanned', $request->input('edit-name').' was unbanned by '.Auth::user()->name);
+            }
             if($user->save()){
-                User::notify($user->id, 'Details Updated', 'Your user details were updated by '.Auth::user()->name);
+                User::notify($id, 'Details Updated', 'Your user details were updated by '.Auth::user()->name);
                 return redirect('dashboard/users/edit/'.$user->id)->with('success', 'User edited successfully.');
             } else {
                 return redirect('dashboard/users/list');
