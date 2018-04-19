@@ -64,6 +64,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        User::notifyStaff('New User', $data['name'].' has registered!');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
