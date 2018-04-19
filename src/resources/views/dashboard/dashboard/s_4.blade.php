@@ -64,7 +64,7 @@
         </li>
         <li class="header">ME</li>
         <li class="treeview">
-          <a href="{{url('profile/'.Auth::user()->id)}}" target="_blank">
+          <a href="{{url('profile/'.Auth::user()->name)}}" target="_blank">
             <i class="fa fa-user"></i>
             <span>My Profile</span>
           </a>
