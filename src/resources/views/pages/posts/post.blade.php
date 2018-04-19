@@ -87,7 +87,7 @@
                     <br>
                     @else
                     @foreach($recent as $rpost)
-                    <p><a href="{{url('posts/'.$post->id)}}">{{$rpost->title}}</a> | {{$rpost->created_at->diffForHumans()}} by {{$rpost->user['name']}}</p>
+                    <p>{!! $rpost->id == $post->id ? '<i>' : '' !!}<a href="{{url('posts/'.$rpost->id)}}">{{$rpost->title}}</a> | {{$rpost->created_at->diffForHumans()}} by {{$rpost->user['name']}}{!! $rpost->id == $post->id ? ' (Viewing)</i>' : '' !!}</p>
                     </p>
                     @endforeach
                     @endif
