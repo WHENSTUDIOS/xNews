@@ -56,7 +56,6 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('dashboard/settings/auth')}}"><i class="fa fa-user"></i> Authentication</a></li>
             <li><a href="{{url('dashboard/settings/database')}}"><i class="fa fa-database"></i> Database</a></li>
             <li><a href="{{url('dashboard/settings/access')}}"><i class="fa fa-universal-access"></i> Access</a></li>
             <li><a href="{{url('dashboard/settings/data')}}"><i class="fa fa-sitemap"></i> Site Data</a></li>
