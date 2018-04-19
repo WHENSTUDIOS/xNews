@@ -21,7 +21,7 @@ class EditProfileController extends Controller
         $social = Social::where('user_id','=',Auth::user()->id)->first();
         if(Config::get('site.data.allow_username_change') == 'false'){
             $sanitized = strip_tags($request->input('bio'));
-            $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a> ', $sanitized);    
+            $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a>', $sanitized);    
             $user->email = $request->input('email');
             $social->bio = $finished;
             $user->save();
@@ -29,7 +29,7 @@ class EditProfileController extends Controller
             return redirect('profile/edit')->with('success', 'Updated profile.');
         } else {
             $sanitized = strip_tags($request->input('bio'));
-            $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a> ', $sanitized);    
+            $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a>', $sanitized);    
             $user->name = $request->input('name');
             $user->email = $request->input('email');
             $social->bio = $finished;
