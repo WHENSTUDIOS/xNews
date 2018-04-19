@@ -84,4 +84,10 @@ class PagesController extends Controller
         $posts = Post::where('user_id', $user->id)->orderBy('created_at','desc')->get();
         return view('pages.profile.posts')->with('user', $user)->with('posts', $posts);
     }
+
+    public function edit_profile(){
+        $user = Auth::user();
+        $social = Social::where('user_id','=',Auth::user()->id)->first();
+        return view('pages.profile.edit')->with('user', $user)->with('social', $social);
+    }
 }
