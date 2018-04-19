@@ -78,6 +78,20 @@
                     @endif
 
                 </div>
+                <div class="col-md-6">
+                    <h4>Other Posts</h4>
+                    <br>
+                    @if(count($recent) == 0)
+                    No posts to display.
+                    <br>
+                    <br>
+                    @else
+                    @foreach($recent as $rpost)
+                    <p><a href="{{url('posts/'.$post->id)}}">{{$rpost->title}}</a> | {{$rpost->created_at->diffForHumans()}} by {{$rpost->user['name']}}</p>
+                    </p>
+                    @endforeach
+                    @endif
+                </div>
             </div>
         </div>
     </div>

@@ -79,7 +79,8 @@ class PostsController extends Controller
                 return view('pages.nopermission');
             } else {
                 $comments = Comment::where('post_id','=',$id)->orderBy('created_at','desc')->get();
-                return view('pages.posts.post')->with('post', $posts)->with('comments', $comments);
+                $post = Post::orderBy('created_at','desc')->where('visible','1')->take(10)->get();
+                return view('pages.posts.post')->with('post', $posts)->with('comments', $comments)->with('recent', $post);
             }
         } else {
             return redirect('/home');
