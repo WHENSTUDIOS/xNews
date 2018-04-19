@@ -37,6 +37,7 @@ class DashboardUserController extends Controller
 
         if($user->save()){
             if($social->save()){
+                User::notifyStaff('Registered User', Auth::user()->name.' registered '.$request->input('name'));
                 return redirect('dashboard/users/list')->with('success', 'Successfully created user.');
             } else {
                 return redirect('dashboard/users/list')->with('error', 'Server error creating user.');
@@ -80,6 +81,7 @@ class DashboardUserController extends Controller
         if(Auth::user()->id !== $id && $request->input('edit-level') !== 0){
             $user->level = $level;
             if($user->save()){
+                User::notify($user->id, 'Details Updated', 'Your user details were updated by '.Auth::user()->name);
                 return redirect('dashboard/users/edit/'.$user->id)->with('success', 'User edited successfully.');
             } else {
                 return redirect('dashboard/users/list');
@@ -101,6 +103,7 @@ class DashboardUserController extends Controller
 
         $user->password = Hash::make($request->input('new-password'));
         if($user->save()){
+            User::notify($user->id, 'Password Changed', 'Your password was changed by '.Auth::user()->name);
             return redirect('dashboard/users/edit/'.$user->id)->with('success', 'Password changed successfully.');
         } else {
             return redirect('dashboard/users/list')->with('error', 'Could not change password.');
@@ -129,6 +132,7 @@ class DashboardUserController extends Controller
         $social->youtube = $request->input('youtube');
         $social->skype = $request->input('skype');
         if($social->save()){
+            User::notify($user->id, 'Profile Updated', 'Your profile details were updated by '.Auth::user()->name);
             return redirect('dashboard/users/edit/'.$id)->with('success', 'Profile information updated.');
         } else {
             return redirect('dashboard/users/list')->with('error', 'Could not update profile information.');
