@@ -64,11 +64,11 @@ skin-{{Config::get('site.data.dashtheme')}}
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bell-o"></i>
               @if(count($notifications) !== 0)
-              <span class="label label-warning">{{count($notifications)}}</span>
+              <span class="label label-warning">{{count($total)}}</span>
               @endif
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have {{count($notifications)}} new notifications</li>
+              <li class="header">You have {{count($total)}} new notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
