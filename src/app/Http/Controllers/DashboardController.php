@@ -198,7 +198,12 @@ class DashboardController extends Controller
     public function show_history($id, $hid){
         $history = History::where('changeid','=',$hid)->where('post','=',$id)->first();
         if($history !== null){
-            return view('dashboard.articles.history.view')->with('history', $history)->with('id', $id);
+            if($history->chars > 0){
+                $echars = abs($history->chars).' characters deleted';
+            } else {
+                $echars = abs($history->chars).' characters added';
+            }
+            return view('dashboard.articles.history.view')->with('history', $history)->with('id', $id)->with('chars', $echars);
         } else {
             return redirect('dashboard/articles/list')->with('error', 'There is no history for the specified edit ID.');
         }

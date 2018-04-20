@@ -7,7 +7,7 @@ $history->changeid) @section('main_content')
             <div class="box-header with-border">
               <i class="fa fa-text-width"></i>
 
-              <h3 class="box-title"><strong>Summary</strong>: - {!! $history->changes == null ? '<i>No changes defined.</i>' : $history->changes !!} ({{$history->created_at->diffForHumans()}})</h3>
+              <h3 class="box-title"><strong>Summary</strong>: - {!! $history->changes == null ? '<i>No changes defined.</i>' : $history->changes !!} [{{$chars}}] ({{$history->created_at->diffForHumans()}})</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
