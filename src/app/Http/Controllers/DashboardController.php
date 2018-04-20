@@ -195,4 +195,12 @@ class DashboardController extends Controller
             return redirect('dashboard/articles/list')->with('error', 'That post does not have any published edit history.');
         }
     }
+    public function show_history($id, $hid){
+        $history = History::where('changeid','=',$hid)->where('post','=',$id)->first();
+        if($history !== null){
+            return view('dashboard.articles.history.view')->with('history', $history);
+        } else {
+            return redirect('dashboard/articles/list')->with('error', 'There is no history for the specified edit ID.');
+        }
+    }
 }
