@@ -9,12 +9,12 @@ $post->title) @section('main_content')
             <div class="box-header with-border">
               <i class="fa fa-text-width"></i>
 
-              <h3 class="box-title">[<strong>{{$history->changeid}}</strong>] - Change #{{$i}}</h3>
+              <h3 class="box-title">[<strong><a href="{{url('dashboard/articles/edit/'.$post->id.'/history/'.$history->changeid)}}">{{$history->changeid}}</a></strong>] - Change #{{$i}} ({{$history->created_at->diffForHumans()}})</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body"> 
               <blockquote>
-                <p>{{$history->changes}}</p>
+                <p>{!! $history->changes == null ? '<i>No changes defined.</i>' : $history->changes !!}</p>
                 <small><cite>{{$history->user['name']}}</cite></small>
               </blockquote>
             </div>
