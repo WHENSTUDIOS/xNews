@@ -92,6 +92,7 @@ class DashboardPostController extends Controller
             $post->body = $body;
             $history->delete();
             $post->save();
+            User::notifyStaff('Edit Reversed', 'An edit on "'.$post->title.'" was reversed.');
             return redirect('/dashboard/articles/list')->with('success', 'Successfully reverted edit.'); 
         } else {
             return redirect('/dashboard/articles/list')->with('error', 'No edit ID found in the database.');
