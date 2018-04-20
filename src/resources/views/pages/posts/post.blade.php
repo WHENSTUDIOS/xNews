@@ -40,25 +40,25 @@
                     <br>
                     @else
                     @foreach($comments as $comment)
-                    @if(Auth::user()->level >= 3 || Auth::user()->id == $comment->user['id'])
+                    @if(Auth::check() && Auth::user()->level >= 3 || Auth::check() && Auth::user()->id == $comment->user['id'])
                     <form name="delete" style="display:inline !important;" method="POST" action="{{url('posts/'.$post->id.'/comment/'.$comment->id.'/delete')}}">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     @endif
                     @if(Auth::check() && $comment->user['id'] == Auth::user()->id)
-                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::user()->id == $comment->user['id'] || Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}
+                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::check() && Auth::check() && Auth::user()->id == $comment->user['id'] || Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}
                     </form>
                     @elseif($comment->user['name'] == null || $comment->user['name'] == '')
-                    <p><a>[deleted]</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::user()->id == $comment->user['id'] || Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}</p>
+                    <p><a>[deleted]</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::check() && Auth::user()->id == $comment->user['id'] || Auth::check() && Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}</p>
                     @elseif($comment->user['level'] == 0)
-                    <p><a>[banned]</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::user()->id == $comment->user['id'] || Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}</p>
+                    <p><a>[banned]</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::check() && Auth::user()->id == $comment->user['id'] || Auth::check() && Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}</p>
                     @else
-                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::user()->id == $comment->user['id'] || Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}</p>
+                    <p><a href="{{url('profile/'.$comment->user['name'])}}">{{$comment->user['name']}}</a>&nbsp;{!! $comment->user['id'] == $post->user['id'] ? '<span title="OP (Original Poster)" class="fa error fa-pencil"></span>' : '' !!} | {{$comment->created_at->diffForHumans()}} {!! Auth::check() && Auth::user()->id == $comment->user['id'] || Auth::check() && Auth::user()->level >= 3 ? '| <a style="display:inline;cursor:pointer" onclick="document.forms[\'delete\'].submit();">Delete</a>' : '' !!}</p>
                     @endif
                     </p>
                     <p>{!! $comment->comment !!}</p>
                     <hr>
-                    @if(Auth::user()->level >= 3 || Auth::user()->id == $comment->user['id'])
+                    @if(Auth::check() && Auth::user()->level >= 3 || Auth::check() && Auth::user()->id == $comment->user['id'])
                     </form>
                     @endif
                     @endforeach
