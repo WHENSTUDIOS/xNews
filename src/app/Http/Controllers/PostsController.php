@@ -62,6 +62,8 @@ class PostsController extends Controller
         $post->user_id = Auth::user()->id;
         $post->update_id = Auth::user()->name;
         $post->visible = 1;
+        $post->category = 0;
+        $post->views = 0;
         $post->save();
         User::notifyStaff('New Post', 'A new post was created by '.Auth::user()->name);
 
