@@ -84,4 +84,17 @@ class DashboardPostController extends Controller
             return redirect('/dashboard/articles/list')->with('error', 'Could not reset views.');
         }
     }
+    public function revert_edit($id, $hid){
+        $history = History::where('post',$id)->where('changeid',$hid)->first();
+        if($history !== null){
+            $body = $history->before;
+            $post = Post::find($id);
+            $post->body = $body;
+            $history->delete();
+            $post->save();
+            return redirect('/dashboard/articles/list')->with('success', 'Successfully reverted edit.'); 
+        } else {
+            return redirect('/dashboard/articles/list')->with('error', 'No edit ID found in the database.');
+        }
+    }
 }
