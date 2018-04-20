@@ -7,16 +7,18 @@ $history->changeid) @section('main_content')
             <div class="box-header with-border">
               <i class="fa fa-text-width"></i>
 
-              <h3 class="box-title"><strong>Summary</strong>: - {{$history->changes}}</h3>
+              <h3 class="box-title"><strong>Summary</strong>: - {!! $history->changes == null ? '<i>No changes defined.</i>' : $history->changes !!} ({{$history->created_at->diffForHumans()}})</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <blockquote>
                 <p>Before</p>
+                <textarea name="body" id="article-ckeditor" disabled>{!! $history->before !!}</textarea>
                 <small><cite>{{$history->user['name']}}</cite></small>
               </blockquote>
               <blockquote>
                 <p>After</p>
+                <textarea name="body" id="article-ckeditor" disabled>{!! $history->after !!}</textarea>
                 <small><cite>{{$history->user['name']}}</cite></small>
               </blockquote>
               <a href="{{url('dashboard/articles/edit/'.$history->post)}}" class="btn btn-sm btn-success">Back to History</a>
