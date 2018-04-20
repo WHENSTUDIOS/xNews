@@ -18,7 +18,7 @@ $history->changeid) @section('main_content')
               </blockquote>
               <blockquote>
                 <p>After</p>
-                <textarea name="body" id="article-ckeditor" disabled>{!! $history->after !!}</textarea>
+                <textarea name="body" id="article-ckeditor1" disabled>{!! $history->after !!}</textarea>
                 <small><cite>{{$history->user['name']}}</cite></small>
               </blockquote>
               <a href="{{url('dashboard/articles/edit/'.$history->post)}}" class="btn btn-sm btn-success">Back to History</a>

@@ -2,6 +2,9 @@
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor1' );
+    </script>
 <!-- jQuery 3 -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->

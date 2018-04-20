@@ -65,7 +65,7 @@ class DashboardPostController extends Controller
         $edithistory->user_id = Auth::user()->id;
         $edithistory->changes = $request->input('changes');
         $edithistory->changeid = strtoupper(base_convert(time(), 10, 36));
-        $edithistory->before = $before;
+        $edithistory->before = $before->body;
         $edithistory->after = $request->input('body');
         $edithistory->save();
         return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post.');
