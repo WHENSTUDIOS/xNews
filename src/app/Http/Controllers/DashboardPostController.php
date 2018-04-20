@@ -49,6 +49,9 @@ class DashboardPostController extends Controller
         ]);
 
         $before = Post::where('id',$id)->first();
+        $mathchars = strlen($before->body) - strlen($request->input('body'));
+        $chars = $mathchars;
+
 
         $post = Post::find($id);
         $post->title = $request->input('title');
@@ -67,6 +70,7 @@ class DashboardPostController extends Controller
         $edithistory->changeid = strtoupper(base_convert(time(), 10, 36));
         $edithistory->before = $before->body;
         $edithistory->after = $request->input('body');
+        $edithistory->chars = $chars;
         $edithistory->save();
         return redirect('/dashboard/articles/list')->with('success', 'Succesfully edited post.');
     }
