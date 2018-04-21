@@ -91,7 +91,7 @@ skin-{{Config::get('site.data.dashtheme')}}
               </li>
               <li class="footer"><a href="#">View all</a></li>
               @if(count($notifications) !== 0)
-              <li class="footer"><a href="{{url('dashboard/notifications/clear')}}">Clear notifications</a></li>
+              <li class="footer"><a style="cursor:pointer" class="ahover">Clear notifications</a></li>
               @endif
             </ul>
           </li>
