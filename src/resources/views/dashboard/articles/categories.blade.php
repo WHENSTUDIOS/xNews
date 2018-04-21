@@ -23,13 +23,35 @@
                                 <th>Category Name</th>
                                 <th>Actions</th>
                             </tr>
+                            <input type="hidden" value="{{$i = 0}}">
                                 @foreach($categories as $category)
+                                <input type="hidden" value="{{$i++}}">
                                     <tr>
                                         <td>{{$category->name}}</td>
                                         <td>
                                         <form style="display:inline !important;" action="{{url('dashboard/articles/categories/delete/'.$category->id)}}" method="POST">
                                         @csrf
-                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/categories/edit/'.$category->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/categories/edit/'.$category->id)}}">Edit</a> | <button data-toggle="modal" data-target="#delete{{$i}}" type="button" class="btn btn-danger btn-xs" value="Delete">Delete</button></td>
+                                        <div class="modal modal-danger fade" id="delete{{$i}}" data-vivaldi-spatnav-clickable="1" style="display: none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span></button>
+                                                    <h4 class="modal-title"><span class="fa fa-exclamation-triangle"></span>&nbsp;Confirm Deletion</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>You are about to delete <strong>{{$category->name}}</strong>. This cannot be undone. Are you sure you want to proceed?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
+                                                    <button type="submit" class="btn btn-outline">Delete</button>
+                                                </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                            </div>
                                         </form>
                                     </tr>
                                 @endforeach
