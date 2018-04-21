@@ -41,6 +41,7 @@
 	<script src="{{asset('js/salvattore.min.js')}}"></script>
 	<!-- Main js/Hydrogen -->
 	<script src="{{asset('js/main.js')}}"></script>
+	<script src="{{asset('js/ajax.js')}}"></script>
 
 	
 

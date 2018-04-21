@@ -14,6 +14,7 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<link rel="shortcut icon" href="favicon.ico">
 

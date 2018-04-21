@@ -60,7 +60,23 @@ function success(msg){
 }
 
 function notify(){
-    var notify = document.getElementById('notificationCount').innerHTML();
+    var notify = document.getElementById('notificationCount').innerHTML;
     var newNotify = notify + 1;
     $('#notificationCount').html(newNotify);
+}
+
+function deleteComment(pid, cid){
+    $.ajax({
+        type:'post',
+        url:'/posts/' + pid + '/comment/' + cid + '/delete',
+        data: {_method: 'delete'},
+        success:function(data){
+            $('#comment_'+cid).remove();
+            var comments = document.getElementById('commentCount').innerHTML;
+            var comNumber = Number(comments);
+            var final = comNumber - 1;
+            var comment = final;
+            $('#commentCount').html(comment);        
+        }
+    });
 }
