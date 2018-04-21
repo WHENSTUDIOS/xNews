@@ -58,6 +58,9 @@
       }
     })
   })
+  $('.load').click(function () {
+    Pace.restart()
+  })
 </script>
 </body>
 </html>
