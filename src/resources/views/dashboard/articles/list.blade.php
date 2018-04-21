@@ -30,7 +30,9 @@
                                 <th>Last Editor</th>
                                 <th>Actions</th>
                             </tr>
+                            <input type="hidden" value="{{$i = 0}}">
                                 @foreach($posts as $post)
+                                <input type="hidden" value="{{$i++}}">
                                     @if($post->visible == 0)
                                     <tr class="visno" title="This article is not visible on the main index.">
                                     @else
@@ -51,8 +53,8 @@
                                         <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <button data-toggle="modal" data-target="#delete" type="button" class="btn btn-danger btn-xs" value="Delete">Delete</button> | <a class="btn btn-warning btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';">Reset Views</a> | <a class="btn btn-primary btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearcomments/'.$post->id)}}';">Clear Comments</a></td>
-                                        <div class="modal modal-danger fade" id="delete" data-vivaldi-spatnav-clickable="1" style="display: none;">
+                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <button data-toggle="modal" data-target="#delete{{$i}}" type="button" class="btn btn-danger btn-xs" value="Delete">Delete</button> | <a class="btn btn-warning btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';">Reset Views</a> | <a class="btn btn-primary btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearcomments/'.$post->id)}}';">Clear Comments</a></td>
+                                        <div class="modal modal-danger fade" id="delete{{$i}}" data-vivaldi-spatnav-clickable="1" style="display: none;">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                 <div class="modal-header">

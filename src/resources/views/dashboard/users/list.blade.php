@@ -26,7 +26,9 @@
                             @if(count($users) <= 0)
                             No articles to display.
                             @else  
+                            <input type="hidden" value="{{$i = 0}}">
                                 @foreach($users as $user)
+                                <input type="hidden" value="{{$i++}}">
                                     <tr>
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
@@ -54,8 +56,8 @@
                                         <form action="{{url('dashboard/users/delete/'.$user->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <td><a class="btn btn-warning btn-xs" target="_blank" href="{{url('profile/'.$user->name)}}">Profile</a> | <a class="btn btn-success btn-xs" href="{{url('dashboard/users/edit/'.$user->id)}}">Edit</a> | <button data-toggle="modal" data-target="#delete" type="button" class="btn btn-danger btn-xs" value="Delete">Delete</button></td>
-                                        <div class="modal modal-danger fade" id="delete" data-vivaldi-spatnav-clickable="1" style="display: none;">
+                                        <td><a class="btn btn-warning btn-xs" target="_blank" href="{{url('profile/'.$user->name)}}">Profile</a> | <a class="btn btn-success btn-xs" href="{{url('dashboard/users/edit/'.$user->id)}}">Edit</a> | <button data-toggle="modal" data-target="#delete{{$i}}" type="button" class="btn btn-danger btn-xs" value="Delete">Delete</button></td>
+                                        <div class="modal modal-danger fade" id="delete{{$i}}" data-vivaldi-spatnav-clickable="1" style="display: none;">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                 <div class="modal-header">
