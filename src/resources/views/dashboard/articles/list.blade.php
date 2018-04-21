@@ -53,7 +53,7 @@
                                         <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <button data-toggle="modal" data-target="#delete{{$i}}" type="button" class="btn btn-danger btn-xs" value="Delete">Delete</button> | <a class="btn btn-warning btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';">Reset Views</a> | <a class="btn btn-primary btn-xs" style="cursor: pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearcomments/'.$post->id)}}';">Clear Comments</a></td>
+                                        <td><a class="btn btn-success btn-xs" href="{{url('dashboard/articles/edit/'.$post->id)}}">Edit</a> | <button data-toggle="modal" data-target="#delete{{$i}}" type="button" class="btn btn-danger btn-xs" value="Delete">Delete</button> | <button data-toggle="modal" data-target="#clear{{$i}}" type="button" class="btn btn-primary btn-xs" value="Delete">Clear Comments</button> | <button data-toggle="modal" data-target="#reset{{$i}}" type="button" class="btn btn-warning btn-xs" value="Delete">Reset Views</button></td>
                                         <div class="modal modal-danger fade" id="delete{{$i}}" data-vivaldi-spatnav-clickable="1" style="display: none;">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -68,6 +68,46 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
                                                     <button type="submit" class="btn btn-outline">Delete</button>
+                                                </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                            </div>
+                                            <div class="modal modal-warning fade" id="reset{{$i}}" data-vivaldi-spatnav-clickable="1" style="display: none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span></button>
+                                                    <h4 class="modal-title"><span class="fa fa-exclamation-triangle"></span>&nbsp;Confirm Action</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>You are about to reset views to 0 for <strong>{{$post->title}}</strong>. This cannot be undone. Are you sure you want to proceed?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
+                                                    <a style="cursor:pointer"  onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';" class="btn btn-outline">Reset Views</a>
+                                                </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                            </div>
+                                            <div class="modal modal-warning fade" id="clear{{$i}}" data-vivaldi-spatnav-clickable="1" style="display: none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span></button>
+                                                    <h4 class="modal-title"><span class="fa fa-exclamation-triangle"></span>&nbsp;Confirm Action</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>You are about to clear all comments for <strong>{{$post->title}}</strong>. This cannot be undone. Are you sure you want to proceed?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
+                                                    <a style="cursor:pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearcomments/'.$post->id)}}';" type="submit" class="btn btn-outline">Clear Comments</a>
                                                 </div>
                                                 </div>
                                                 <!-- /.modal-content -->
