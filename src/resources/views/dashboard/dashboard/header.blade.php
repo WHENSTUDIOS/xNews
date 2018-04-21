@@ -66,25 +66,6 @@ skin-{{Config::get('site.data.dashtheme')}}
               <span class="label label-warning" id="notificationCount">{{count($total)}}</span>
               @endif
             </a>
-            <ul class="dropdown-menu">
-              <li class="header" id="notifications">You have {{count($total)}} new notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  @foreach($notifications as $notification)
-                  <li id="notification">
-                    <a href="{{ $notification->link == null ? '' : url($notification->link) }}">
-                      <p><strong>{{$notification->title}}</strong> - {{$notification->created_at->diffForHumans()}}</p>
-                    </a>
-                  </li>
-                  @endforeach
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-              @if(count($notifications) !== 0)
-              <li class="footer"><a style="cursor:pointer" onclick="clearNotifications()" class="ahover">Clear notifications</a></li>
-              @endif
-            </ul>
           </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
