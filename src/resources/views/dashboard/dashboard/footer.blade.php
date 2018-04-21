@@ -46,6 +46,7 @@
 <script src="{{ asset('js/pages/dashboard.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('js/demo.min.js') }}"></script>
+<script src="{{ asset('js/ajax.js') }}"></script>
 <script type="text/javascript">
   // To make Pace works on Ajax calls
   $(document).ajaxStart(function () {
