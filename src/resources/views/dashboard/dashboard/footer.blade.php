@@ -21,9 +21,6 @@
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('js/pages/dashboard.min.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('js/demo.min.js') }}"></script>
 <script src="{{ asset('js/ajax.js') }}"></script>
 <script type="text/javascript">
   // To make Pace works on Ajax calls
