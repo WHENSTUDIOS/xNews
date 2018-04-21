@@ -10,4 +10,8 @@ class Input extends Model
         $sanitized = strip_tags($input);
         return preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a>', $sanitized);    
     }
+
+    public static function withHtml($input){
+        return preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a>', $input);    
+    }
 }
