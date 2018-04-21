@@ -7,6 +7,7 @@ use App\Comment;
 use Auth;
 use App\Post;
 use App\User;
+use App\Input;
 
 class CommentsController extends Controller
 {
@@ -23,9 +24,8 @@ class CommentsController extends Controller
         $comment = new Comment;
         $comment->post_id = $id;
         $comment->user_id = Auth::user()->id;
-        $sanitized = strip_tags($request->input('comment'));
-        $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a>', $sanitized);
-        $comment->comment = $finished;
+        $sanitized = Input::sanitize($request->input('comment'));
+        $comment->comment = $sanitized;
 
         if($comment->save()){
             User::notifyLink($post->user_id, 'New comment on your post', Auth::user()->name.' commented on your post.', 'posts/'.$id);

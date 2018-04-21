@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Social;
 use App\User;
+use App\Input;
 use Config;
 use Auth;
 
@@ -20,10 +21,9 @@ class EditProfileController extends Controller
         $user = User::find(Auth::user()->id);
         $social = Social::where('user_id','=',Auth::user()->id)->first();
         if(Config::get('site.data.allow_username_change') == 'false'){
-            $sanitized = strip_tags($request->input('bio'));
-            $finished = preg_replace('/(^|)@([\w_]+)/', '<a href="../profile/$2">@$2</a>', $sanitized);    
+            $sanitized = Input::sanitize($request->input('bio'));  
             $user->email = $request->input('email');
-            $social->bio = $finished;
+            $social->bio = $sanitized;
             $user->save();
             $social->save();
             return redirect('profile/edit')->with('success', 'Updated profile.');
