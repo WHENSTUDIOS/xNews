@@ -10,6 +10,7 @@
             <div class="box" data-vivaldi-spatnav-clickable="1">
                 <div class="box-header">
                     <h3 class="box-title">Articles</h3>
+                    <a style="cursor:pointer;float:right"  onclick="javascript: window.location = '{{url('dashboard/articles/create')}}';" class="btn btn-success btn-xs"><span class="fa fa-plus"></span> &nbsp; New</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">

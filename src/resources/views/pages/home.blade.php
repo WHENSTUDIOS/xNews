@@ -3,7 +3,7 @@
 	<div class="container">
 
 		<div class="row">
-			<div id="fh5co-board" data-columns>
+			<div id="fh5co-board" class="col-md-12">
 				@if(count($notices) >= 1) @foreach($notices as $notice)
 				<div class="alert alert-danger">
 					<strong>

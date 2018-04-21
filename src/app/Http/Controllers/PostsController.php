@@ -20,7 +20,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('visible', '=', 1)->orderBy('created_at','desc')->paginate(5);
+        $posts = Post::orderBy('created_at', 'DESC')->where('visible',1)->paginate(5);
         $notices = Notice::where('status', '1')->get();
         return view('pages.home')->with('posts', $posts)->with('notices', $notices);
     }
@@ -43,7 +43,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly cre1ated resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
