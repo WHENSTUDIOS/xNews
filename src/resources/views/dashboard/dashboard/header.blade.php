@@ -72,16 +72,16 @@ skin-{{Config::get('site.data.dashtheme')}}
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bell-o"></i>
               @if(count($notifications) !== 0)
-              <span class="label label-warning">{{count($total)}}</span>
+              <span class="label label-warning" id="notificationCount">{{count($total)}}</span>
               @endif
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have {{count($total)}} new notifications</li>
+              <li class="header" id="notifications">You have {{count($total)}} new notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                   @foreach($notifications as $notification)
-                  <li>
+                  <li id="notification">
                     <a href="{{ $notification->link == null ? '' : url($notification->link) }}">
                       <p><strong>{{$notification->title}}</strong> - {{$notification->created_at->diffForHumans()}}</p>
                     </a>
