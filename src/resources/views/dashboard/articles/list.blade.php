@@ -37,7 +37,7 @@
                                     @if($post->visible == 0)
                                     <tr class="visno" title="This article is not visible on the main index.">
                                     @else
-                                    <tr>
+                                    <tr id="l{{$i}}">
                                     @endif
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
@@ -68,7 +68,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
-                                                    <button type="submit" class="btn btn-outline">Delete</button>
+                                                    <button type="button" onclick="deletePost('{{$post->id}}', '{{$i}}')" class="btn btn-outline" data-token="{{csrf_token()}}">Delete</button>
                                                 </div>
                                                 </div>
                                                 <!-- /.modal-content -->

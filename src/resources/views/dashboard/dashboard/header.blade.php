@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
   <!-- Pace -->
   <link rel="stylesheet" href="{{ asset('css/plugins/pace.min.css') }}">
-
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel="stylesheet" href="{{ asset('css/skins/skin-'.Config::get('site.data.dashtheme').'.min.css') }}">
 
