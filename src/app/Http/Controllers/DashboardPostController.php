@@ -87,6 +87,18 @@ class DashboardPostController extends Controller
     public function revert_edit($id, $hid){
         $history = History::where('post',$id)->where('changeid',$hid)->first();
         if($history !== null){
+            $new = new History;
+            $new->post = $id;
+            $new->user_id = Auth::user()->id;
+            $new->changes = 'REVERT EDIT: '.$hid;
+            $new->changeid = strtoupper(base_convert(time(), 10, 36));
+            $new->before = $history->after;
+            $new->after = $history->before;
+            $mathchars = strlen($history->after) - strlen($history->before);
+            $chars = $mathchars;
+    
+            $new->chars = $chars;
+            $new->save();
             $body = $history->before;
             $post = Post::find($id);
             $post->body = $body;
