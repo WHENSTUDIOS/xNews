@@ -10,3 +10,19 @@ function clearNotifications(){
         }
     });
 }
+
+function clearComments(id, modal){
+    $.ajax({
+        type:'GET',
+        url:'/dashboard/articles/clearcomments/' + id,
+        success:function(data){
+            success('Successfully cleared comments.');
+            $('#clear'+modal).modal('hide');
+        }
+    });
+}
+
+function success(msg){
+    document.getElementById('success').style.display = 'block';
+    $('#successMsg').html(msg);
+}

@@ -19,3 +19,8 @@
                     @endforeach
                     </div>
                 @endif
+            <div style="display:none" id="success" class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success</strong>:&nbsp;
+                <span id="successMsg"></span>
+            </div>

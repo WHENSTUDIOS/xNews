@@ -108,7 +108,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
-                                                    <a style="cursor:pointer" onclick="javascript: window.location = '{{url('dashboard/articles/clearcomments/'.$post->id)}}';" type="submit" class="btn btn-outline">Clear Comments</a>
+                                                    <a style="cursor:pointer" onclick="clearComments('{{$post->id}}', '{{$i}}')" type="submit" class="btn btn-outline">Clear Comments</a>
                                                 </div>
                                                 </div>
                                                 <!-- /.modal-content -->
