@@ -61,8 +61,9 @@ function success(msg){
 
 function notify(){
     var notify = document.getElementById('notificationCount').innerHTML;
-    var newNotify = notify + 1;
-    $('#notificationCount').html(newNotify);
+    var number = Number(comments);
+    var final = number + 1;
+    $('#notificationCount').html(final);
 }
 
 function deleteComment(pid, cid){
