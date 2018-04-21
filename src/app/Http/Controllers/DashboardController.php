@@ -203,7 +203,8 @@ class DashboardController extends Controller
             } else {
                 $echars = abs($history->chars).' characters added';
             }
-            return view('dashboard.articles.history.view')->with('history', $history)->with('id', $id)->with('chars', $echars);
+            $post = Post::find($id);
+            return view('dashboard.articles.history.view')->with('post', $post)->with('history', $history)->with('id', $id)->with('chars', $echars);
         } else {
             return redirect('dashboard/articles/list')->with('error', 'There is no history for the specified edit ID.');
         }
