@@ -29,7 +29,7 @@
                             <input type="hidden" value="{{$i = 0}}">
                                 @foreach($users as $user)
                                 <input type="hidden" value="{{$i++}}">
-                                    <tr>
+                                    <tr id="l{{$i}}">
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
-                                                    <button type="submit" class="btn btn-outline">Delete</button>
+                                                    <button type="button" onclick="deleteUser('{{$user->id}}', '{{$i}}')" class="btn btn-outline" data-token="{{csrf_token()}}">Delete</button>
                                                 </div>
                                                 </div>
                                                 <!-- /.modal-content -->

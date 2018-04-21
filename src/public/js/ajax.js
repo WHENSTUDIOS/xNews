@@ -34,6 +34,21 @@ function deletePost(id, modal){
         data: {_method: 'delete'},
         success:function(data){
             success('Successfully deleted article.');
+            $('#delete'+modal).modal('hide');
+            $('#l'+modal).remove();
+            notify();
+        }
+    });
+}
+
+function deleteUser(id, modal){
+    $.ajax({
+        type:'post',
+        url:'/dashboard/users/delete/'+id,
+        data: {_method: 'delete'},
+        success:function(data){
+            success('Successfully deleted user.');
+            $('#delete'+modal).modal('hide');
             $('#l'+modal).remove();
         }
     });
@@ -42,4 +57,10 @@ function deletePost(id, modal){
 function success(msg){
     document.getElementById('success').style.display = 'block';
     $('#successMsg').html(msg);
+}
+
+function notify(){
+    var notify = document.getElementById('notificationCount').innerHTML();
+    var newNotify = notify + 1;
+    $('#notificationCount').html(newNotify);
 }
