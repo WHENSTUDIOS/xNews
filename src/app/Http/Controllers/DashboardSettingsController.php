@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Template;
 use App\Notice;
+use App\Input;
 use App\Categories;
 use App\Comment;
 use Config;
@@ -162,7 +163,7 @@ class DashboardSettingsController extends Controller
         
         $notice = new Notice;
         $notice->name = $request->input('title');
-        $notice->content = $request->input('content');
+        $notice->content = Input::sanitize($request->input('content'));
         $notice->status = '0';
         if($notice->save()){
             return redirect('dashboard/content/notices')->with('success', 'Successfully created notice.');

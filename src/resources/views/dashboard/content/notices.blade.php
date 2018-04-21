@@ -49,7 +49,7 @@
                                         @endif
                                         <form style="display:inline !important;" action="{{url('dashboard/content/notices/delete/'.$notice->id)}}" method="POST">
                                         @csrf
-                                        <input name="_method" type="hidden" value="DELETE"><a class="btn btn-success btn-xs" href="{{url('dashboard/content/notices/edit/'.$notice->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        <input name="_method" type="hidden" value="DELETE"><input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
                                         </form>
                                     </tr>
                                 @endforeach

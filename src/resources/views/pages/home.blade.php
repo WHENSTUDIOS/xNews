@@ -9,7 +9,7 @@
 					<strong>
 						<p>{{$notice->name}}</p>
 					</strong>
-					{{$notice->content}}
+					{!!$notice->content!!}
 				</div>
 				@endforeach @endif @if(count($posts) >= 1) @foreach($posts as $post)
 				<div class="item">
