@@ -48,7 +48,7 @@
                                         @endif
                                         <td>{{$post->created_at->diffForHumans()}}</td>
                                         <td><a href="{{url('dashboard/articles/edit/'.$post->id.'/history')}}">{{$post->updated_at->diffForHumans()}}</a></td>
-                                        <td>{{$post->views}}</td>
+                                        <td id="views{{$i}}">{{$post->views}}</td>
                                         <td>{{$post->user['name']}}</td>
                                         <td>{{$post->updater['name']}}
                                         <form action="{{url('dashboard/articles/delete/'.$post->id)}}" method="POST">
@@ -88,7 +88,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
-                                                    <a style="cursor:pointer"  onclick="javascript: window.location = '{{url('dashboard/articles/clearviews/'.$post->id)}}';" class="btn btn-outline">Reset Views</a>
+                                                    <a style="cursor:pointer" onclick="resetViews('{{$post->id}}', '{{$i}}')" type="submit" class="btn btn-outline">Clear Views</a>
                                                 </div>
                                                 </div>
                                                 <!-- /.modal-content -->

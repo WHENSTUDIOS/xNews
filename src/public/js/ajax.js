@@ -22,6 +22,18 @@ function clearComments(id, modal){
     });
 }
 
+function resetViews(id, modal){
+    $.ajax({
+        type:'GET',
+        url:'/dashboard/articles/clearviews/' + id,
+        success:function(data){
+            success('Successfully reset views to 0.');
+            $('#reset'+modal).modal('hide');
+            $('#views'+modal).html('0');
+        }
+    });
+}
+
 function success(msg){
     document.getElementById('success').style.display = 'block';
     $('#successMsg').html(msg);
