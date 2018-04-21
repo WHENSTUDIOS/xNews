@@ -30,12 +30,12 @@
                                         <td>{{$res->id}}</td>
                                         <td>{{$res->name}}</td>
                                         <td>{{$res->email}}</td>
-                                        <td>{{$res->created_at}} UTC</td>
+                                        <td>{{$res->created_at->diffForHumans()}}</td>
                                         <td>{{$res->level}}</td>
                                         <form action="{{url('dashboard/users/delete/'.$res->id)}}" method="POST">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <td><a class="btn btn-warning btn-xs" href="{{url('profile/'.$res->id)}}">Profile</a> | <a class="btn btn-success btn-xs" href="{{url('dashboard/users/edit/'.$res->id)}}">Edit</a> | <input type="submit" class="btn btn-danger btn-xs" value="Delete"/></span></td>
+                                        <td><a class="btn btn-warning btn-xs" href="{{url('profile/'.$res->id)}}">Profile</a> | <a class="btn btn-success btn-xs" href="{{url('dashboard/users/edit/'.$res->id)}}">Edit</a></td>
                                         </form>
                                     </tr>
                                 @endforeach
