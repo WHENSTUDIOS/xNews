@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\History;
+use App\Input;
 use Auth;
 
 class DashboardPostController extends Controller
@@ -27,7 +28,7 @@ class DashboardPostController extends Controller
 
         $post = new Post;
         $post->title = $request->input('title');
-        $post->body = $request->input('body');
+        $post->body = Input::withHtml($request->input('body'));
         $post->user_id = Auth::user()->id;
         $post->update_id = Auth::user()->id;
         $post->category = $request->input('category');
@@ -55,7 +56,7 @@ class DashboardPostController extends Controller
 
         $post = Post::find($id);
         $post->title = $request->input('title');
-        $post->body = $request->input('body');
+        $post->body = Input::withHtml($request->input('body'));
         $post->update_id = Auth::user()->id;
         $post->visible = $request->input('visible');
         $post->category = $request->input('category');
