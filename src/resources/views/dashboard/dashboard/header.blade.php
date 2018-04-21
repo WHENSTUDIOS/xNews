@@ -84,7 +84,6 @@ skin-{{Config::get('site.data.dashtheme')}}
                   <li>
                     <a href="{{ $notification->link == null ? '' : url($notification->link) }}">
                       <p><strong>{{$notification->title}}</strong> - {{$notification->created_at->diffForHumans()}}</p>
-                      <p>{{$notification->comment}}</p>
                     </a>
                   </li>
                   @endforeach
