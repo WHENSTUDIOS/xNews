@@ -24,6 +24,15 @@
                             <label for="exampleInputPassword1">Content</label>
                             <textarea name="content" class="form-control" id="content"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label>Color</label>
+                            <select id="color" name="color" class="form-control">
+                                <option id="2" value="danger">Red</option>
+                                <option id="3" value="success">Green</option>
+                                <option id="4" value="info">Blue</option>
+                                <option id="5" value="warning">Yellow</option>
+                            </select>
+                        </div>
                     </div>
                     <!-- /.box-body -->
 

@@ -153,6 +153,7 @@ class DashboardSettingsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required|max:300',
+            'color' => 'required',
         ],
     [
         'title.required' => 'Please provide a notice title.',
@@ -164,6 +165,7 @@ class DashboardSettingsController extends Controller
         $notice = new Notice;
         $notice->name = $request->input('title');
         $notice->content = Input::sanitize($request->input('content'));
+        $notice->color = $request->input('color');
         $notice->status = '0';
         if($notice->save()){
             return redirect('dashboard/content/notices')->with('success', 'Successfully created notice.');
