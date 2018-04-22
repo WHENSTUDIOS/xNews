@@ -81,3 +81,17 @@ function deleteComment(pid, cid){
         }
     });
 }
+
+function deleteNotice(id){
+    $.ajax({
+        type:'post',
+        url:'/dashboard/content/notices/delete/'+id,
+        data: {_method: 'delete'},
+        success:function(data){
+            success('Successfully deleted notice.');
+            $('#delete'+id).modal('hide');
+            $('#l'+id).remove();
+            notify();
+        }
+    });
+}

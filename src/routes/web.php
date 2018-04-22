@@ -104,6 +104,8 @@ Route::middleware(['dashboardperms'])->group(function (){
     Route::delete('/dashboard/content/templates/delete/{id}', 'DashboardSettingsController@delete_template');
     Route::delete('/dashboard/content/notices/delete/{id}', 'DashboardSettingsController@delete_notice');
     Route::delete('/dashboard/articles/categories/delete/{id}', 'DashboardSettingsController@delete_category');
+
+    Route::get('/dapi/notice/table', 'ApiController@noticetable');
 });
 
 //Redirect Routes
